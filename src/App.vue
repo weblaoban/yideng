@@ -88,6 +88,11 @@ export default {
       } else {
         this.showFoot = true;
       }
+      if (path.indexOf("detail") > -1 || path.indexOf("list") > -1) {
+        this.showFoot = false;
+      } else {
+        this.showFoot = true;
+      }
       if (path.indexOf("contract") > -1) {
         this.showFootContent = false;
       } else {
