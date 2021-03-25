@@ -2,7 +2,9 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 Vue.use(VueRouter)
 
-const routes = [{
+const routes = [
+    //tj
+    {
         path: '/',
         name: 'Home',
         component: () =>
@@ -20,6 +22,7 @@ const routes = [{
         component: () =>
             import ( /* webpackChunkName: "about" */ '../views/About.vue')
     }
+    // ylj
 ]
 
 const router = new VueRouter({
