@@ -1,41 +1,50 @@
 <template>
-  <div class="header container">
-   <div><img src="../assets/image/logo.png" alt=""></div>
-    <div class="navigation">
-      <div class="burger" @click="showNavigation()">burger</div>
-      <div class="navigationContent clear" ref="navigationContent">
-        <ul class="nav">
-          <li
-            v-for="(item,index) in $t('lang.menu')"
-            :key="index"
-            :index="index"
-            :route="item.path"
-            :class="index===3?'languange':index===active?'active':''"
-            @click="changeLanguage(index)"
-          >{{ item.name }}</li>
-        </ul>
-        <ul class="info" v-if="isLogin">
-          <div class="userName">
-            <p v-text="name"></p>
-          </div>
-          <div class="logout" @click="logOut">退出</div>
-        </ul>
-        <ul class="info login" v-if="!isLogin">
-          <li @click="showLoginMask">登录</li>
-        </ul>
+  <div class="header">
+    <div class="container">
+      <div class="logo">
+        <img src="../assets/image/logo-1.png" alt />
+      </div>
+      <div class="navigation">
+        <div class="burger" @click="showNavigation()">burger</div>
+        <div class="navigationContent clear" ref="navigationContent">
+          <ul class="nav">
+            <li
+              v-for="(item,index) in $t('lang.menu')"
+              :key="index"
+              :index="index"
+              :route="item.path"
+              :class="index===3?'languange':index===active?'active':''"
+              @click="changeLanguage(index)"
+            >{{ item.name }}</li>
+          </ul>
+          <ul class="info" v-if=" !isLogin">
+            <li @click="showOperation" class="userName">
+              <!-- <p v-text="name">欢迎in，11111111111111</p> -->
+              <p>欢迎in，11111111111111</p>
+            </li>
+            <div v-show="isShowOperation" class="userInfo">
+              <li>修改密码</li>
+              <li @click="logOut">退出</li>
+            </div>
+          </ul>
+          <ul class="info login" v-if="isLogin">
+            <li @click="showLoginMask">登录</li>
+          </ul>
+        </div>
       </div>
     </div>
   </div>
 </template>
 
 <script>
-    import {mapActions} from 'vuex';
+import { mapActions } from "vuex";
 export default {
   name: "Header",
   data() {
     return {
       loading: false,
-      isShowNavigation: true
+      isShowNavigation: true,
+      isShowOperation: false
     };
   },
   props: {
@@ -54,9 +63,7 @@ export default {
     }
   },
   methods: {
-      ...mapActions([
-       'setShowLogin'
-      ]),
+    ...mapActions(["setShowLogin"]),
     changeLanguage(index) {
       console.log(index);
     },
@@ -67,7 +74,12 @@ export default {
         this.$refs.navigationContent.style.display = "block";
       }
     },
-    showLoginMask(){
+    showOperation() {
+      this.isShowOperation
+        ? (this.isShowOperation = false)
+        : (this.isShowOperation = true);
+    },
+    showLoginMask() {
       this.setShowLogin(true);
     },
     async logOut() {
@@ -87,20 +99,25 @@ export default {
   }
 };
 </script>
-
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
-.container {
-  width: 1200px;
+.logo img {
+  width: 430px;
+  margin-top: 8px;
 }
 .burger {
   display: none;
 }
 .header {
-  margin-top: 10px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+  height: 74px;
+  background: #fff;
+  width: 100%;
+  .container {
+    width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
   h4 {
     font-size: 28px;
   }
@@ -110,24 +127,32 @@ export default {
     justify-content: space-between;
     width: auto;
     float: right;
+    position: relative;
     .userName {
-      margin-right: 10px;
+      padding: 0;
       p {
         font-size: 14px;
         color: #333;
       }
     }
-    .logout {
-      width: 80px;
-      height: 30px;
-      line-height: 30px;
-      text-align: center;
-      background: #4882f0;
-      color: #fff;
-      font-size: 14px;
-      border-radius: 15px;
-      cursor: pointer;
+
+    .userInfo {
+      position: absolute;
+      top: 72px;
+      right: 0;
+      li {
+        line-height: 32px;
+        font-size: 18px;
+        width: 103px;
+        text-align: center;
+        background: #fff;
+        padding: 0;
+        &:first-child {
+          margin-bottom: 2px;
+        }
+      }
     }
+
     &.login {
       div {
         width: 72px;
@@ -177,42 +202,49 @@ export default {
 }
 
 .navigation {
-  .navigationContent{
-    width: 800px;
+  .navigationContent {
+    // width: 800px;
   }
   ul {
     display: flex;
-    width: 600px;
+    // width: 600px;
     justify-content: space-between;
-    &.nav{
+    &.nav {
       float: left;
     }
     li {
       cursor: pointer;
-      flex: 1;
-      line-height: 60px;
+      line-height: 72px;
+      font-size: 22px;
+      color: #787878;
+      padding: 0 16px;
 
-      &.active,&:hover {
-        background: #ff8a00;
-        color: #fff;
-      }
+      // &.active,
+      // &:hover {
+      //   background: #ff8a00;
+      //   color: #fff;
+      // }
     }
   }
 }
-.clear:after{
+.nav li:hover,
+.nav li.active {
+  background: #ff8a00;
+  color: #fff;
+}
+.clear:after {
   display: block;
-  content:'';
-  width:0;
-  height:0;
+  content: "";
+  width: 0;
+  height: 0;
   clear: both;
 }
 @media screen and (max-width: 750px) {
-  .container {
-    width: 100%;
-  }
   .header {
-    margin-top: 10px;
     display: block;
+    .container {
+      width: 100%;
+    }
     h4 {
       font-size: 28px;
     }
@@ -224,12 +256,14 @@ export default {
     .navigationContent {
       display: none;
       width: 100%;
+      position: absolute;
+      left:0;
     }
     ul {
       display: block;
       width: 100%;
       float: none;
-      &.nav{
+      &.nav {
         float: none;
       }
       li {
@@ -237,8 +271,8 @@ export default {
       }
     }
   }
-    .header .info{
-      float: none;
-    }
+  .header .info {
+    float: none;
+  }
 }
 </style>

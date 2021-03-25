@@ -2,6 +2,7 @@
   <div id="app">
     <Header :isLogin="isLogin" :active="activeNavigation" :userName="userName"></Header>
     <Login v-show="showLogin" />
+ <Footer />
     <router-view />
   </div>
 </template>
@@ -9,6 +10,7 @@
 // import Loading from './components/Loading.vue'
 import Header from "./components/Header.vue";
 import Login from "./components/Login";
+import Footer from "./components/Footer";
 import "./scss/resource.scss";
     import {mapGetters, mapActions} from 'vuex';
 export default {
@@ -23,7 +25,8 @@ export default {
   components: {
     // Loading,
     Header,
-    Login
+    Login,
+    Footer
   },
   async created() {
     const path = this.$route.path.substr(1);
