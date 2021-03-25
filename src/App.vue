@@ -1,86 +1,98 @@
 <template>
   <div id="app">
-    <Header :isLogin="isLogin" :active="activeNavigation" :userName="userName"></Header>
+    <Header
+      :isLogin="isLogin"
+      :active="activeNavigation"
+      :userName="userName"
+      :isShowOperation="isShowOperation"
+      @toggleOperation="changeOperationStatus"
+    ></Header>
     <Login v-show="showLogin" />
- <Footer />
     <router-view />
+    <Foot v-show="showFoot" :showFootContent="showFootContent" />
   </div>
 </template>
 <script>
 // import Loading from './components/Loading.vue'
 import Header from "./components/Header.vue";
 import Login from "./components/Login";
-import Footer from "./components/Footer";
+import Foot from "./components/Footer";
 import "./scss/resource.scss";
-    import {mapGetters, mapActions} from 'vuex';
+import { mapGetters, mapActions } from "vuex";
 export default {
   name: "app",
   data() {
     return {
       isLogin: false,
       userName: "",
-      activeNavigation: 0
+      activeNavigation: -1,
+      showFoot: true,
+      isShowOperation: false,
+      showFootContent: true
     };
   },
   components: {
     // Loading,
     Header,
     Login,
-    Footer
+    Foot
   },
   async created() {
     const path = this.$route.path.substr(1);
-    const hideHeaderList = [
-      "login",
-      "register",
-      "forgetPassword",
-      "forgetPayPassword"
-    ];
-    if (hideHeaderList.indexOf(path) > -1) {
-      this.showHeader = false;
-    } else {
-      this.showHeader = true;
+    if (path.indexOf("modifyPas") > -1) {
+      this.showFoot = false;
+      this.isShowOperation = false;
+    }
+    if (path.indexOf("contract") > -1) {
+      this.showFootContent = false;
     }
   },
   methods: {
-      ...mapActions([
-       'setShowLogin'
-      ]),
+    ...mapActions(["setShowLogin"]),
     // handleShowMask() {
     //   this.showMask = !this.showMask;
     // },
     // hideMask() {
     //   this.showMask = false;
     // }
+    changeOperationStatus() {
+      this.isShowOperation
+        ? (this.isShowOperation = false)
+        : (this.isShowOperation = true);
+    }
   },
-  computed:{
-      ...mapGetters([
-        'showLogin'
-      ]),
+  computed: {
+    ...mapGetters(["showLogin"])
   },
   watch: {
     $route() {
-      // const path = this.$route.path.substr(1);
-      // if (path.indexOf("userInfo") > -1) {
-      //   this.activeNavigation = "userInfo";
-      // } else if (path.indexOf("finance") > -1) {
-      //   this.activeNavigation = "finance";
-      // } else if (path.indexOf("task") > -1) {
-      //   this.activeNavigation = "task";
-      // } else {
-      //   this.activeNavigation = "";
-      // }
-      // const hideHeaderList = [
-      //   "login",
-      //   "register",
-      //   "forgetPassword",
-      //   "forgetPayPassword"
-      // ];
-      // if (hideHeaderList.indexOf(path) > -1) {
-      //   this.showHeader = false;
-      // } else {
-      //   this.showHeader = true;
-      // }
+      const path = this.$route.path.substr(1);
+      if (path.indexOf("index") > -1) {
+        this.activeNavigation = 0;
+      } else if (
+        path.indexOf("introduce") > -1 ||
+        path.indexOf("internet") > -1
+      ) {
+        this.activeNavigation = 1;
+      } else if (path.indexOf("service") > -1) {
+        this.activeNavigation = 2;
+      } else if (path.indexOf("contract") > -1) {
+        this.activeNavigation = 4;
+      } else {
+        this.activeNavigation = -1;
+      }
+
+      if (path.indexOf("modifyPas") > -1) {
+        this.showFoot = false;
+        this.isShowOperation = false;
+      } else {
+        this.showFoot = true;
+      }
+      if (path.indexOf("contract") > -1) {
+        this.showFootContent = false;
+      } else {
+        this.showFootContent = true;
+      }
     }
   }
 };

@@ -14,7 +14,7 @@
               :index="index"
               :route="item.path"
               :class="index===3?'languange':index===active?'active':''"
-              @click="changeLanguage(index)"
+              @click="changeLanguage(item,index)"
             >{{ item.name }}</li>
           </ul>
           <ul class="info" v-if=" !isLogin">
@@ -23,7 +23,7 @@
               <p>欢迎in，11111111111111</p>
             </li>
             <div v-show="isShowOperation" class="userInfo">
-              <li>修改密码</li>
+              <li @click="toModifyPas">修改密码</li>
               <li @click="logOut">退出</li>
             </div>
           </ul>
@@ -43,14 +43,14 @@ export default {
   data() {
     return {
       loading: false,
-      isShowNavigation: true,
-      isShowOperation: false
+      isShowNavigation: true
     };
   },
   props: {
     isLoginProps: Boolean,
     userName: String,
-    active: Number
+    active: Number,
+    isShowOperation: Boolean
   },
   computed: {
     isLogin() {
@@ -64,8 +64,22 @@ export default {
   },
   methods: {
     ...mapActions(["setShowLogin"]),
-    changeLanguage(index) {
-      console.log(index);
+    changeLanguage(item, index) {
+      const path = item.path;
+      if (index === 3) {
+        console.log(index);
+        console.log(this.$i18n.locale)
+        this.$i18n.locale==='zh-CN'?this.$i18n.locale='en-US':this.$i18n.locale='zh-CN'
+      } else {
+        if (path) {
+          if (path === "/") {
+            this.$router.push(path);
+          }
+          if (!(location.href.indexOf(path) > -1)) {
+            this.$router.push(path);
+          }
+        }
+      }
     },
     showNavigation() {
       if (this.$refs.navigationContent.style.display === "block") {
@@ -75,12 +89,13 @@ export default {
       }
     },
     showOperation() {
-      this.isShowOperation
-        ? (this.isShowOperation = false)
-        : (this.isShowOperation = true);
+      this.$emit("toggleOperation");
     },
     showLoginMask() {
       this.setShowLogin(true);
+    },
+    toModifyPas() {
+      this.$router.push("/modifyPas");
     },
     async logOut() {
       if (this.loading) {
@@ -140,6 +155,7 @@ export default {
       position: absolute;
       top: 72px;
       right: 0;
+      z-index: 99;
       li {
         line-height: 32px;
         font-size: 18px;
@@ -229,7 +245,7 @@ export default {
 }
 .nav li:hover,
 .nav li.active {
-  background: #ff8a00;
+  background: #e67016;
   color: #fff;
 }
 .clear:after {
@@ -257,7 +273,7 @@ export default {
       display: none;
       width: 100%;
       position: absolute;
-      left:0;
+      left: 0;
     }
     ul {
       display: block;
