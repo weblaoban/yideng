@@ -123,6 +123,17 @@ export default {
       ],
     };
   },
+  //创建前设置
+  beforeCreate() {
+    document
+      .querySelector("body")
+      .setAttribute("style", "background-color:#fff;");
+  },
+  created() {},
+  //销毁前清除
+  beforeDestroy() {
+    document.querySelector("body").removeAttribute("style");
+  },
 };
 </script>
 <style lang="scss" scoped>
