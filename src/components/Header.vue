@@ -6,7 +6,7 @@
       </div>
       <div class="navigation">
         <div class="burger" @click="showNavigation()">burger</div>
-        <div class="navigationContent clear" ref="navigationContent">
+        <div class="navigationContent" ref="navigationContent">
           <ul class="nav">
             <li
               v-for="(item,index) in $t('lang.menu')"
@@ -17,17 +17,18 @@
               @click="changeLanguage(item,index)"
             >{{ item.name }}</li>
           </ul>
-          <ul class="info" v-if=" !isLogin">
+          <ul class="info" v-if=" isLogin">
             <li @click="showOperation" class="userName">
               <!-- <p v-text="name">欢迎in，11111111111111</p> -->
-              <p>欢迎in，11111111111111</p>
+              <p>欢迎您，</p>
+              <p v-text="name">王馒头</p>
             </li>
             <div v-show="isShowOperation" class="userInfo">
               <li @click="toModifyPas">修改密码</li>
               <li @click="logOut">退出</li>
             </div>
           </ul>
-          <ul class="info login" v-if="isLogin">
+          <ul class="info login" v-if="!isLogin">
             <li @click="showLoginMask">登录</li>
           </ul>
         </div>
@@ -63,13 +64,15 @@ export default {
     }
   },
   methods: {
-    ...mapActions(["setShowLogin"]),
+    ...mapActions(["setShowLogin", "setLoginMaskHeight"]),
     changeLanguage(item, index) {
       const path = item.path;
       if (index === 3) {
         console.log(index);
-        console.log(this.$i18n.locale)
-        this.$i18n.locale==='zh-CN'?this.$i18n.locale='en-US':this.$i18n.locale='zh-CN'
+        console.log(this.$i18n.locale);
+        this.$i18n.locale === "zh-CN"
+          ? (this.$i18n.locale = "en-US")
+          : (this.$i18n.locale = "zh-CN");
       } else {
         if (path) {
           if (path === "/") {
@@ -92,6 +95,10 @@ export default {
       this.$emit("toggleOperation");
     },
     showLoginMask() {
+      this.$nextTick(() => {
+        const app = document.getElementById("app");
+        this.setLoginMaskHeight(app.offsetHeight);
+      });
       this.setShowLogin(true);
     },
     toModifyPas() {
@@ -126,6 +133,7 @@ export default {
   height: 74px;
   background: #fff;
   width: 100%;
+  min-width: 1200px;
   .container {
     width: 1200px;
     margin: 0 auto;
@@ -145,9 +153,21 @@ export default {
     position: relative;
     .userName {
       padding: 0;
+      min-width: 103px;
+      padding-right: 17px;
       p {
-        font-size: 14px;
-        color: #333;
+        font-size: 22px;
+        color: #787878;
+        line-height: 1.2;
+      }
+      &:after {
+        content: "";
+        display: block;
+        border: 8px solid transparent;
+        border-top: 12px solid #787878;
+        position: absolute;
+        bottom: 3px;
+        right: 0;
       }
     }
 
@@ -218,8 +238,11 @@ export default {
 }
 
 .navigation {
+  flex: 1;
+  margin-left: 65px;
   .navigationContent {
-    // width: 800px;
+    display: flex;
+    justify-content: space-between;
   }
   ul {
     display: flex;
@@ -257,6 +280,7 @@ export default {
 }
 @media screen and (max-width: 750px) {
   .header {
+    min-width: auto;
     display: block;
     .container {
       width: 100%;

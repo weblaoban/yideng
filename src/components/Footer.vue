@@ -48,7 +48,8 @@ export default {
   background-position: center center;
   background-repeat: no-repeat;
   width: 100%;
-    padding: 63px 0 53px 0;
+  min-width: 1200px;
+  padding: 63px 0 53px 0;
   .container {
     width: 1200px;
     img {
@@ -102,6 +103,7 @@ export default {
 
 @media screen and (max-width: 750px) {
   #foot {
+  min-width: auto;
     .container {
       width: 100%;
       padding: 0 30px;

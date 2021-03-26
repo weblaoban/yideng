@@ -108,12 +108,14 @@ export default {
 #introduce {
   background: #fff;
   padding-bottom: 80px;
+  min-width: 1200px;
   .banner {
     position: relative;
     margin-bottom: 120px;
     img {
       display: block;
       width: 100%;
+      min-width: 1200px;
     }
     h2 {
       font-size: 62px;
@@ -210,6 +212,12 @@ export default {
 
 @media screen and (max-width: 750px) {
   #introduce {
+    min-width: auto;
+    .banner {
+      img {
+        min-width: auto;
+      }
+    }
     .introduce {
       .section {
         margin-bottom: 45px;

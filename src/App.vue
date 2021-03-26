@@ -10,6 +10,7 @@
     <Login v-show="showLogin" />
     <router-view />
     <Foot v-show="showFoot" :showFootContent="showFootContent" />
+    <TipMessage v-show="tipMessage" />
   </div>
 </template>
 <script>
@@ -17,6 +18,7 @@
 import Header from "./components/Header.vue";
 import Login from "./components/Login";
 import Foot from "./components/Footer";
+import TipMessage from './components/CommonTip';
 import "./scss/resource.scss";
 import { mapGetters, mapActions } from "vuex";
 export default {
@@ -35,7 +37,10 @@ export default {
     // Loading,
     Header,
     Login,
-    Foot
+    Foot,
+    TipMessage
+  },
+  mounted() {
   },
   async created() {
     const path = this.$route.path.substr(1);
@@ -62,12 +67,13 @@ export default {
     }
   },
   computed: {
-    ...mapGetters(["showLogin"])
+    ...mapGetters(["showLogin",'tipMessage'])
   },
   watch: {
     $route() {
       const path = this.$route.path.substr(1);
-      if (path.indexOf("index") > -1) {
+      console.log(path);
+      if (path.indexOf("index") > -1 || !path) {
         this.activeNavigation = 0;
       } else if (
         path.indexOf("introduce") > -1 ||
@@ -83,12 +89,10 @@ export default {
       }
 
       if (path.indexOf("modifyPas") > -1) {
+        console.log(11111111111);
         this.showFoot = false;
         this.isShowOperation = false;
-      } else {
-        this.showFoot = true;
-      }
-      if (path.indexOf("detail") > -1 || path.indexOf("list") > -1) {
+      } else if (path.indexOf("detail") > -1 || path.indexOf("list") > -1) {
         this.showFoot = false;
       } else {
         this.showFoot = true;
