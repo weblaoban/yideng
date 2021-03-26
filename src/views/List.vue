@@ -39,7 +39,7 @@
       <div class="page-box">
         <span class="page-button" @click="numClick('pre')">上一页</span>
         <span class="page-query">
-          <input placeholder="1" class="page-input" v-model="listQuery.page" />
+          <input class="page-input" v-model="listQuery.page" />
           <span class="page-total">/{{ total }}</span>
         </span>
         <span class="page-button" @click="numClick('next')">下一页</span>
@@ -122,6 +122,17 @@ export default {
 <style lang="scss" scoped>
 .list-box {
   background: #fff;
+//   position: relative;
+  height: calc(100vh - 72px);
+  align-items: center;
+  display: flex;
+  .container{
+    //   position: absolute;
+    //   left: 0;
+    //   right: 0;
+    //   top: 0;
+    //   bottom: 0;
+  }
   .query-box {
     margin-bottom: 34px;
     text-align: center;
@@ -139,29 +150,30 @@ export default {
     // float: left;
     margin-right: 24px;
     padding: 0 7px;
+    font-size: 16px;
+    outline: none;
     &::-webkit-input-placeholder {
       /* WebKit browsers */
       color: #cfcfcf;
       font-size: 16px;
-      line-height: 50px;
     }
     &:-moz-placeholder {
       /* Mozilla Firefox 4 to 18 */
       color: #cfcfcf;
       font-size: 16px;
-      line-height: 50px;
+    //   line-height: 16px;
     }
     &::-moz-placeholder {
       /* Mozilla Firefox 19+ */
       color: #cfcfcf;
       font-size: 16px;
-      line-height: 50px;
+    //   line-height: 16px;
     }
     &:-ms-input-placeholder {
       /* Internet Explorer 10+ */
       color: #cfcfcf;
       font-size: 16px;
-      line-height: 50px;
+    //   line-height: 16px;
     }
   }
   .query-button {
@@ -216,29 +228,31 @@ export default {
       height: 28px;
       border: 1px solid #000;
       border-radius: 5px;
+      font-size: 13px;
+      outline: none;
       &::-webkit-input-placeholder {
         /* WebKit browsers */
         color: #000;
         font-size: 13px;
-        line-height: 28px;
+        // line-height: 12px;
       }
       &:-moz-placeholder {
         /* Mozilla Firefox 4 to 18 */
         color: #000;
         font-size: 13px;
-        line-height: 28px;
+        // line-height: 12px;
       }
       &::-moz-placeholder {
         /* Mozilla Firefox 19+ */
         color: #000;
         font-size: 13px;
-        line-height: 28px;
+        // line-height: 12px;
       }
       &:-ms-input-placeholder {
         /* Internet Explorer 10+ */
         color: #000;
         font-size: 13px;
-        line-height: 28px;
+        // line-height: 28px;
       }
     }
     .page-total {

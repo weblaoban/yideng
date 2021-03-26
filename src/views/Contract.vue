@@ -8,24 +8,24 @@
       <div class="contract">
         <div class="title">
           <div class="circle"></div>
-          <p>关于伊登</p>
+          <p>联系信息</p>
           <div class="line"></div>
         </div>
-        <div class="map"></div>
+        <div class="map" id="container"></div>
         <div class="info clear">
-          <ul>
+          <ul @click="changeCenter('1')">
             <h4>上海CBD总部</h4>
             <li>上海市黄浦区西藏中路18号港陆广场1906</li>
             <li>+86-21-53080219</li>
             <li>+86-21-53089827</li>
             <li>contact@eastern-sha.com</li>
           </ul>
-          <ul>
+          <ul @click="changeCenter('2')">
             <h4>浦东机场分公司</h4>
             <li>上海市浦东新区航城七路785号峭迪智慧园3幢</li>
             <li>+86+21-53080005</li>
           </ul>
-          <ul>
+          <ul @click="changeCenter('3')">
             <h4>监管仓库</h4>
             <li>上海市浦东机场海关监管第二仓储区706甲</li>
             <li>+86+21-68351198</li>
@@ -38,7 +38,65 @@
 <script>
 //坐标  港陆广场：121.485297,31.235345    智慧：121.77183,31.150607   仓储：121.773815,31.17121
 export default {
-  name: "contract"
+  name: "contract",
+  data() {
+    return {
+      center: [121.485297,31.235345],
+      center2: [121.77183,31.150607],
+      center3: [121.773815,31.17121],
+      map: null
+    }
+  },
+  mounted() {
+    const BMap = window.BMap;
+    this.map = new BMap.Map("container"); // 创建Map实例
+    const point = new BMap.Point(this.center[0], this.center[1])
+    this.map.centerAndZoom(point, 20); // 初始化地图,设置中心点坐标和地图级别
+    this.map.enableScrollWheelZoom(true); // 开启鼠标滚轮缩放
+    const opts = {
+      width: 300,
+      height: 50,
+      title: '上海CBD总部'
+    };
+    const infoWindow = new BMap.InfoWindow('上海市黄浦区西藏中路18号港陆广场1906', opts);
+    this.map.openInfoWindow(infoWindow, point);
+  },
+  methods: {
+    changeCenter(type) {
+      const BMap = window.BMap;
+      if(type === "1") {
+        const point = new BMap.Point(this.center[0], this.center[1])
+        const opts = {
+          width: 300,
+          height: 50,
+          title: '上海CBD总部'
+        };
+        const infoWindow = new BMap.InfoWindow('上海市黄浦区西藏中路18号港陆广场1906', opts);
+        this.map.openInfoWindow(infoWindow, point);
+        this.map.centerAndZoom(point, 20); // 初始化地图,设置中心点坐标和地图级别
+      } else if(type === "2") {
+        const point = new BMap.Point(this.center2[0], this.center2[1])
+        const opts = {
+          width: 300,
+          height: 70,
+          title: '浦东机场分公司'
+        };
+        const infoWindow = new BMap.InfoWindow('上海市浦东新区航城七路785号峭迪智慧园3幢', opts);
+        this.map.openInfoWindow(infoWindow, point);
+        this.map.centerAndZoom(point, 15); // 初始化地图,设置中心点坐标和地图级别
+      } else if(type === "3") {
+        const point = new BMap.Point(this.center2[0], this.center2[1])
+        const opts = {
+          width: 300,
+          height: 50,
+          title: '监管仓库'
+        };
+        const infoWindow = new BMap.InfoWindow('上海市浦东机场海关监管第二仓储区706甲', opts);
+        this.map.openInfoWindow(infoWindow, point);
+        this.map.centerAndZoom(point, 15); // 初始化地图,设置中心点坐标和地图级别
+      }
+    }
+  }
 };
 </script>
 <style lang="scss" scoped>
@@ -68,6 +126,14 @@ export default {
       font-weight: 500;
       height: 60px;
     }
+  }
+
+  #container {
+    overflow: hidden;
+    width: 100%;
+    height: 430px;
+    margin-bottom: 34px;
+    font-family: "微软雅黑";
   }
 
   .contract {
@@ -100,6 +166,7 @@ export default {
       ul {
         float: left;
         height: 247px;
+        cursor: pointer;
         &:first-child {
           width: 385px;
           border-right: 1px dashed #000;

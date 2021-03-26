@@ -114,4 +114,16 @@ export default {
   text-align: center;
   color: #2c3e50;
 }
+.BMap_cpyCtrl {
+  display: none;
+}
+.anchorBL {
+  display: none;
+}
+.BMap_bubble_title{
+  font-size: 16px;
+}
+.BMap_bubble_content{
+  font-size: 16px;
+}
 </style>

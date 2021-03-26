@@ -155,13 +155,14 @@ export default {
         td{
             width: 25%;
             height: 40px;
-            font-size: 20px;
+            font-size: 16px;
             &:nth-child(2n+1) {
-                background: #999;
+                background: #cecece;
                 color: #000;
             }
             &:nth-child(2n) {
-                background: #F8F8F8;
+                background: #ebebeb;
+                font-weight: 100;
             }
         }
     }
