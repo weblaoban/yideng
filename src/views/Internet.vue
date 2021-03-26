@@ -42,12 +42,14 @@ export default {
 #internet {
   background: #fff;
   padding-bottom: 1px;
+  min-width: 1200px;
   .banner {
     position: relative;
     margin-bottom: 120px;
     img {
       display: block;
       width: 100%;
+      min-width: 1200px;
     }
     h2 {
       font-size: 62px;
@@ -129,6 +131,12 @@ export default {
 
 @media screen and (max-width: 750px) {
   #internet {
+  min-width: auto;
+    .banner {
+      img {
+        min-width: auto;
+      }
+    }
   }
 }
 </style>
