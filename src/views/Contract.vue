@@ -41,62 +41,101 @@ export default {
   name: "contract",
   data() {
     return {
-      center: [121.485297,31.235345],
-      center2: [121.77183,31.150607],
-      center3: [121.773815,31.17121],
-      map: null
-    }
+      center: [121.485297, 31.235345],
+      center2: [121.77183, 31.150607],
+      center3: [121.773815, 31.17121],
+      map: null,
+    };
   },
   mounted() {
     const BMap = window.BMap;
+    const screenWidth = screen.width;
     this.map = new BMap.Map("container"); // 创建Map实例
-    const point = new BMap.Point(this.center[0], this.center[1])
-    this.map.centerAndZoom(point, 20); // 初始化地图,设置中心点坐标和地图级别
+    const point = new BMap.Point(this.center[0], this.center[1]);
+    this.map.centerAndZoom(point, screenWidth <= 750 ? 18 : 20); // 初始化地图,设置中心点坐标和地图级别
     this.map.enableScrollWheelZoom(true); // 开启鼠标滚轮缩放
     const opts = {
       width: 300,
       height: 50,
-      title: '上海CBD总部'
+      title: "上海CBD总部",
     };
-    const infoWindow = new BMap.InfoWindow('上海市黄浦区西藏中路18号港陆广场1906', opts);
+    if (screenWidth <= 750) {
+      Object.assign(opts, {
+        width: 40,
+        height: 20,
+      });
+    }
+    const infoWindow = new BMap.InfoWindow(
+      "上海市黄浦区西藏中路18号港陆广场1906",
+      opts
+    );
     this.map.openInfoWindow(infoWindow, point);
   },
   methods: {
     changeCenter(type) {
       const BMap = window.BMap;
-      if(type === "1") {
-        const point = new BMap.Point(this.center[0], this.center[1])
+      console.log(screen.width);
+      const screenWidth = screen.width;
+      if (type === "1") {
+        const point = new BMap.Point(this.center[0], this.center[1]);
         const opts = {
           width: 300,
           height: 50,
-          title: '上海CBD总部'
+          title: "上海CBD总部",
         };
-        const infoWindow = new BMap.InfoWindow('上海市黄浦区西藏中路18号港陆广场1906', opts);
+        if (screenWidth <= 750) {
+          Object.assign(opts, {
+            width: 40,
+            height: 20,
+          });
+        }
+        const infoWindow = new BMap.InfoWindow(
+          "上海市黄浦区西藏中路18号港陆广场1906",
+          opts
+        );
         this.map.openInfoWindow(infoWindow, point);
-        this.map.centerAndZoom(point, 20); // 初始化地图,设置中心点坐标和地图级别
-      } else if(type === "2") {
-        const point = new BMap.Point(this.center2[0], this.center2[1])
+        this.map.centerAndZoom(point, screenWidth <= 750 ? 18 : 20); // 初始化地图,设置中心点坐标和地图级别
+      } else if (type === "2") {
+        const point = new BMap.Point(this.center2[0], this.center2[1]);
         const opts = {
           width: 300,
           height: 70,
-          title: '浦东机场分公司'
+          title: "浦东机场分公司",
         };
-        const infoWindow = new BMap.InfoWindow('上海市浦东新区航城七路785号峭迪智慧园3幢', opts);
+        if (screenWidth <= 750) {
+          Object.assign(opts, {
+            width: 40,
+            height: 20,
+          });
+        }
+        const infoWindow = new BMap.InfoWindow(
+          "上海市浦东新区航城七路785号峭迪智慧园3幢",
+          opts
+        );
         this.map.openInfoWindow(infoWindow, point);
         this.map.centerAndZoom(point, 15); // 初始化地图,设置中心点坐标和地图级别
-      } else if(type === "3") {
-        const point = new BMap.Point(this.center2[0], this.center2[1])
+      } else if (type === "3") {
+        const point = new BMap.Point(this.center2[0], this.center2[1]);
         const opts = {
           width: 300,
           height: 50,
-          title: '监管仓库'
+          title: "监管仓库",
         };
-        const infoWindow = new BMap.InfoWindow('上海市浦东机场海关监管第二仓储区706甲', opts);
+        if (screenWidth <= 750) {
+          Object.assign(opts, {
+            width: 40,
+            height: 20,
+          });
+        }
+        const infoWindow = new BMap.InfoWindow(
+          "上海市浦东机场海关监管第二仓储区706甲",
+          opts
+        );
         this.map.openInfoWindow(infoWindow, point);
         this.map.centerAndZoom(point, 15); // 初始化地图,设置中心点坐标和地图级别
       }
-    }
-  }
+    },
+  },
 };
 </script>
 <style lang="scss" scoped>
@@ -234,6 +273,108 @@ export default {
         min-width: auto;
       }
     }
+    #container {
+      height: 400px;
+      margin-bottom: 69px;
+    }
+
+    .contract {
+    margin-bottom: 120px;
+    .title {
+      height: 132px;
+      margin: 0 auto;
+      margin-bottom: 40px;
+      .circle {
+        width: 50px;
+        height: 50px;
+        border-radius: 25px;
+        background: #e67016;
+        margin: 0 auto;
+      }
+      p {
+        font-size: 37px;
+        color: #000;
+        text-align: center;
+        line-height: 82px;
+      }
+      .line {
+        width: 187px;
+        border-bottom: 4px solid #e67016;
+        margin: 0 auto;
+      }
+    }
+
+    .info {
+      ul {
+        float: none;
+        height: auto;
+        cursor: pointer;
+        width: 100% !important;
+        border-right: none !important;
+        // padding-right: 0 !important;
+        padding-left: 100px;
+        padding-right: 100px;
+        &:first-child {
+          border-bottom: 1px solid #E67016;
+          padding-bottom: 60px;
+          padding-left: 100px;
+          padding-right: 100px;
+        }
+        &:nth-child(2) {
+          border-bottom: 1px solid #E67016;
+          padding-bottom: 60px;
+          padding-top: 74px;
+          padding-left: 100px;
+          padding-right: 100px;
+        }
+        &:nth-child(3) {
+          padding-top: 74px;
+          padding-left: 100px;
+          padding-right: 100px;
+        }
+        h4 {
+          font-size: 42px;
+          color: #000;
+          font-weight: 500;
+          text-align: left;
+          margin-bottom: 20px;
+        }
+        li {
+          // padding-left: 30px;
+          font-size: 33px;
+          font-weight: 400;
+          text-align: left;
+          margin-bottom: 19px;
+          // padding: 0 130px;
+          line-height: 33px;
+          &:nth-child(2) {
+            background: url(../assets/image/contract/icon1.png);
+            background-position: left 3px;
+            background-repeat: no-repeat;
+            background-size: 18px 27px;
+          }
+          &:nth-child(3) {
+            background: url(../assets/image/contract/icon2.png);
+            background-position: left 3px;
+            background-repeat: no-repeat;
+            background-size: 24px 23px;
+          }
+          &:nth-child(4) {
+            background: url(../assets/image/contract/icon3.png);
+            background-position: left 2px;
+            background-repeat: no-repeat;
+            background-size: 24px 25px;
+          }
+          &:nth-child(5) {
+            background: url(../assets/image/contract/icon4.png);
+            background-position: left 5px;
+            background-repeat: no-repeat;
+            background-size: 26px 19px;
+          }
+        }
+      }
+    }
+  }
   }
 }
 </style>

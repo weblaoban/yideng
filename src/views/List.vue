@@ -14,12 +14,10 @@
         <thead class="table-head">
           <tr>
             <th>运输方式</th>
-            <th>运输方式</th>
-            <th>运输方式</th>
-            <th>运输方式</th>
-            <th>运输方式</th>
-            <th>运输方式</th>
-            <th>运输方式</th>
+            <th>主单号/运单号/收货凭据</th>
+            <th>出发港/地</th>
+            <th>目的港/地</th>
+            <th>航班/航次/车牌/班次信息</th>
             <th>操作</th>
           </tr>
         </thead>
@@ -30,8 +28,6 @@
             <td>{{ item.name3 }}</td>
             <td>{{ item.name4 }}</td>
             <td>{{ item.name5 }}</td>
-            <td>{{ item.name6 }}</td>
-            <td>{{ item.name7 }}</td>
             <td class="td-opration">查看详情</td>
           </tr>
         </tbody>
@@ -122,11 +118,11 @@ export default {
 <style lang="scss" scoped>
 .list-box {
   background: #fff;
-//   position: relative;
+  //   position: relative;
   height: calc(100vh - 72px);
   align-items: center;
   display: flex;
-  .container{
+  .container {
     //   position: absolute;
     //   left: 0;
     //   right: 0;
@@ -161,19 +157,19 @@ export default {
       /* Mozilla Firefox 4 to 18 */
       color: #cfcfcf;
       font-size: 16px;
-    //   line-height: 16px;
+      //   line-height: 16px;
     }
     &::-moz-placeholder {
       /* Mozilla Firefox 19+ */
       color: #cfcfcf;
       font-size: 16px;
-    //   line-height: 16px;
+      //   line-height: 16px;
     }
     &:-ms-input-placeholder {
       /* Internet Explorer 10+ */
       color: #cfcfcf;
       font-size: 16px;
-    //   line-height: 16px;
+      //   line-height: 16px;
     }
   }
   .query-button {
@@ -263,5 +259,94 @@ export default {
 }
 
 @media screen and (max-width: 750px) {
+  .list-box {
+      align-items: flex-start;
+      padding-top: 146px;
+    .query-input {
+      width: 100%;
+      display: block;
+      margin-right: 0;
+      margin-bottom: 27px;
+      border: 2px solid #000;
+    }
+    .title {
+      font-size: 38px;
+    }
+    .query-button {
+      width: 137px;
+    //   height: 51px;
+      border-radius: 20px;
+      line-height: normal;
+      padding: 14px 0;
+      height: auto;
+    }
+    .table-list {
+      width: 100%;
+      .table-head {
+        th {
+            width: 16.6666%;
+          font-size: 16px;
+          height: 46px;
+          zoom: 0.5;
+        }
+      }
+      .table-body {
+        td {
+          font-size: 14px;
+          height: 46px;
+          zoom: 0.5;
+        }
+      }
+    }
+    .page-box {
+      margin-top: 30px;
+      .page-button {
+        display: inline-block;
+        width: 91px;
+        height: 43px;
+        line-height: 43px;
+        font-size: 24px;
+      }
+      .page-query {
+        margin: 0 10px;
+      }
+      .page-input {
+        width: 42px;
+        height: 42px;
+        border: 2px solid #000;
+        border-radius: 5px;
+        font-size: 19px;
+        outline: none;
+        &::-webkit-input-placeholder {
+          /* WebKit browsers */
+          color: #000;
+          font-size: 19px;
+          // line-height: 12px;
+        }
+        &:-moz-placeholder {
+          /* Mozilla Firefox 4 to 18 */
+          color: #000;
+          font-size: 19px;
+          // line-height: 12px;
+        }
+        &::-moz-placeholder {
+          /* Mozilla Firefox 19+ */
+          color: #000;
+          font-size: 19px;
+          // line-height: 12px;
+        }
+        &:-ms-input-placeholder {
+          /* Internet Explorer 10+ */
+          color: #000;
+          font-size: 19px;
+          // line-height: 28px;
+        }
+      }
+      .page-total {
+        color: #000;
+        font-size: 16px;
+      }
+    }
+  }
 }
 </style>
