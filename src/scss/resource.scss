@@ -1,6 +1,5 @@
-$color: #4685f4;
 body {
-    background: #f1f1f1;
+    background: #fff;
     margin: 0 auto !important;
 }
 
@@ -44,6 +43,6 @@ h6 {
 @media screen and (max-width: 750px) {
     .container {
         width: 100%;
-        padding: 35px;
+        padding: 0 35px;
     }
 }

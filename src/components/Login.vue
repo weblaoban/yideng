@@ -58,12 +58,14 @@ export default {
     changeRember() {
       console.log(this.rember);
     },
-    confirm() {
+    async confirm() {
       if (this.comfirmLoading) {
         return;
       }
-      console.log(this.$API)
-      console.log(this.userName);
+      this.comfirmLoading = true;
+      const loginData = await this.$API.requeat(this.$API.login,'POST',{userName:this.userNameError,password:this.password});
+      console.log(loginData);
+      this.comfirmLoading = false;
       this.setTipMessage("测试一下");
     },
     cancel() {
@@ -158,6 +160,39 @@ export default {
       font-size: 15px;
       color: #787878;
       text-align: center;
+    }
+  }
+}
+
+
+
+@media screen and (max-width: 750px) {
+  .mask{
+    padding: 0 30px;
+    .maskContent{
+      width: 100%;
+      .tip{
+        font-size: 13px;
+      }
+      &>p{
+        font-size: 23px;
+      }
+      .inputItem{
+        input{
+          height: 56px;
+          font-size: 22px;
+        }
+      }
+       .checkBox label{
+         font-size: 13px;
+       }
+       .buttonContent{
+         .button{
+           width: 135px;
+           height: 50px;
+           line-height: 50px;
+         }
+       }
     }
   }
 }

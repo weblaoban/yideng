@@ -1,7 +1,6 @@
 <template>
   <div id="introduce">
     <div class="banner">
-      <img src="../assets/image/banner2.png" alt />
       <h2>关于伊登</h2>
     </div>
     <div class="title">
@@ -97,6 +96,14 @@
       <div class="circle"></div>
       <p>企业介绍</p>
     </div>
+    <div class="container">
+      <div class="introduce">
+        <p class="desc">
+          随着企业采购、制造、营销流程全球化的趋势，企业对物流解决方案的要求，正在日益复杂化。伊登竭尽所能地为客户提供最佳的物流方案，以满足各类需求。我们的成熟经验和专业技能保证了我们为客户提供快捷反馈和优质服务，从而让客户从可信、高效、低成本的服务中全面获益。
+          <br />作为一个成熟的物流企业，我们将不断改进服务，旨在为客户提供可靠的服务和合作环境。我们希望通过在与客户展开的广泛合作中，向客户提供快速、准确的物流信息来加强客户的市场竞争力。
+        </p>
+      </div>
+    </div>
   </div>
 </template>
 <script>
@@ -112,11 +119,11 @@ export default {
   .banner {
     position: relative;
     margin-bottom: 120px;
-    img {
-      display: block;
-      width: 100%;
-      min-width: 1200px;
-    }
+    height: 388px;
+    background: url("../assets/image/banner2.png");
+    background-size: 100% 100%;
+    background-position: top center;
+    background-repeat: no-repeat;
     h2 {
       font-size: 62px;
       color: #fff;
@@ -206,6 +213,7 @@ export default {
       font-size: 31px;
       color: #000;
       margin-bottom: 135px;
+      text-align: left;
     }
   }
 }
@@ -214,17 +222,45 @@ export default {
   #introduce {
     min-width: auto;
     .banner {
-      img {
-        min-width: auto;
-      }
+      width: 750px;
+      height: 546px;
+      background: url("../assets/image/mobile/mobileBanner1.png");
+      background-size: 100% 100%;
+      background-position: top center;
+      background-repeat: no-repeat;
     }
     .introduce {
+      p {
+        font-size: 33px;
+      }
       .section {
         margin-bottom: 45px;
         ul {
           float: none;
           &:nth-child(2) {
             margin: 0;
+          }
+        }
+      }
+      ul {
+        float: none;
+        &:nth-child(2) {
+          margin: 0;
+        }
+        li {
+          padding-left: 40px;
+          &:before {
+            content: "";
+            display: block;
+            width: 28px;
+            height: 28px;
+            border-radius: 14px;
+            border: 1px solid #e67016;
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            margin: auto;
           }
         }
       }

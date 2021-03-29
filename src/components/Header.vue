@@ -5,7 +5,9 @@
         <img src="../assets/image/logo-1.png" alt />
       </div>
       <div class="navigation">
-        <div class="burger" @click="showNavigation()">burger</div>
+        <div class="burger" @click="showNavigation()">
+          <img src="../assets/image/mobile/burger.png" alt />
+        </div>
         <div class="navigationContent" ref="navigationContent">
           <ul class="nav">
             <li
@@ -18,10 +20,17 @@
             >{{ item.name }}</li>
           </ul>
           <ul class="info" v-if=" isLogin">
-            <li @click="showOperation" class="userName">
+            <li @click="showOperation" class="userName showInPc">
               <!-- <p v-text="name">欢迎in，11111111111111</p> -->
               <p>欢迎您，</p>
               <p v-text="name">王馒头</p>
+            </li>
+            <li @click="showOperation" class="userName showInMobile">
+              <!-- <p v-text="name">欢迎in，11111111111111</p> -->
+              <p>
+                欢迎您，
+                <span v-text="name"></span>
+              </p>
             </li>
             <div v-show="isShowOperation" class="userInfo">
               <li @click="toModifyPas">修改密码</li>
@@ -67,9 +76,8 @@ export default {
     ...mapActions(["setShowLogin", "setLoginMaskHeight"]),
     changeLanguage(item, index) {
       const path = item.path;
+      const bodyWidth = document.body.clientWidth;
       if (index === 3) {
-        console.log(index);
-        console.log(this.$i18n.locale);
         this.$i18n.locale === "zh-CN"
           ? (this.$i18n.locale = "en-US")
           : (this.$i18n.locale = "zh-CN");
@@ -77,9 +85,15 @@ export default {
         if (path) {
           if (path === "/") {
             this.$router.push(path);
+            if (bodyWidth <= 750) {
+              this.$refs.navigationContent.style.display = "none";
+            }
           }
           if (!(location.href.indexOf(path) > -1)) {
             this.$router.push(path);
+            if (bodyWidth <= 750) {
+              this.$refs.navigationContent.style.display = "none";
+            }
           }
         }
       }
@@ -102,7 +116,11 @@ export default {
       this.setShowLogin(true);
     },
     toModifyPas() {
+      const bodyWidth = document.body.clientWidth;
       this.$router.push("/modifyPas");
+      if (bodyWidth <= 750) {
+        this.$refs.navigationContent.style.display = "none";
+      }
     },
     async logOut() {
       if (this.loading) {
@@ -128,6 +146,9 @@ export default {
 }
 .burger {
   display: none;
+}
+.showInMobile {
+  display: none !important;
 }
 .header {
   height: 74px;
@@ -241,6 +262,7 @@ export default {
   flex: 1;
   margin-left: 65px;
   .navigationContent {
+    z-index: 99;
     display: flex;
     justify-content: space-between;
   }
@@ -279,11 +301,24 @@ export default {
   clear: both;
 }
 @media screen and (max-width: 750px) {
+  .logo img {
+    width: 548px;
+    height: 71px;
+    margin-top: 0;
+  }
+  .showInPc {
+    display: none  !important;
+  }
+  .showInMobile {
+    display: block !important;
+  }
   .header {
     min-width: auto;
     display: block;
+    height: auto;
     .container {
       width: 100%;
+      padding: 20px 32px;
     }
     h4 {
       font-size: 28px;
@@ -291,13 +326,20 @@ export default {
   }
   .burger {
     display: block;
+    img {
+      width: 98px;
+      height: 71px;
+    }
   }
   .navigation {
+    margin-left: 38px;
     .navigationContent {
       display: none;
       width: 100%;
       position: absolute;
       left: 0;
+      padding: 0 32px;
+      top: 118px;
     }
     ul {
       display: block;
@@ -308,11 +350,55 @@ export default {
       }
       li {
         width: 100%;
+        background: #e4e4e4;
+        height: 94px;
+        font-size: 30px;
+        line-height: 94px;
+        border-bottom: 1px dashed #666;
       }
     }
   }
   .header .info {
     float: none;
+    .userInfo {
+      width: 100%;
+      top: 0.94rem;
+      li {
+        width: 100%;
+        background: #e4e4e4;
+        height: 0.94rem;
+        font-size: 0.3rem;
+        line-height: 0.94rem;
+        &:first-child {
+          margin-bottom: 0;
+        }
+      }
+    }
+    .userName {
+      p {
+        line-height: 94px;
+        font-size: 0.3rem;
+        span {
+          font-size: 0.3rem;
+          position: relative;
+          &:after {
+            content: "";
+            display: block;
+            border: 8px solid transparent;
+            border-top: 12px solid #787878;
+            position: absolute;
+            bottom: 3px;
+            right: 0;
+          }
+        }
+      }
+      &:after {
+        width: 0;
+        height: 0;
+        content: "";
+        display: none;
+      }
+    }
   }
 }
 </style>

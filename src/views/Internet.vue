@@ -1,7 +1,6 @@
 <template>
   <div id="internet">
     <div class="banner">
-      <img src="../assets/image/banner2.png" alt />
       <h2>服务产品</h2>
     </div>
     <div class="container">
@@ -46,11 +45,11 @@ export default {
   .banner {
     position: relative;
     margin-bottom: 120px;
-    img {
-      display: block;
-      width: 100%;
-      min-width: 1200px;
-    }
+    height: 388px;
+    background: url("../assets/image/banner2.png");
+    background-size: 100% 100%;
+    background-position: top center;
+    background-repeat: no-repeat;
     h2 {
       font-size: 62px;
       color: #fff;
@@ -131,10 +130,31 @@ export default {
 
 @media screen and (max-width: 750px) {
   #internet {
-  min-width: auto;
+    min-width: auto;
     .banner {
-      img {
-        min-width: auto;
+      width: 750px;
+      height: 546px;
+      background: url("../assets/image/mobile/mobileBanner1.png");
+      background-size: 100% 100%;
+      background-position: top center;
+      background-repeat: no-repeat;
+    }
+    .internet {
+      .content {
+        .img {
+          width: 100%;
+          height:428px;
+          background: url(../assets/image/mobile/net.png);
+          background-position: center center;
+          background-repeat: no-repeat;
+          background-size: 100% 100%;
+        }
+        p{
+          font-size: 33px;
+          span{
+          font-size: 33px;
+          }
+        }
       }
     }
   }

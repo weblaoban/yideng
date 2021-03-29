@@ -1,7 +1,7 @@
 <template>
   <div class="home">
     <div class="banner">
-      <img src="../assets/image/banner1.png" alt />
+      <!-- <img src="../assets/image/banner1.png" alt /> -->
       <div class="h2">
         <h2>上海伊登</h2>
         <h4>为客户提供有效和建设性的可靠服务和合作环境</h4>
@@ -25,6 +25,10 @@ export default {
     return {
       sectionData: [
         {
+          desc: "货物查询",
+          link: "/list"
+        },
+        {
           desc: "我们的团队",
           link: "/introduce"
         },
@@ -35,10 +39,6 @@ export default {
         {
           desc: "我们的网络",
           link: "/internet"
-        },
-        {
-          desc: "货物查询",
-          link: "/list"
         }
       ]
     };
@@ -47,7 +47,7 @@ export default {
     ...mapGetters(["isLogin"])
   },
   methods: {
-    ...mapActions(["setShowLogin","setLoginMaskHeight"]),
+    ...mapActions(["setShowLogin", "setLoginMaskHeight"]),
     sectionClick(data) {
       if (data.link === "/list") {
         if (this.isLogin) {
@@ -58,7 +58,7 @@ export default {
             this.setLoginMaskHeight(app.offsetHeight);
           });
           this.setShowLogin(true);
-          window.scrollTo(0,0);
+          window.scrollTo(0, 0);
         }
       } else {
         this.$router.push(data.link);
@@ -76,11 +76,16 @@ export default {
   .banner {
     position: relative;
     margin-bottom: 140px;
-    img {
-      display: block;
-      width: 100%;
-      min-width: 1200px;
-    }
+    height: 857px;
+    background: url("../assets/image/banner1.png");
+    background-size: 100% 100%;
+    background-position: top center;
+    background-repeat: no-repeat;
+    // img {
+    //   display: block;
+    //   width: 100%;
+    //   min-width: 1200px;
+    // }
     .h2 {
       width: 100%;
       position: absolute;
@@ -117,25 +122,25 @@ export default {
           color: #131313;
           font-size: 28px;
         }
-        &:first-child {
+        &:nth-child(2) {
           background: url("../assets/image/index_img1.png");
           background-size: 166px 165px;
           background-position: top center;
           background-repeat: no-repeat;
         }
-        &:nth-child(2) {
+        &:nth-child(3) {
           background: url("../assets/image/index_img2.png");
           background-size: 175px 157px;
           background-position: top center;
           background-repeat: no-repeat;
         }
-        &:nth-child(3) {
+        &:nth-child(4) {
           background: url("../assets/image/index_img3.png");
           background-size: 172px 154px;
           background-position: top center;
           background-repeat: no-repeat;
         }
-        &:nth-child(4) {
+        &:nth-child(1) {
           background: url("../assets/image/index_img4.png");
           background-size: 155px 151px;
           background-position: top center;
@@ -150,8 +155,16 @@ export default {
   .home {
     min-width: auto;
     .banner {
-      img {
-        min-width: auto;
+      width: 750px;
+      height: 546px;
+      background: url("../assets/image/mobile/mobileBanner1.png");
+      background-size: 100% 100%;
+      background-position: top center;
+      background-repeat: no-repeat;
+      .h2 {
+        h2 {
+          margin-bottom: 30px;
+        }
       }
     }
     .container {
@@ -159,6 +172,37 @@ export default {
         li {
           float: none;
           width: 100%;
+          margin-bottom: 275px;
+          height: 383px;
+          padding-top: 332px;
+          p {
+            color: #131313;
+            font-size: 54px;
+          }
+          &:nth-child(2) {
+            background: url("../assets/image/index_img1.png");
+            background-size: 300px 300px;
+            background-position: top center;
+            background-repeat: no-repeat;
+          }
+          &:nth-child(3) {
+            background: url("../assets/image/index_img2.png");
+            background-size: 319px 285px;
+            background-position: top center;
+            background-repeat: no-repeat;
+          }
+          &:nth-child(4) {
+            background: url("../assets/image/index_img3.png");
+            background-size: 329px 293px;
+            background-position: top center;
+            background-repeat: no-repeat;
+          }
+          &:nth-child(1) {
+            background: url("../assets/image/index_img4.png");
+            background-size: 285px 278px;
+            background-position: top center;
+            background-repeat: no-repeat;
+          }
         }
       }
     }

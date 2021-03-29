@@ -103,7 +103,9 @@ export default {
 
 @media screen and (max-width: 750px) {
   #foot {
-  min-width: auto;
+    min-width: auto;
+    padding-top: 70px;
+    padding-bottom: 92px;
     .container {
       width: 100%;
       padding: 0 30px;
@@ -117,8 +119,18 @@ export default {
             float: none;
             width: 100%;
             padding-right: 0;
+            margin-bottom: 49px;
+            &:last-child {
+              margin-bottom: 26px;
+            }
+            p.title {
+              margin-bottom: 0.1rem;
+            }
           }
         }
+      }
+      .copyRight {
+        font-size: 13px;
       }
     }
   }
