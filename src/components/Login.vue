@@ -18,7 +18,7 @@
             autocomplete="new-password"
             type="password"
             name="password"
-            v-model="password"
+            v-model="passWord"
             placeholder="密码"
           />
           <p class="error" v-show="userNameError" v-text="userNameError"></p>
@@ -43,7 +43,7 @@ export default {
   data() {
     return {
       userName: "",
-      password: "",
+      passWord: "",
       userNameError: "",
       passwordError: "",
       rember: false,
@@ -62,8 +62,16 @@ export default {
       if (this.comfirmLoading) {
         return;
       }
+      if(!this.userName){
+        this.userNameError="用户名不能为空";
+        return;
+      }
+      if(!this.passWord){
+        this.passwordError="密码不能为空";
+        return;
+      }
       this.comfirmLoading = true;
-      const loginData = await this.$API.requeat(this.$API.login,'POST',{userName:this.userNameError,password:this.password});
+      const loginData = await this.$API.requeat(this.$API.login,'POST',{userName:this.userNameError,password:this.passWord});
       console.log(loginData);
       this.comfirmLoading = false;
       this.setTipMessage("测试一下");
