@@ -62,19 +62,27 @@ export default {
       if (this.comfirmLoading) {
         return;
       }
-      if(!this.userName){
-        this.userNameError="用户名不能为空";
+      if (!this.userName) {
+        this.userNameError = "用户名不能为空";
         return;
       }
-      if(!this.passWord){
-        this.passwordError="密码不能为空";
+      if (!this.passWord) {
+        this.passwordError = "密码不能为空";
         return;
       }
       this.comfirmLoading = true;
-      const loginData = await this.$API.requeat(this.$API.login,'POST',{userName:this.userName,password:this.passWord});
-      console.log(loginData);
+      const loginData = await this.$API.requeat(this.$API.login, "POST", {
+        userName: this.userName,
+        password: this.passWord
+      });
       this.comfirmLoading = false;
-      this.setTipMessage("测试一下");
+      if (loginData && loginData.success) {
+        localStorage.setItem("userInfo", loginData.data);
+        this.setIsLogin(true);
+        location.reload();
+      } else {
+        this.setTipMessage(loginData.msg);
+      }
     },
     cancel() {
       this.setShowLogin(false);
@@ -172,35 +180,33 @@ export default {
   }
 }
 
-
-
 @media screen and (max-width: 750px) {
-  .mask{
+  .mask {
     padding: 0 30px;
-    .maskContent{
+    .maskContent {
       width: 100%;
-      .tip{
+      .tip {
         font-size: 13px;
       }
-      &>p{
+      & > p {
         font-size: 23px;
       }
-      .inputItem{
-        input{
+      .inputItem {
+        input {
           height: 56px;
           font-size: 22px;
         }
       }
-       .checkBox label{
-         font-size: 13px;
-       }
-       .buttonContent{
-         .button{
-           width: 135px;
-           height: 50px;
-           line-height: 50px;
-         }
-       }
+      .checkBox label {
+        font-size: 13px;
+      }
+      .buttonContent {
+        .button {
+          width: 135px;
+          height: 50px;
+          line-height: 50px;
+        }
+      }
     }
   }
 }

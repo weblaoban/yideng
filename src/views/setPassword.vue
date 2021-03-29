@@ -3,17 +3,17 @@
     <p>修改密码</p>
     <div class="inputItem">
       <label for="oldPassword">原密码</label>
-      <input type="password" placeholder="原密码" id="oldPasswird" v-model="oldPassword" />
+      <input type="password" placeholder="原密码" id="oldPasswird" v-model="oldPwd" />
       <p class="error" v-if="oldError" v-text="oldError"></p>
     </div>
     <div class="inputItem">
       <label for="newPasswird">新密码</label>
-      <input type="password" id="newPasswird" placeholder="新密码" v-model="newPassword" />
+      <input type="password" id="newPasswird" placeholder="新密码" v-model="newPwd" />
       <p class="error" v-if="newError" v-text="newError"></p>
     </div>
     <div class="inputItem">
       <label for="twoPassword">再输一次新密码</label>
-      <input type="password" id="twoPassword" placeholder="再输一次新密码" v-model="twoPassword" />
+      <input type="password" id="twoPassword" placeholder="再输一次新密码" v-model="newPwdConfirm" />
       <p class="error" v-if="twoError" v-text="twoError"></p>
     </div>
     <div class="confirm">
@@ -22,22 +22,58 @@
   </div>
 </template>
 <script>
+import { mapActions } from "vuex";
 export default {
   name: "SetPassword",
   data() {
     return {
-      oldPassword: "",
-      newPassword: "",
-      twoPassword: "",
+      oldPwd: "",
+      newPwd: "",
+      newPwdConfirm: "",
       oldError: "",
       newError: "",
-      twoError: ""
+      twoError: "",
+      comfirmLoading: false
     };
   },
   methods: {
+    ...mapActions(["setTipMessage","setIsLogin"]),
     confirm() {
-      console.log(this.oldPassword);
-      this.oldError = "11111111";
+      if (this.comfirmLoading) {
+        return;
+      }
+      if (!this.oldPwd) {
+        this.oldError = "原密码不能为空";
+        return;
+      } else {
+        this.oldError = "";
+      }
+      if (!this.newPwd) {
+        this.newError = "原密码不能为空";
+        return;
+      } else {
+        this.newError = "";
+      }
+      if (!this.newPwdConfirm) {
+        this.twoError = "原密码不能为空";
+        return;
+      } else {
+        this.twoError = "";
+      }
+      this.comfirmLoading = true;
+      const loginData = await this.$API.requeat(this.$API.login, "POST", {
+        oldPwd: this.oldPwd,
+        newPwd: this.newPwd,
+        newPwdConfirm:this.newPwdConfirm
+      });
+      this.comfirmLoading = false;
+      if (loginData && loginData.success) {
+        localStorage.removeItem("userInfo");
+        this.setIsLogin(false)
+       this.$router.push('/');
+      } else {
+        this.setTipMessage(loginData.msg);
+      }
     }
   }
 };
@@ -75,8 +111,8 @@ export default {
       border-radius: 5px;
       padding: 0 10px;
       font-size: 22px;
-      &::placeholder{
-          color: #969696;
+      &::placeholder {
+        color: #969696;
       }
     }
     p.error {
@@ -112,7 +148,7 @@ export default {
 
 @media screen and (max-width: 750px) {
   #modifyPas {
-      padding: 0 33px;
+    padding: 0 33px;
     & > p {
       font-size: 38px;
       margin-top: 146px;
@@ -120,46 +156,46 @@ export default {
       width: 100%;
       padding-left: 0;
     }
-    
-  .inputItem {
-    width: 100%;
-    padding-bottom: 36px;
-    label {
-      display: none;
-    }
-    input {
+
+    .inputItem {
       width: 100%;
-      height: 83px;
-      padding: 0 16px;
-      font-size: 28px;
-      &::placeholder{
+      padding-bottom: 36px;
+      label {
+        display: none;
+      }
+      input {
+        width: 100%;
+        height: 83px;
+        padding: 0 16px;
+        font-size: 28px;
+        &::placeholder {
           color: #969696;
+        }
+      }
+      p.error {
+        font-size: 14px;
+        color: red;
+        width: 100%;
+        padding-left: 0;
+        line-height: 36px;
       }
     }
-    p.error {
-      font-size: 14px;
-      color: red;
+    .confirm {
+      margin-top: 9px;
       width: 100%;
       padding-left: 0;
-      line-height: 36px;
+      .button {
+        width: 169px;
+        height: 63px;
+        line-height: 63px;
+        background: #e67016;
+        color: #fff;
+        font-size: 28px;
+        border-radius: 10px;
+        cursor: pointer;
+        margin: 0 auto;
+      }
     }
-  }
-  .confirm {
-    margin-top: 9px;
-    width: 100%;
-    padding-left: 0;
-    .button {
-      width: 169px;
-      height: 63px;
-      line-height: 63px;
-      background: #e67016;
-      color: #fff;
-      font-size: 28px;
-      border-radius: 10px;
-      cursor: pointer;
-      margin: 0 auto;
-    }
-  }
   }
 }
 </style>

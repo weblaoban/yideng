@@ -131,9 +131,9 @@ export default {
       this.loading = false;
       if (result && result.success) {
         localStorage.removeItem("userInfo");
-        this.$router.push("/login");
+        location.reload();
       } else {
-        this.$message.info(result.msg);
+        this.setTipMessage(result.msg);
       }
     }
   }
@@ -307,7 +307,7 @@ export default {
     margin-top: 0;
   }
   .showInPc {
-    display: none  !important;
+    display: none !important;
   }
   .showInMobile {
     display: block !important;
