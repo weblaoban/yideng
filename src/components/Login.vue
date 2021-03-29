@@ -71,7 +71,7 @@ export default {
         return;
       }
       this.comfirmLoading = true;
-      const loginData = await this.$API.requeat(this.$API.login,'POST',{userName:this.userNameError,password:this.passWord});
+      const loginData = await this.$API.requeat(this.$API.login,'POST',{userName:this.userName,password:this.passWord});
       console.log(loginData);
       this.comfirmLoading = false;
       this.setTipMessage("测试一下");
