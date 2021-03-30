@@ -131,11 +131,25 @@ export default {
       .querySelector("body")
       .setAttribute("style", "background-color:#fff;");
   },
-  created() {},
+  created() {
+    this.getDetail();
+  },
   //销毁前清除
   beforeDestroy() {
     document.querySelector("body").removeAttribute("style");
   },
+  methods: {
+    getDetail() {
+      console.log(this.$route.params);
+      //   this.$API.requeat(this.$API.login,'POST',this.listQuery).then(response => {
+      //     this.list = response.data.data.list
+      //     this.total = response.data.data.total
+      //   }).catch((response) => {
+      //     this.list = []
+      //     this.total = 0
+      //   })
+    },
+  }
 };
 </script>
 <style lang="scss" scoped>
