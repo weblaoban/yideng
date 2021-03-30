@@ -7,8 +7,8 @@
         <ul class="clear">
           <li>
             <p class="title">上海CBD总部</p>
-            <p class="desc">地址：上海市黄浦区西藏中路18号港陆广场1906</p>
-            <p class="desc">电话：+86-21-53080219</p>
+            <p class="desc">地址：{{ address[0].dictionariesValue }}</p>
+            <p class="desc">电话：{{ address[1].dictionariesValue }}</p>
             <p class="desc">传真：+86-21-53089827</p>
             <p class="desc">邮箱: contact@eastern-sha.com</p>
           </li>
@@ -36,8 +36,22 @@
 <script>
 export default {
   name: "foot",
+  data() {
+    return {
+      address: [{ dictionariesValue: '' }, { dictionariesValue: '' }]
+    }
+  },
   props: {
     showFootContent: Boolean
+  },
+  created() {
+    this.getAddress();
+  },
+  methods: {
+    async getAddress() {
+      const listData = await this.$API.request(this.$API.address, "POST");
+      this.address = listData.data;
+    },
   }
 };
 </script>

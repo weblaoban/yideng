@@ -18,13 +18,13 @@
             autocomplete="new-password"
             type="password"
             name="password"
-            v-model="password"
+            v-model="passWord"
             placeholder="密码"
           />
           <p class="error" v-show="userNameError" v-text="userNameError"></p>
         </div>
         <div class="checkBox">
-          <input v-model="rember" type="checkbox" id="rember" @change="changeRember" />
+          <input v-model="rember" type="checkbox" id="rember" />
           <label for="rember">下次自动登录</label>
         </div>
         <div class="buttonContent">
@@ -43,7 +43,7 @@ export default {
   data() {
     return {
       userName: "",
-      password: "",
+      passWord: "",
       userNameError: "",
       passwordError: "",
       rember: false,
@@ -54,19 +54,48 @@ export default {
     ...mapGetters(["loginMaskHeight"])
   },
   methods: {
-    ...mapActions(["setShowLogin", "setTipMessage"]),
-    changeRember() {
-      console.log(this.rember);
-    },
+    ...mapActions(["setShowLogin", "setTipMessage", "setIsLogin"]),
     async confirm() {
       if (this.comfirmLoading) {
         return;
       }
+      if (!this.userName) {
+        this.userNameError = "用户名不能为空";
+        return;
+      }
+      if (!this.passWord) {
+        this.passwordError = "密码不能为空";
+        return;
+      }
       this.comfirmLoading = true;
-      const loginData = await this.$API.requeat(this.$API.login,'POST',{userName:this.userNameError,password:this.password});
-      console.log(loginData);
+      const loginData = await this.$API.request(this.$API.login, "POST", {
+        userName: this.userName,
+        passWord: this.passWord
+      });
       this.comfirmLoading = false;
-      this.setTipMessage("测试一下");
+      if (loginData && loginData.success) {
+        if (!this.rember) {
+          sessionStorage.setItem("userInfo", JSON.stringify(loginData.data));
+          localStorage.removeItem("rember");
+        } else {
+          localStorage.setItem("userInfo", JSON.stringify(loginData.data));
+          localStorage.setItem("rember", "rember");
+        }
+        this.setIsLogin(true);
+        const toList = sessionStorage.getItem("toList");
+        if (toList) {
+          this.$router.push("/list");
+          sessionStorage.removeItem("toList");
+          this.setShowLogin(false);
+          setTimeout(() => {
+            location.reload();
+          }, 30);
+        } else {
+          location.reload();
+        }
+      } else {
+        this.setTipMessage(loginData.msg);
+      }
     },
     cancel() {
       this.setShowLogin(false);
@@ -75,6 +104,10 @@ export default {
       this.userNameError = "";
       this.passwordError = "";
       this.rember = false;
+      const toList = sessionStorage.getItem("toList");
+      if (toList) {
+        sessionStorage.removeItem("toList");
+      }
     }
   }
 };
@@ -87,6 +120,7 @@ export default {
   min-height: 100vh;
   background: rgba(0, 0, 0, 0.5);
   z-index: 999;
+  min-width: 1200px;
   .maskContent {
     width: 798px;
     height: 522px;
@@ -164,35 +198,34 @@ export default {
   }
 }
 
-
-
 @media screen and (max-width: 750px) {
-  .mask{
+  .mask {
     padding: 0 30px;
-    .maskContent{
+    min-width: auto;
+    .maskContent {
       width: 100%;
-      .tip{
+      .tip {
         font-size: 13px;
       }
-      &>p{
+      & > p {
         font-size: 23px;
       }
-      .inputItem{
-        input{
+      .inputItem {
+        input {
           height: 56px;
           font-size: 22px;
         }
       }
-       .checkBox label{
-         font-size: 13px;
-       }
-       .buttonContent{
-         .button{
-           width: 135px;
-           height: 50px;
-           line-height: 50px;
-         }
-       }
+      .checkBox label {
+        font-size: 13px;
+      }
+      .buttonContent {
+        .button {
+          width: 135px;
+          height: 50px;
+          line-height: 50px;
+        }
+      }
     }
   }
 }

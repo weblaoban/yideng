@@ -21,11 +21,10 @@ module.exports = {
         port: '8089',
         proxy: {
             "/api": {
-                // target: "http://47.99.112.124:8885/allwxopeninterface",
-                target: "http://www.hw1234.cn:8885/allwxopeninterface",
-                pathRewrite: {
-                    '^/api': ''
-                },
+                target: "http://47.118.51.151:8866/",
+                // pathRewrite: {
+                //     '^/api': ''
+                // },
                 changeOrigin: true
             }
         }

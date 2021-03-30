@@ -8,7 +8,7 @@
           class="query-input"
           v-model="listQuery.keywords"
         />
-        <span class="query-button">查询</span>
+        <span class="query-button" @click="query">查询</span>
       </div>
       <table class="table-list">
         <thead class="table-head">
@@ -23,19 +23,19 @@
         </thead>
         <tbody class="table-body">
           <tr v-for="(item, index) in list" :key="index">
-            <td>{{ item.name }}</td>
-            <td>{{ item.name2 }}</td>
-            <td>{{ item.name3 }}</td>
-            <td>{{ item.name4 }}</td>
-            <td>{{ item.name5 }}</td>
-            <td class="td-opration">查看详情</td>
+            <td>{{ item.transportation }}</td>
+            <td>{{ item.orderNumber }}</td>
+            <td>{{ item.departure }}</td>
+            <td>{{ item.destinationPort }}</td>
+            <td>{{ item.flightInfo }}</td>
+            <td class="td-opration" @click="$router.push(`/detail/${item.id}`)">查看详情</td>
           </tr>
         </tbody>
       </table>
       <div class="page-box">
         <span class="page-button" @click="numClick('pre')">上一页</span>
         <span class="page-query">
-          <input class="page-input" v-model="listQuery.page" />
+          <input class="page-input" v-model="listQuery.pageNo" />
           <span class="page-total">/{{ total }}</span>
         </span>
         <span class="page-button" @click="numClick('next')">下一页</span>
@@ -57,7 +57,7 @@ export default {
           name4: "海运空运",
           name5: "海运空运",
           name6: "海运空运",
-          name7: "海运空运",
+          name7: "海运空运"
         },
         {
           name: "海运空运",
@@ -66,15 +66,15 @@ export default {
           name4: "海运空运",
           name5: "海运空运",
           name6: "海运空运",
-          name7: "海运空运",
-        },
+          name7: "海运空运"
+        }
       ],
       total: 123,
       listQuery: {
-        page: 1,
-        size: 20,
-        keywords: undefined,
-      },
+        pageNo: 1,
+        pageSize: 20,
+        keywords: undefined
+      }
     };
   },
   //创建前设置
@@ -83,14 +83,20 @@ export default {
       .querySelector("body")
       .setAttribute("style", "background-color:#fff;");
   },
-  created() {},
+  created() {
+    this.getList();
+  },
   //销毁前清除
   beforeDestroy() {
     document.querySelector("body").removeAttribute("style");
   },
   methods: {
-    getList() {
-      //   this.$API.requeat(this.$API.login,'POST',this.listQuery).then(response => {
+    async getList() {
+      const listData = await this.$API.request(this.$API.list, "POST", this.listQuery);
+      console.log(listData.data)
+      this.list = listData.data.records;
+      this.total = listData.data.total
+      //   fetchCalendarOrderList(this.listQuery).then(response => {
       //     this.list = response.data.data.list
       //     this.total = response.data.data.total
       //   }).catch((response) => {
@@ -100,18 +106,23 @@ export default {
     },
     numClick(type) {
       if (type === "next") {
-        if (this.listQuery.page >= this.total) {
+        if (this.listQuery.pageNo >= this.total) {
           return;
         }
-        this.listQuery.page++;
+        this.listQuery.pageNo++;
       } else if (type === "pre") {
-        if (this.listQuery.page <= 1) {
+        if (this.listQuery.pageNo <= 1) {
           return;
         }
-        this.listQuery.page--;
+        this.listQuery.pageNo--;
       }
+      this.getList();
     },
-  },
+    query() {
+      this.listQuery.pageNo = 1;
+      this.getList();
+    }
+  }
 };
 </script>
 
@@ -181,6 +192,7 @@ export default {
     border-radius: 4px;
     // float: left;
     color: #fff;
+    cursor: pointer;
   }
   .table-list {
     width: 100%;
@@ -200,6 +212,7 @@ export default {
         height: 32px;
         &.td-opration {
           color: #e67016;
+          cursor: pointer;
         }
       }
     }
@@ -260,8 +273,8 @@ export default {
 
 @media screen and (max-width: 750px) {
   .list-box {
-      align-items: flex-start;
-      padding-top: 146px;
+    align-items: flex-start;
+    padding-top: 146px;
     .query-input {
       width: 100%;
       display: block;
@@ -274,7 +287,7 @@ export default {
     }
     .query-button {
       width: 137px;
-    //   height: 51px;
+      //   height: 51px;
       border-radius: 20px;
       line-height: normal;
       padding: 14px 0;
@@ -284,7 +297,7 @@ export default {
       width: 100%;
       .table-head {
         th {
-            width: 16.6666%;
+          width: 16.6666%;
           font-size: 16px;
           height: 46px;
           zoom: 0.5;

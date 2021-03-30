@@ -164,7 +164,7 @@ export default {
       font-size: 25px;
       color: #000;
       margin-bottom: 49px;
-      line-height: 43px;
+      line-height: 1.5;
       text-align: left;
       font-weight: 400;
     }
@@ -236,9 +236,28 @@ export default {
       .section {
         margin-bottom: 45px;
         ul {
-          float: none;
+          // float: none;
+          h4 {
+            font-size: 33px;
+          }
           &:nth-child(2) {
-            margin: 0;
+            margin: 0 33px 50px 160px;
+          }
+          li {
+            padding-left: 40px;
+            &:before {
+              content: "";
+              display: block;
+              width: 28px;
+              height: 28px;
+              border-radius: 14px;
+              border: 1px solid #e67016;
+              position: absolute;
+              left: 0;
+              top: 0;
+              bottom: 0;
+              margin: auto;
+            }
           }
         }
       }
@@ -246,6 +265,9 @@ export default {
         float: none;
         &:nth-child(2) {
           margin: 0;
+        }
+        h4 {
+          font-size: 33px;
         }
         li {
           padding-left: 40px;

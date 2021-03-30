@@ -8,41 +8,188 @@
           <tbody>
             <tr>
               <td>运输方式</td>
-              <td>{{ detail.zd }}</td>
+              <td>{{ type[detail.transportation] }}</td>
               <td>航班信息</td>
-              <td>{{ detail.zd }}</td>
+              <td>{{ detail.flightInfo }}</td>
             </tr>
             <tr>
               <td>空运主单号</td>
-              <td>{{ detail.zd }}</td>
+              <td>{{ detail.orderNumber }}</td>
               <td>数量</td>
-              <td>{{ detail.zd }}</td>
+              <td>{{ detail.quantity }}</td>
             </tr>
             <tr>
               <td>空运分单号</td>
-              <td>{{ detail.zd }}</td>
+              <td>{{ detail.branchOrderNumber }}</td>
               <td>毛重(kg)</td>
-              <td>{{ detail.zd }}</td>
+              <td>{{ detail.grossWeight }}</td>
             </tr>
             <tr>
               <td>起运港</td>
-              <td>{{ detail.zd }}</td>
+              <td>{{ detail.departure }}</td>
               <td>计费重量(kg)</td>
-              <td>{{ detail.zd }}</td>
+              <td>{{ detail.chargeableWeight }}</td>
             </tr>
             <tr>
               <td>目的港</td>
-              <td>{{ detail.zd }}</td>
+              <td>{{ detail.destinationPort }}</td>
               <td>体积(CBM)</td>
-              <td>{{ detail.zd }}</td>
+              <td>{{ detail.volume }}</td>
             </tr>
           </tbody>
         </table>
       </div>
       <div class="basic logistics">
         <p class="basic-title">物流信息</p>
-        <ul class="logistics-box">
+        <ul class="logistics-box" v-if="detail.transportation === 'Air' ||detail.transportation === 'Sea'">
           <li
+            class="logistics-item"
+            v-if="detail.fourDeparture"
+          >
+            <p class="logistics-item-title">签收</p>
+            <p
+              class="logistics-item-text"
+            >
+              签收日期：
+            </p>
+          </li>
+          <li
+            class="logistics-item"
+            v-if="detail.fourDeparture"
+          >
+            <p class="logistics-item-title">出库</p>
+            <p
+              class="logistics-item-text"
+            >
+              出库日期：
+            </p>
+          </li>
+          <li
+            class="logistics-item"
+            v-if="detail.destinationPort"
+          >
+            <p class="logistics-item-title">目的港口</p>
+            <p
+              class="logistics-item-text"
+            >
+              港口：{{ detail.destinationPort }}
+            </p>
+            <p
+              class="logistics-item-text"
+            >
+              预计到达日期：
+            </p>
+            <p
+              class="logistics-item-text"
+            >
+              实际到达日期：
+            </p>
+          </li>
+          <li
+            class="logistics-item"
+            v-if="detail.fourDeparture"
+          >
+            <p class="logistics-item-title">四程港口</p>
+            <p
+              class="logistics-item-text"
+            >
+              港口：{{ detail.fourDeparture }}
+            </p>
+            <p
+              class="logistics-item-text"
+            >
+              航班信息：{{ detail.fourFlightInfo}}
+            </p>
+            <p
+              class="logistics-item-text"
+            >
+              起飞日期：{{ detail.fourATD }}
+            </p>
+          </li>
+          <li
+            class="logistics-item"
+            v-if="detail.threeDeparture"
+          >
+            <p class="logistics-item-title">三程港口</p>
+            <p
+              class="logistics-item-text"
+            >
+              港口：{{ detail.threeDeparture }}
+            </p>
+            <p
+              class="logistics-item-text"
+            >
+              航班信息：{{ detail.threeFlightInfo}}
+            </p>
+            <p
+              class="logistics-item-text"
+            >
+              起飞日期：{{ detail.threeATD }}
+            </p>
+          </li>
+          <li
+            class="logistics-item"
+            v-if="detail.transit"
+          >
+            <p class="logistics-item-title">二程港口</p>
+            <p
+              class="logistics-item-text"
+            >
+              港口：{{ detail.transit }}
+            </p>
+            <p
+              class="logistics-item-text"
+            >
+              航班信息：{{ detail.transitFlightInfo}}
+            </p>
+            <p
+              class="logistics-item-text"
+            >
+              起飞日期：{{ detail.threeATD }}
+            </p>
+          </li>
+          <li
+            class="logistics-item"
+            v-if="detail.departure"
+          >
+            <p class="logistics-item-title">起运港口</p>
+            <p
+              class="logistics-item-text"
+            >
+              港口：{{ detail.departure }}
+            </p>
+            <p
+              class="logistics-item-text"
+            >
+              航班信息：{{ detail.transitFlightInfo}}
+            </p>
+            <p
+              class="logistics-item-text"
+            >
+              预计起运日期：{{ detail.ETD }}
+            </p>
+            <p
+              class="logistics-item-text"
+            >
+              实际起运日期：{{ detail.ATD }}
+            </p>
+          </li>
+          <li
+            class="logistics-item"
+          >
+            <p class="logistics-item-title">提货</p>
+            <p
+              class="logistics-item-text"
+            >
+              城市：{{ detail.pickupCity }}
+            </p>
+            <p
+              class="logistics-item-text"
+            >
+              日期：{{ detail.pickupDate }}
+            </p>
+          </li>
+          <!-- <li
             v-for="(item, index) in logistics"
             :key="index"
             class="logistics-item"
@@ -55,7 +202,170 @@
             >
               {{ el.name }}：{{ el.value }}
             </p>
+          </li> -->
+        </ul>
+        <ul class="logistics-box" v-else>
+          <li
+            class="logistics-item"
+            v-if="detail.fourDeparture"
+          >
+            <p class="logistics-item-title">签收</p>
+            <p
+              class="logistics-item-text"
+            >
+              签收日期：
+            </p>
           </li>
+          <li
+            class="logistics-item"
+            v-if="detail.fourDeparture"
+          >
+            <p class="logistics-item-title">出库</p>
+            <p
+              class="logistics-item-text"
+            >
+              出库日期：
+            </p>
+          </li>
+          <li
+            class="logistics-item"
+            v-if="detail.destinationPort"
+          >
+            <p class="logistics-item-title">到达站</p>
+            <p
+              class="logistics-item-text"
+            >
+              站点：{{ detail.destinationPort }}
+            </p>
+            <p
+              class="logistics-item-text"
+            >
+              预计到达日期：
+            </p>
+            <p
+              class="logistics-item-text"
+            >
+              实际到达日期：
+            </p>
+          </li>
+          <li
+            class="logistics-item"
+            v-if="detail.fourDeparture"
+          >
+            <p class="logistics-item-title">四程中转站</p>
+            <p
+              class="logistics-item-text"
+            >
+              站点：{{ detail.fourDeparture }}
+            </p>
+            <p
+              class="logistics-item-text"
+            >
+              班次信息：{{ detail.fourFlightInfo}}
+            </p>
+            <p
+              class="logistics-item-text"
+            >
+              起运日期：{{ detail.fourATD }}
+            </p>
+          </li>
+          <li
+            class="logistics-item"
+            v-if="detail.threeDeparture"
+          >
+            <p class="logistics-item-title">三程中转站</p>
+            <p
+              class="logistics-item-text"
+            >
+              站点：{{ detail.threeDeparture }}
+            </p>
+            <p
+              class="logistics-item-text"
+            >
+              班次信息：{{ detail.threeFlightInfo}}
+            </p>
+            <p
+              class="logistics-item-text"
+            >
+              起运日期：{{ detail.threeATD }}
+            </p>
+          </li>
+          <li
+            class="logistics-item"
+            v-if="detail.transit"
+          >
+            <p class="logistics-item-title">二程中转站</p>
+            <p
+              class="logistics-item-text"
+            >
+              站点：{{ detail.transit }}
+            </p>
+            <p
+              class="logistics-item-text"
+            >
+              班次信息：{{ detail.transitFlightInfo}}
+            </p>
+            <p
+              class="logistics-item-text"
+            >
+              起运日期：{{ detail.threeATD }}
+            </p>
+          </li>
+          <li
+            class="logistics-item"
+            v-if="detail.departure"
+          >
+            <p class="logistics-item-title">始发站</p>
+            <p
+              class="logistics-item-text"
+            >
+              站点：{{ detail.departure }}
+            </p>
+            <p
+              class="logistics-item-text"
+            >
+              班次信息：{{ detail.transitFlightInfo}}
+            </p>
+            <p
+              class="logistics-item-text"
+            >
+              预计起运日期：{{ detail.ETD }}
+            </p>
+            <p
+              class="logistics-item-text"
+            >
+              实际起运日期：{{ detail.ATD }}
+            </p>
+          </li>
+          <li
+            class="logistics-item"
+          >
+            <p class="logistics-item-title">提货</p>
+            <p
+              class="logistics-item-text"
+            >
+              城市：{{ detail.pickupCity }}
+            </p>
+            <p
+              class="logistics-item-text"
+            >
+              日期：{{ detail.pickupDate }}
+            </p>
+          </li>
+          <!-- <li
+            v-for="(item, index) in logistics"
+            :key="index"
+            class="logistics-item"
+          >
+            <p class="logistics-item-title">{{ item.title }}</p>
+            <p
+              v-for="(el, key) in item.detail"
+              :key="key"
+              class="logistics-item-text"
+            >
+              {{ el.name }}：{{ el.value }}
+            </p>
+          </li> -->
         </ul>
       </div>
     </div>
@@ -66,6 +376,12 @@ export default {
   name: "detail",
   data() {
     return {
+      type: {
+        Air: '空运',
+        Rail: '铁路运输',
+        Truck: '陆运',
+        Sea: '海运',
+      },
       detail: {
         zd: "海运",
       },
@@ -139,8 +455,12 @@ export default {
     document.querySelector("body").removeAttribute("style");
   },
   methods: {
-    getDetail() {
+    async getDetail() {
       console.log(this.$route.params);
+      const freightOrderId = this.$route.params.id;
+      const listData = await this.$API.request(this.$API.detail, "POST", { freightOrderId });
+      this.detail = listData.data;
+      console.log(listData);
       //   this.$API.requeat(this.$API.login,'POST',this.listQuery).then(response => {
       //     this.list = response.data.data.list
       //     this.total = response.data.data.total

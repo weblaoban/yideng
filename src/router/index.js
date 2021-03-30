@@ -114,6 +114,20 @@ const scrollBehavior = () => {
 const router = new VueRouter({
     routes,
     scrollBehavior
-})
+});
+router.beforeEach((to, _, next) => {
+    const remeber = localStorage.getItem('rember');
+    const tokenData = remeber ? localStorage.getItem('userInfo') : sessionStorage.getItem('userInfo');
+    const userInfo = tokenData ? JSON.parse(tokenData) : {};
+    if (!userInfo.id) {
+        if (to.path.indexOf('list') > -1 || to.path.indexOf('detail') > -1 || to.path.indexOf('modifyPas') > -1) {
+            next(false)
+        } else {
+            next();
+        }
+    } else {
+        next();
+    }
+});
 
 export default router
