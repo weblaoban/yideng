@@ -44,7 +44,9 @@ export default new Vuex.Store({
     getters: {
         showLogin: (state) => state.showLogin,
         isLogin: () => {
-            localStorage.getItem('userInfo') ? true : false
+            const remeber = localStorage.getItem('rember');
+            const tokenData = remeber ? localStorage.getItem('userInfo') : sessionStorage.getItem('userInfo');
+            return tokenData ? true : false
         },
         loginMaskHeight: (state) => state.loginMaskHeight,
         tipMessage: (state) => state.tipMessage

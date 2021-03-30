@@ -37,8 +37,8 @@ export default {
     };
   },
   methods: {
-    ...mapActions(["setTipMessage","setIsLogin"]),
-    confirm() {
+    ...mapActions(["setTipMessage", "setIsLogin"]),
+    async confirm() {
       if (this.comfirmLoading) {
         return;
       }
@@ -61,16 +61,21 @@ export default {
         this.twoError = "";
       }
       this.comfirmLoading = true;
-      const loginData = await this.$API.requeat(this.$API.login, "POST", {
+      const loginData = await this.$API.request(this.$API.modifyPas, "POST", {
         oldPwd: this.oldPwd,
         newPwd: this.newPwd,
-        newPwdConfirm:this.newPwdConfirm
+        newPwdConfirm: this.newPwdConfirm
       });
       this.comfirmLoading = false;
       if (loginData && loginData.success) {
         localStorage.removeItem("userInfo");
-        this.setIsLogin(false)
-       this.$router.push('/');
+        sessionStorage.removeItem("userInfo");
+        this.setIsLogin(false);
+        this.setTipMessage('修改成功，请重新登录');
+        setTimeout(() => {
+          this.$router.push("/");
+          location.reload();
+        }, 1500);
       } else {
         this.setTipMessage(loginData.msg);
       }

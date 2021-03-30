@@ -64,16 +64,22 @@ export default {
   },
   computed: {
     isLogin() {
-      return localStorage.getItem("userInfo") || this.isLoginProps;
+      const remeber = localStorage.getItem("rember");
+      const tokenData = remeber
+        ? localStorage.getItem("userInfo")
+        : sessionStorage.getItem("userInfo");
+      return tokenData || this.isLoginProps;
     },
     name() {
-      return localStorage.getItem("userInfo")
-        ? JSON.parse(localStorage.getItem("userInfo")).userName
+    const remeber = localStorage.getItem('rember');
+    const tokenData = remeber ? localStorage.getItem('userInfo') : sessionStorage.getItem('userInfo');
+      return tokenData
+        ? JSON.parse(tokenData).customerName
         : this.userName;
     }
   },
   methods: {
-    ...mapActions(["setShowLogin", "setLoginMaskHeight"]),
+    ...mapActions(["setShowLogin", "setLoginMaskHeight", "setIsLogin"]),
     changeLanguage(item, index) {
       const path = item.path;
       const bodyWidth = document.body.clientWidth;
@@ -129,9 +135,21 @@ export default {
       this.loading = true;
       const result = await this.$API.request(this.$API.logout, "POST");
       this.loading = false;
+      const path = this.$route.path.substr(1);
       if (result && result.success) {
         localStorage.removeItem("userInfo");
-        location.reload();
+        sessionStorage.removeItem('userInfo');
+        this.setIsLogin(true);
+        if (
+          path.indexOf("list") > -1 ||
+          path.indexOf("detail") > -1 ||
+          path.indexOf("modifyPas") > -1
+        ) {
+          this.$router.push("/index");
+        }
+        setTimeout(() => {
+          location.reload();
+        }, 30);
       } else {
         this.setTipMessage(result.msg);
       }

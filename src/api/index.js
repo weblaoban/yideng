@@ -1,13 +1,15 @@
 import axios from 'axios';
-import store from '../store';
-import router from 'vue-router';
+// import store from '../store';
+// import router from 'vue-router';
 import API from './api';
 
 //  request
 axios.interceptors.request.use(function(config) {
     config.withCredentials = true
-    config.timeout = 15000
-    let token = localStorage.getItem('userInfo') ? JSON.parse(localStorage.getItem('userInfo')).token : '';
+    config.timeout = 15000;
+    const remeber = localStorage.getItem('rember');
+    const tokenData = remeber ? localStorage.getItem('userInfo') : sessionStorage.getItem('userInfo');
+    let token = tokenData ? JSON.parse(tokenData).token : '';
     if (token) {
         config.headers = {
             'token': token,
@@ -15,7 +17,7 @@ axios.interceptors.request.use(function(config) {
         }
     }
     setTimeout(() => {
-        store.dispatch('showLoading', true)
+        // store.dispatch('showLoading', true)
     }, 500)
     return config;
 }, function() {
@@ -24,15 +26,16 @@ axios.interceptors.request.use(function(config) {
 
 //   response
 axios.interceptors.response.use(function(response) {
-    store.dispatch('showLoading', false)
+    // store.dispatch('showLoading', false)
     return response;
 }, function(error) {
-    store.dispatch('showLoading', false)
+    // store.dispatch('showLoading', false)
     if (error.response) {
         switch (error.response.status) {
             case 401:
                 // 返回 401 清除token信息并跳转到登录页面
-                localStorage.removeItem('userInfo')
+                localStorage.removeItem('userInfo');
+                sessionStorage.removeItem('userInfo')
                 location.reload();
         }
     }
@@ -54,9 +57,10 @@ function checkStatus(response) {
 function request(url, method = 'GET', formData, isUpload = false) {
     const options = {
         url,
-        credentials: 'include',
+        // credentials: 'include',
         method,
         data: formData,
+        contentType: 'application/json',
     };
     if (
         options.method === 'POST' ||
@@ -78,22 +82,14 @@ function request(url, method = 'GET', formData, isUpload = false) {
             if (response.status === 204) {
                 return response.statusText;
             }
-            if (response.data && (response.data.code === 'OVERTIME' || response.code === 'OVERTIME' || response.data.msg === 'token is invalid,please login again!' || response.msg === 'token is invalid,please login again!')) {
-                localStorage.removeItem('userInfo');
-                const location = window.location.href;
-                if (!(location.indexOf('login') > -1 || location.indexOf('register') > -1 || location.indexOf('forgetPassword') > -1)) {
-                    router.replace({
-                        path: 'login',
-                    })
-                }
-            }
             return response.data;
+
         })
         .catch(e => {
             const status = e.httpStatus;
             if (status === 401) {
+                sessionStorage.removeItem('userInfo')
                 localStorage.removeItem('userInfo');
-                window.location.href = `/login?redirect=${e.url}`;
             }
         });
 }

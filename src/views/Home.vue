@@ -58,6 +58,7 @@ export default {
             this.setLoginMaskHeight(app.offsetHeight);
           });
           this.setShowLogin(true);
+          sessionStorage.setItem('toList',"toList");
           window.scrollTo(0, 0);
         }
       } else {

@@ -24,7 +24,7 @@
           <p class="error" v-show="userNameError" v-text="userNameError"></p>
         </div>
         <div class="checkBox">
-          <input v-model="rember" type="checkbox" id="rember" @change="changeRember" />
+          <input v-model="rember" type="checkbox" id="rember" />
           <label for="rember">下次自动登录</label>
         </div>
         <div class="buttonContent">
@@ -54,10 +54,7 @@ export default {
     ...mapGetters(["loginMaskHeight"])
   },
   methods: {
-    ...mapActions(["setShowLogin", "setTipMessage"]),
-    changeRember() {
-      console.log(this.rember);
-    },
+    ...mapActions(["setShowLogin", "setTipMessage", "setIsLogin"]),
     async confirm() {
       if (this.comfirmLoading) {
         return;
@@ -71,15 +68,31 @@ export default {
         return;
       }
       this.comfirmLoading = true;
-      const loginData = await this.$API.requeat(this.$API.login, "POST", {
+      const loginData = await this.$API.request(this.$API.login, "POST", {
         userName: this.userName,
-        password: this.passWord
+        passWord: this.passWord
       });
       this.comfirmLoading = false;
       if (loginData && loginData.success) {
-        localStorage.setItem("userInfo", loginData.data);
+        if (!this.rember) {
+          sessionStorage.setItem("userInfo", JSON.stringify(loginData.data));
+          localStorage.removeItem("rember");
+        } else {
+          localStorage.setItem("userInfo", JSON.stringify(loginData.data));
+          localStorage.setItem("rember", "rember");
+        }
         this.setIsLogin(true);
-        location.reload();
+        const toList = sessionStorage.getItem("toList");
+        if (toList) {
+          this.$router.push("/list");
+          sessionStorage.removeItem("toList");
+          this.setShowLogin(false);
+          setTimeout(() => {
+            location.reload();
+          }, 30);
+        } else {
+          location.reload();
+        }
       } else {
         this.setTipMessage(loginData.msg);
       }
@@ -91,6 +104,10 @@ export default {
       this.userNameError = "";
       this.passwordError = "";
       this.rember = false;
+      const toList = sessionStorage.getItem("toList");
+      if (toList) {
+        sessionStorage.removeItem("toList");
+      }
     }
   }
 };
@@ -103,6 +120,7 @@ export default {
   min-height: 100vh;
   background: rgba(0, 0, 0, 0.5);
   z-index: 999;
+  min-width: 1200px;
   .maskContent {
     width: 798px;
     height: 522px;
@@ -183,6 +201,7 @@ export default {
 @media screen and (max-width: 750px) {
   .mask {
     padding: 0 30px;
+    min-width: auto;
     .maskContent {
       width: 100%;
       .tip {

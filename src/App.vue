@@ -72,7 +72,6 @@ export default {
   watch: {
     $route() {
       const path = this.$route.path.substr(1);
-      console.log(path);
       if (path.indexOf("index") > -1 || !path) {
         this.activeNavigation = 0;
       } else if (
@@ -89,7 +88,6 @@ export default {
       }
 
       if (path.indexOf("modifyPas") > -1) {
-        console.log(11111111111);
         this.showFoot = false;
         this.isShowOperation = false;
       } else if (path.indexOf("detail") > -1 || path.indexOf("list") > -1) {

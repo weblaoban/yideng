@@ -57,7 +57,7 @@ export default {
           name4: "海运空运",
           name5: "海运空运",
           name6: "海运空运",
-          name7: "海运空运",
+          name7: "海运空运"
         },
         {
           name: "海运空运",
@@ -66,15 +66,15 @@ export default {
           name4: "海运空运",
           name5: "海运空运",
           name6: "海运空运",
-          name7: "海运空运",
-        },
+          name7: "海运空运"
+        }
       ],
       total: 123,
       listQuery: {
         page: 1,
         size: 20,
-        keywords: undefined,
-      },
+        keywords: undefined
+      }
     };
   },
   //创建前设置
@@ -83,13 +83,17 @@ export default {
       .querySelector("body")
       .setAttribute("style", "background-color:#fff;");
   },
-  created() {},
+  created() {
+    this.getList();
+  },
   //销毁前清除
   beforeDestroy() {
     document.querySelector("body").removeAttribute("style");
   },
   methods: {
-    getList() {
+    async getList() {
+      const listData = await this.$API.request(this.$API.list, "POST");
+      console.log(listData.data)
       //   fetchCalendarOrderList(this.listQuery).then(response => {
       //     this.list = response.data.data.list
       //     this.total = response.data.data.total
@@ -110,8 +114,8 @@ export default {
         }
         this.listQuery.page--;
       }
-    },
-  },
+    }
+  }
 };
 </script>
 
@@ -260,8 +264,8 @@ export default {
 
 @media screen and (max-width: 750px) {
   .list-box {
-      align-items: flex-start;
-      padding-top: 146px;
+    align-items: flex-start;
+    padding-top: 146px;
     .query-input {
       width: 100%;
       display: block;
@@ -274,7 +278,7 @@ export default {
     }
     .query-button {
       width: 137px;
-    //   height: 51px;
+      //   height: 51px;
       border-radius: 20px;
       line-height: normal;
       padding: 14px 0;
@@ -284,7 +288,7 @@ export default {
       width: 100%;
       .table-head {
         th {
-            width: 16.6666%;
+          width: 16.6666%;
           font-size: 16px;
           height: 46px;
           zoom: 0.5;
