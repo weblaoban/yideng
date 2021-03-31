@@ -1,6 +1,6 @@
 export const lang = {
     menu: [
-        { name: 'index', path: '/index' },
+        { name: 'index', path: '/indexPage' },
         { name: 'introdice', path: '/introduce' },
         { name: 'service', path: '/service' },
         { name: '中文', path: '' },

@@ -71,15 +71,20 @@ export default {
       return tokenData || this.isLoginProps;
     },
     name() {
-    const remeber = localStorage.getItem('rember');
-    const tokenData = remeber ? localStorage.getItem('userInfo') : sessionStorage.getItem('userInfo');
-      return tokenData
-        ? JSON.parse(tokenData).customerName
-        : this.userName;
+      const remeber = localStorage.getItem("rember");
+      const tokenData = remeber
+        ? localStorage.getItem("userInfo")
+        : sessionStorage.getItem("userInfo");
+      return tokenData ? JSON.parse(tokenData).customerName : this.userName;
     }
   },
   methods: {
-    ...mapActions(["setShowLogin", "setLoginMaskHeight", "setIsLogin"]),
+    ...mapActions([
+      "setShowLogin",
+      "setLoginMaskHeight",
+      "setIsLogin",
+      "setTipMessage"
+    ]),
     changeLanguage(item, index) {
       const path = item.path;
       const bodyWidth = document.body.clientWidth;
@@ -138,20 +143,34 @@ export default {
       const path = this.$route.path.substr(1);
       if (result && result.success) {
         localStorage.removeItem("userInfo");
-        sessionStorage.removeItem('userInfo');
+        sessionStorage.removeItem("userInfo");
         this.setIsLogin(true);
         if (
           path.indexOf("list") > -1 ||
           path.indexOf("detail") > -1 ||
           path.indexOf("modifyPas") > -1
         ) {
-          this.$router.push("/index");
+          this.$router.push("/indexPage");
         }
         setTimeout(() => {
           location.reload();
         }, 30);
       } else {
         this.setTipMessage(result.msg);
+        setTimeout(() => {
+          localStorage.removeItem("userInfo");
+          sessionStorage.removeItem("userInfo");
+          if (
+            path.indexOf("list") > -1 ||
+            path.indexOf("detail") > -1 ||
+            path.indexOf("modifyPas") > -1
+          ) {
+            this.$router.push("/indexPage");
+          }
+          setTimeout(() => {
+            location.reload();
+          }, 30);
+        }, 2000);
       }
     }
   }

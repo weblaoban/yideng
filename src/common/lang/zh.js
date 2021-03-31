@@ -1,6 +1,6 @@
 export const lang = {
     menu: [
-        { name: '首页', path: '/index' },
+        { name: '首页', path: '/indexPage' },
         { name: '公司介绍', path: '/introduce' },
         { name: '公司服务', path: '/service' },
         { name: 'English', path: '' },
