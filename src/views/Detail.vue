@@ -44,24 +44,24 @@
         <ul class="logistics-box" v-if="detail.transportation === 'Air' ||detail.transportation === 'Sea'">
           <li
             class="logistics-item"
-            v-if="detail.fourDeparture"
+            v-if="detail.signatureDate"
           >
             <p class="logistics-item-title">签收</p>
             <p
               class="logistics-item-text"
             >
-              签收日期：
+              签收日期：{{ detail.signatureDate }}
             </p>
           </li>
           <li
             class="logistics-item"
-            v-if="detail.fourDeparture"
+            v-if="detail.outboundDate"
           >
             <p class="logistics-item-title">出库</p>
             <p
               class="logistics-item-text"
             >
-              出库日期：
+              出库日期：{{ detail.outboundDate }}
             </p>
           </li>
           <li
@@ -77,12 +77,12 @@
             <p
               class="logistics-item-text"
             >
-              预计到达日期：
+              预计到达日期：{{ detail.ETA }}
             </p>
             <p
               class="logistics-item-text"
             >
-              实际到达日期：
+              实际到达日期：{{ detail.ATA }}
             </p>
           </li>
           <li
@@ -207,24 +207,24 @@
         <ul class="logistics-box" v-else>
           <li
             class="logistics-item"
-            v-if="detail.fourDeparture"
+            v-if="detail.signatureDate"
           >
             <p class="logistics-item-title">签收</p>
             <p
               class="logistics-item-text"
             >
-              签收日期：
+              签收日期：{{ detail.signatureDate }}
             </p>
           </li>
           <li
             class="logistics-item"
-            v-if="detail.fourDeparture"
+            v-if="detail.outboundDate"
           >
             <p class="logistics-item-title">出库</p>
             <p
               class="logistics-item-text"
             >
-              出库日期：
+              出库日期：{{ detail.outboundDate }}
             </p>
           </li>
           <li
@@ -240,12 +240,12 @@
             <p
               class="logistics-item-text"
             >
-              预计到达日期：
+              预计到达日期：{{ detail.ETA }}
             </p>
             <p
               class="logistics-item-text"
             >
-              实际到达日期：
+              实际到达日期：{{ detail.ATA }}
             </p>
           </li>
           <li
@@ -352,20 +352,6 @@
               日期：{{ detail.pickupDate }}
             </p>
           </li>
-          <!-- <li
-            v-for="(item, index) in logistics"
-            :key="index"
-            class="logistics-item"
-          >
-            <p class="logistics-item-title">{{ item.title }}</p>
-            <p
-              v-for="(el, key) in item.detail"
-              :key="key"
-              class="logistics-item-text"
-            >
-              {{ el.name }}：{{ el.value }}
-            </p>
-          </li> -->
         </ul>
       </div>
     </div>

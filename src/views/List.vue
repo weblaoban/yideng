@@ -23,7 +23,7 @@
         </thead>
         <tbody class="table-body">
           <tr v-for="(item, index) in list" :key="index">
-            <td>{{ item.transportation }}</td>
+            <td>{{ type[item.transportation] }}</td>
             <td>{{ item.orderNumber }}</td>
             <td>{{ item.departure }}</td>
             <td>{{ item.destinationPort }}</td>
@@ -36,7 +36,7 @@
         <span class="page-button" @click="numClick('pre')">上一页</span>
         <span class="page-query">
           <input class="page-input" v-model="listQuery.pageNo" />
-          <span class="page-total">/{{ total }}</span>
+          <span class="page-total">/{{ Math.ceil(total/10) }}</span>
         </span>
         <span class="page-button" @click="numClick('next')">下一页</span>
       </div>
@@ -49,30 +49,17 @@ export default {
   name: "List",
   data() {
     return {
-      list: [
-        {
-          name: "海运空运",
-          name2: "海运空运",
-          name3: "海运空运",
-          name4: "海运空运",
-          name5: "海运空运",
-          name6: "海运空运",
-          name7: "海运空运"
-        },
-        {
-          name: "海运空运",
-          name2: "海运空运",
-          name3: "海运空运",
-          name4: "海运空运",
-          name5: "海运空运",
-          name6: "海运空运",
-          name7: "海运空运"
-        }
-      ],
-      total: 123,
+      list: [],
+      total: 0,
+      type: {
+        Air: '空运',
+        Rail: '铁路运输',
+        Truck: '陆运',
+        Sea: '海运',
+      },
       listQuery: {
         pageNo: 1,
-        pageSize: 20,
+        pageSize: 10,
         keywords: undefined
       }
     };
@@ -106,7 +93,8 @@ export default {
     },
     numClick(type) {
       if (type === "next") {
-        if (this.listQuery.pageNo >= this.total) {
+        const allPage = Math.ceil(this.total / 10)
+        if (this.listQuery.pageNo >= allPage) {
           return;
         }
         this.listQuery.pageNo++;
