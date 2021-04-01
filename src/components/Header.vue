@@ -21,12 +21,10 @@
           </ul>
           <ul class="info" v-if=" isLogin">
             <li @click="showOperation" class="userName showInPc">
-              <!-- <p v-text="name">欢迎in，11111111111111</p> -->
               <p>欢迎您，</p>
-              <p v-text="name">王馒头</p>
+              <p v-text="name"></p>
             </li>
             <li @click="showOperation" class="userName showInMobile">
-              <!-- <p v-text="name">欢迎in，11111111111111</p> -->
               <p>
                 欢迎您，
                 <span v-text="name"></span>
