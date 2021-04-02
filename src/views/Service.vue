@@ -24,7 +24,7 @@
                 <p>{{ $t("lang.servicedes3") }}</p>
               </li>
             </ul>
-            <div>
+            <div v-html="$t('lang.servicedes4')">
               <p style="margin-bottom: 0px">
                 我们提供
                 <span>门到门</span>的国际空运服务
@@ -51,7 +51,7 @@
       <div class="service">
         <div class="title">
           <div class="circle"></div>
-          <p>国际海运</p>
+          <p>{{$t('lang.serviceTitle2')}}</p>
           <div class="line"></div>
         </div>
         <div class="content clear">
@@ -59,7 +59,7 @@
             <img src="../assets/image/service/service2.png" alt />
           </div>
 
-          <div class="right">
+          <div class="right" v-html="$t('lang.servicedes5')">
             <p>
               上海伊登国际拥有交通部批准的无船承运人(NVOCC)经营资格。
               <br />主要经营各类货物的海运进出口运输
@@ -76,14 +76,14 @@
       <div class="service">
         <div class="title">
           <div class="circle"></div>
-          <p>跨境铁路运输</p>
+          <p>{{$t('lang.serviceTitle3')}}</p>
           <div class="line"></div>
         </div>
         <div class="content clear">
           <div class="right">
             <img src="../assets/image/service/service3.png" alt />
           </div>
-          <div class="left">
+          <div class="left" v-html="$t('lang.servicedes6')">
             <p>
               上海伊登为您提供中欧、中亚、中蒙等跨境铁路运输服务，包括班列订舱服务、报关服务、提货和送货服务、整箱和拼箱服务。
             </p>
@@ -96,14 +96,14 @@
       <div class="service">
         <div class="title">
           <div class="circle"></div>
-          <p>合同物流</p>
+          <p>{{$t('lang.serviceTitle4')}}</p>
           <div class="line"></div>
         </div>
         <div class="content clear">
           <div class="left">
             <img src="../assets/image/service/service4.png" alt />
           </div>
-          <div class="right">
+          <div class="right" v-html="$t('lang.servicedes7')">
             <p>
               上海伊登国际为客户提供多种合同物流方案，包括国内运输和国内仓储，非保税和保税业务，危险品，冷藏冷冻品以及各类大件项目运输服务。
             </p>
@@ -152,8 +152,8 @@ export default {
 
   .service {
     margin-bottom: 135px;
-    .left p,
-    .right p {
+    .left /deep/ p,
+    .right /deep/ p {
       font-size: 28px;
       color: #000;
       margin-bottom: 25px;
@@ -201,7 +201,7 @@ export default {
       img {
         display: block;
       }
-      ul {
+      /deep/ ul {
         margin-bottom: 40px;
         li {
           padding-left: 30px;
