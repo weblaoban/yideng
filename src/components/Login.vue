@@ -2,14 +2,14 @@
   <div class="login">
     <div class="mask" :style="'height:'+loginMaskHeight+'px'">
       <div class="maskContent">
-        <p>登陆后即可查询货运信息</p>
+        <p v-text="$t('lang.loginTip')"></p>
         <div class="inputItem">
           <input
             autocomplete="new-password"
             type="text"
             name="userName"
             v-model="userName"
-            placeholder="用户名"
+            :placeholder="$t('lang.username')"
           />
           <p class="error" v-show="userNameError" v-text="userNameError"></p>
         </div>
@@ -19,19 +19,19 @@
             type="password"
             name="password"
             v-model="passWord"
-            placeholder="密码"
+            :placeholder="$t('lang.password')"
           />
           <p class="error" v-show="userNameError" v-text="userNameError"></p>
         </div>
         <div class="checkBox">
           <input v-model="rember" type="checkbox" id="rember" />
-          <label for="rember">下次自动登录</label>
+          <label for="rember" v-text="$t('lang.auto')"></label>
         </div>
         <div class="buttonContent">
-          <div class="button" @click="confirm">确定</div>
-          <div class="button" @click="cancel">取消</div>
+          <div class="button" @click="confirm" v-text="$t('lang.confirm')"></div>
+          <div class="button" @click="cancel" v-text="$t('lang.cancel')"></div>
         </div>
-        <p class="tip">*目前账号采用邀请制，不开放注册</p>
+        <p class="tip" v-text="$t('lang.loginMs')"></p>
       </div>
     </div>
   </div>

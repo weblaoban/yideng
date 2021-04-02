@@ -1,7 +1,7 @@
 <template>
   <div id="introduce">
     <div class="banner">
-      <h2>关于伊登</h2>
+      <h2 v-text="$t('lang.about')"></h2>
     </div>
     <div class="title">
       <div class="circle"></div>

@@ -3,8 +3,8 @@
     <div class="banner">
       <!-- <img src="../assets/image/banner1.png" alt /> -->
       <div class="h2">
-        <h2>上海伊登</h2>
-        <h4>为客户提供有效和建设性的可靠服务和合作环境</h4>
+        <h2 v-text="$t('lang.homeTitle')"></h2>
+        <h4 v-text="$t('lang.homeP')"></h4>
       </div>
     </div>
     <div class="container">

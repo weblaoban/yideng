@@ -2,13 +2,13 @@
   <div id="contract">
     <div class="banner">
       <img src="../assets/image/banner2.png" alt />
-      <h2>联系伊登</h2>
+      <h2 v-text="$t('lang.contract')"></h2>
     </div>
     <div class="container">
       <div class="contract">
         <div class="title">
           <div class="circle"></div>
-          <p>联系信息</p>
+          <p v-text="$t('lang.contractInfo')"></p>
           <div class="line"></div>
         </div>
         <div class="map" id="container"></div>
