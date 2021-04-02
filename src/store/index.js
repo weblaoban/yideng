@@ -8,7 +8,8 @@ export default new Vuex.Store({
         showLogin: false,
         isLogin: false,
         loginMaskHeight: 0,
-        tipMessage: ''
+        tipMessage: '',
+        locale: 'zh-CN'
     },
     mutations: {
         SET_SHOWLOGIN(state, isShowLogin) {
@@ -22,6 +23,9 @@ export default new Vuex.Store({
         },
         SET_TIPMESSAGE(state, message) {
             state.tipMessage = message;
+        },
+        SET_LOCALE(state, locale) {
+            state.locale = locale;
         }
     },
     actions: {
@@ -39,6 +43,9 @@ export default new Vuex.Store({
             setTimeout(function() {
                 context.commit('SET_TIPMESSAGE', '');
             }, 2000)
+        },
+        setLocale(context, payload) {
+            context.commit('SET_LOCALE', payload)
         }
     },
     getters: {
@@ -49,6 +56,7 @@ export default new Vuex.Store({
             return tokenData ? true : false
         },
         loginMaskHeight: (state) => state.loginMaskHeight,
-        tipMessage: (state) => state.tipMessage
+        tipMessage: (state) => state.tipMessage,
+        locale: (state) => localStorage.getItem("local") || state.locale
     }
 })

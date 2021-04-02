@@ -37,6 +37,7 @@
 </template>
 <script>
 //坐标  港陆广场：121.485297,31.235345    智慧：121.77183,31.150607   仓储：121.773815,31.17121
+import { mapGetters } from "vuex";
 export default {
   name: "contract",
   data() {
@@ -45,25 +46,26 @@ export default {
       center2: [121.77183, 31.150607],
       center3: [121.773815, 31.17121],
       map: null,
-      address: [{ dictionariesValue: "" }, { dictionariesValue: "" }]
+      address: [{ dictionariesValue: "" }, { dictionariesValue: "" }],
     };
   },
   created() {
     this.getAddress();
   },
+  computed: {
+    ...mapGetters(["locale"])
+  },
   mounted() {
     this.$nextTick(() => {
-      console.log(BMap);
       // if (!window.BMap) return;
       const BMap = window.BMap;
       const screenWidth = screen.width;
-      console.log(window.BMap);
       this.map = new BMap.Map("container"); // 创建Map实例
       const point = new BMap.Point(this.center[0], this.center[1]);
       this.map.centerAndZoom(point, screenWidth <= 750 ? 18 : 20); // 初始化地图,设置中心点坐标和地图级别
-      this.map.enableScrollWheelZoom(true); // 开启鼠标滚轮缩放
+      // this.map.enableScrollWheelZoom(true); // 开启鼠标滚轮缩放
 
-      const locale = localStorage.getItem("local") || "zh-CN";
+      const locale = this.locale;
       const messages = this.$i18n.messages[locale].lang;
       const opts = {
         width: 300,
@@ -88,9 +90,8 @@ export default {
     changeCenter(type) {
       const BMap = window.BMap;
       const screenWidth = screen.width;
-      const locale = localStorage.getItem("local") || "zh-CN";
+      const locale = this.locale;
       const messages = this.$i18n.messages[locale].lang;
-      console.log(messages);
       if (type === "1") {
         const point = new BMap.Point(this.center[0], this.center[1]);
         const opts = {
@@ -144,11 +145,19 @@ export default {
   }
 };
 </script>
+<style>
+#contract span,
+#contract a,
+#contract input {
+  font-size: 12px;
+}
+</style>
 <style lang="scss" scoped>
 #contract {
   background: #fff;
   padding-bottom: 1px;
   min-width: 1200px;
+  font-size: 12px;
   .banner {
     position: relative;
     margin-bottom: 120px;

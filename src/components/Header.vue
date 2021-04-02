@@ -32,7 +32,7 @@
             </li>
             <div v-show="isShowOperation" class="userInfo">
               <li @click="toModifyPas">修改密码</li>
-              <li @click="logOut"  v-text="$t('lang.logout')"></li>
+              <li @click="logOut" v-text="$t('lang.logout')"></li>
             </div>
           </ul>
           <ul class="info login" v-if="!isLogin">
@@ -81,17 +81,19 @@ export default {
       "setShowLogin",
       "setLoginMaskHeight",
       "setIsLogin",
-      "setTipMessage"
+      "setTipMessage",
+      "setLocale"
     ]),
     changeLanguage(item, index) {
       const path = item.path;
       const bodyWidth = document.body.clientWidth;
       if (index === 3) {
-        const local =   this.$i18n.locale === "zh-CN"?"en-US":'zh-CN';
+        const local = this.$i18n.locale === "zh-CN" ? "en-US" : "zh-CN";
         this.$i18n.locale === "zh-CN"
           ? (this.$i18n.locale = "en-US")
           : (this.$i18n.locale = "zh-CN");
-          localStorage.setItem('local',local);
+        localStorage.setItem("local", local);
+        this.setLocale(local);
       } else {
         if (path) {
           if (path === "/") {
