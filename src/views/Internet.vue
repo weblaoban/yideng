@@ -1,30 +1,30 @@
 <template>
   <div id="internet">
     <div class="banner">
-      <h2>服务产品</h2>
+      <h2  v-text="$t('lang.netTitle1')"></h2>
     </div>
     <div class="container">
       <div class="internet">
         <div class="title">
           <div class="circle"></div>
-          <p>关于伊登</p>
+          <p v-text="$t('lang.netTitle')"></p>
           <div class="line"></div>
         </div>
         <div class="content clear">
           <div class="img">
             <!-- <img src="../assets/image/net.png" alt /> -->
           </div>
-          <p>
-            <span>空运：</span>服务覆盖全球, 满足几乎所有进出口贸易的空运需求。
+          <p v-html="$t('lang.net1')">
+          
           </p>
-          <p>
+          <p v-html="$t('lang.net2')">
             <span>海运：</span>已于COSCO, MAERSK, MSC, EVERGREEN, YANGMING, WANHAI等多家船公司保持了长久稳定的合作关系, 通行亚、欧、非、南美、北美各航线。
           </p>
-          <p>
+          <p v-html="$t('lang.net3')">
             <span>铁路运输：</span>通行中国-欧洲各国、中国-亚洲各国、中国-蒙古等路线。
             <br />与西安、郑州、成都、重庆、沈阳、武汉、汉堡、华沙、马拉、杜伊斯堡、乌兰巴托、中亚等数十个站点保持长期往来。
           </p>
-          <p>
+          <p v-html="$t('lang.net4')" >
             <span>合同物流:</span>自有及合同车辆千余部，门到门运输服务覆盖全国1,000多个城市。
           </p>
         </div>

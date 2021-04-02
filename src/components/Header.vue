@@ -21,22 +21,22 @@
           </ul>
           <ul class="info" v-if=" isLogin">
             <li @click="showOperation" class="userName showInPc">
-              <p>欢迎您，</p>
+              <p v-text="$t('lang.welcome')"></p>
               <p v-text="name"></p>
             </li>
             <li @click="showOperation" class="userName showInMobile">
               <p>
-                欢迎您，
+                {{$t('lang.welcome')}}
                 <span v-text="name"></span>
               </p>
             </li>
             <div v-show="isShowOperation" class="userInfo">
               <li @click="toModifyPas">修改密码</li>
-              <li @click="logOut">退出</li>
+              <li @click="logOut"  v-text="$t('lang.logout')"></li>
             </div>
           </ul>
           <ul class="info login" v-if="!isLogin">
-            <li @click="showLoginMask">登录</li>
+            <li @click="showLoginMask" v-text="$t('lang.login')"></li>
           </ul>
         </div>
       </div>
@@ -87,9 +87,11 @@ export default {
       const path = item.path;
       const bodyWidth = document.body.clientWidth;
       if (index === 3) {
+        const local =   this.$i18n.locale === "zh-CN"?"en-US":'zh-CN';
         this.$i18n.locale === "zh-CN"
           ? (this.$i18n.locale = "en-US")
           : (this.$i18n.locale = "zh-CN");
+          localStorage.setItem('local',local);
       } else {
         if (path) {
           if (path === "/") {

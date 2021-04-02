@@ -10,8 +10,9 @@ import './assets/rem';
 Vue.use(VueI18n);
 Vue.prototype.$API = API;
 Vue.config.productionTip = false;
+const locale = localStorage.getItem('local');
 const i18n = new VueI18n({
-    locale: 'zh-CN', // 语言标识, 通过切换locale的值来实现语言切换,this.$i18n.locale
+    locale: locale || 'zh-CN', // 语言标识, 通过切换locale的值来实现语言切换,this.$i18n.locale
     messages: {
         'zh-CN': require('./common/lang/zh'), // 中文语言包
         'en-US': require('./common/lang/en') // 英文语言包

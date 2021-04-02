@@ -1,7 +1,7 @@
 <template>
   <div id="service">
     <div class="banner">
-      <h2>服务产品</h2>
+      <h2  v-text="$t('lang.netTitle1')"></h2>
     </div>
     <div class="container">
       <div class="service">

@@ -1,26 +1,26 @@
 <template>
   <div id="foot">
     <div v-show="showFootContent" class="container">
-      <h4>联系信息</h4>
+      <h4 v-text="$t('lang.contractTitle')"></h4>
       <img src="../assets/image/line.png" alt />
       <div class="infoContent">
         <ul class="clear">
           <li>
-            <p class="title">上海CBD总部</p>
-            <p class="desc">地址：{{ address[0].dictionariesValue }}</p>
-            <p class="desc">电话：{{ address[1].dictionariesValue }}</p>
-            <p class="desc">传真：+86-21-53089827</p>
-            <p class="desc">邮箱: contact@eastern-sha.com</p>
+            <p class="title" v-text="$t('lang.address1')"></p>
+            <p class="desc">{{$t('lang.address')}}{{ address[0].dictionariesValue }}</p>
+            <p class="desc">{{$t('lang.phone')}}{{ address[1].dictionariesValue }}</p>
+            <p class="desc">{{$t('lang.chuanzhen')}}+86-21-53089827</p>
+            <p class="desc">{{$t('lang.email')}}contact@eastern-sha.com</p>
           </li>
           <li>
-            <p class="title">浦东机场分公司</p>
-            <p class="desc">地址：上海市浦东新区航城七路785号峭迪智慧园3幢</p>
-            <p class="desc">电话：+86+21-53080005</p>
+            <p class="title"  v-text="$t('lang.address2')"></p>
+            <p class="desc">{{$t('lang.address')}}{{$t('lang.address21')}}</p>
+            <p class="desc">{{$t('lang.phone')}}：+86+21-53080005</p>
           </li>
           <li>
-            <p class="title">监管仓库</p>
-            <p class="desc">地址：上海市浦东机场海关监管第二仓储区706甲</p>
-            <p class="desc">电话：+86+21-68351198</p>
+            <p class="title"  v-text="$t('lang.address3')">监管仓库</p>
+            <p class="desc">{{$t('lang.address')}}{{$t('lang.address31')}}</p>
+            <p class="desc">{{$t('lang.phone')}}+86+21-68351198</p>
           </li>
         </ul>
       </div>

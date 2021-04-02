@@ -8,8 +8,12 @@ export const lang = {
     ],
     login: '登录',
     register: '注册',
-    welcome: '欢迎',
+    welcome: '欢迎，',
     logout: '退出',
+    homeMenu1: '货物查询',
+    homeMenu2: '我们的团队',
+    homeMenu3: '我们的服务',
+    homeMenu4: '我们的网络',
     // 公司介绍
     introduce: '公司介绍',
     introduceTitle1: '公司目标',
@@ -33,7 +37,24 @@ export const lang = {
         menu: ["专业 团队专业，业务熟练", "先进 技术先进，消息灵通", "灵活 应对灵活，定制物流", "省心 发货到签收，全方位服务。"]
     }],
     // 公共底部
+    contractTitle: '联系方式',
+    address: '地址：',
+    phone: '电话：',
+    chuanzhen: '传真：',
+    email: '邮箱: ',
+    address1: '上海CBD总部',
+    address2: '浦东机场分公司',
+    address3: '监管仓库',
+    address11: '上海市黄浦区西藏中路18号港陆广场1906',
+    address21: '上海市浦东新区航城七路785号峭迪智慧园3幢',
+    address31: '上海市浦东机场海关监管第二仓储区706甲',
     //网络
+    netTitle: '我们的网络',
+    netTitle1: '服务产品',
+    net1: '<span style="font-weight: 600;">空运：</span>服务覆盖全球, 满足几乎所有进出口贸易的空运需求。',
+    net2: ' <span style="font-weight: 600;">海运：</span>已于COSCO, MAERSK, MSC, EVERGREEN, YANGMING, WANHAI等多家船公司保持了长久稳定的合作关系, 通行亚、欧、非、南美、北美各航线。',
+    net3: ' <span style="font-weight: 600;">铁路运输：</span>通行中国-欧洲各国、中国-亚洲各国、中国-蒙古等路线。 <br /> 与西安、 郑州、 成都、 重庆、 沈阳、 武汉、 汉堡、 华沙、 马拉、 杜伊斯堡、 乌兰巴托、 中亚等数十个站点保持长期往来。 ',
+    net4: '   <span style="font-weight: 600;">合同物流:</span>自有及合同车辆千余部，门到门运输服务覆盖全国1,000多个城市。',
     //服务
     serviceTitle: '国际空运',
     servicedes: '上海伊登已经在海外主要国家建立了完善的国际合作网络，为您提供：',

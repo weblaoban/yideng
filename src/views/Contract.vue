@@ -14,20 +14,20 @@
         <div class="map" id="container"></div>
         <div class="info clear">
           <ul @click="changeCenter('1')">
-            <h4>上海CBD总部</h4>
+            <h4 v-text="$t('lang.address1')"></h4>
             <li>{{ address[0].dictionariesValue }}</li>
             <li>{{ address[1].dictionariesValue }}</li>
             <li>+86-21-53089827</li>
             <li>contact@eastern-sha.com</li>
           </ul>
           <ul @click="changeCenter('2')">
-            <h4>浦东机场分公司</h4>
-            <li>上海市浦东新区航城七路785号峭迪智慧园3幢</li>
+            <h4 v-text="$t('lang.address2')"></h4>
+            <li v-text="$t('lang.address21')"></li>
             <li>+86+21-53080005</li>
           </ul>
           <ul @click="changeCenter('3')">
-            <h4>监管仓库</h4>
-            <li>上海市浦东机场海关监管第二仓储区706甲</li>
+            <h4 v-text="$t('lang.address3')"></h4>
+            <li v-text="$t('lang.address31')"></li>
             <li>+86+21-68351198</li>
           </ul>
         </div>
@@ -45,7 +45,7 @@ export default {
       center2: [121.77183, 31.150607],
       center3: [121.773815, 31.17121],
       map: null,
-      address: [{ dictionariesValue: '' }, { dictionariesValue: '' }]
+      address: [{ dictionariesValue: "" }, { dictionariesValue: "" }]
     };
   },
   created() {
@@ -62,10 +62,13 @@ export default {
       const point = new BMap.Point(this.center[0], this.center[1]);
       this.map.centerAndZoom(point, screenWidth <= 750 ? 18 : 20); // 初始化地图,设置中心点坐标和地图级别
       this.map.enableScrollWheelZoom(true); // 开启鼠标滚轮缩放
+
+      const locale = localStorage.getItem("local") || "zh-CN";
+      const messages = this.$i18n.messages[locale].lang;
       const opts = {
         width: 300,
         height: 50,
-        title: "上海CBD总部"
+        title: messages.address1
       };
       if (screenWidth <= 750) {
         Object.assign(opts, {
@@ -73,10 +76,7 @@ export default {
           height: 20
         });
       }
-      const infoWindow = new BMap.InfoWindow(
-        "上海市黄浦区西藏中路18号港陆广场1906",
-        opts
-      );
+      const infoWindow = new BMap.InfoWindow(messages.address11, opts);
       this.map.openInfoWindow(infoWindow, point);
     });
   },
@@ -88,12 +88,15 @@ export default {
     changeCenter(type) {
       const BMap = window.BMap;
       const screenWidth = screen.width;
+      const locale = localStorage.getItem("local") || "zh-CN";
+      const messages = this.$i18n.messages[locale].lang;
+      console.log(messages);
       if (type === "1") {
         const point = new BMap.Point(this.center[0], this.center[1]);
         const opts = {
           width: 300,
           height: 50,
-          title: "上海CBD总部"
+          title: messages.address1
         };
         if (screenWidth <= 750) {
           Object.assign(opts, {
@@ -101,10 +104,7 @@ export default {
             height: 20
           });
         }
-        const infoWindow = new BMap.InfoWindow(
-          "上海市黄浦区西藏中路18号港陆广场1906",
-          opts
-        );
+        const infoWindow = new BMap.InfoWindow(messages.address11, opts);
         this.map.openInfoWindow(infoWindow, point);
         this.map.centerAndZoom(point, screenWidth <= 750 ? 18 : 20); // 初始化地图,设置中心点坐标和地图级别
       } else if (type === "2") {
@@ -112,7 +112,7 @@ export default {
         const opts = {
           width: 300,
           height: 70,
-          title: "浦东机场分公司"
+          title: messages.address2
         };
         if (screenWidth <= 750) {
           Object.assign(opts, {
@@ -120,10 +120,7 @@ export default {
             height: 20
           });
         }
-        const infoWindow = new BMap.InfoWindow(
-          "上海市浦东新区航城七路785号峭迪智慧园3幢",
-          opts
-        );
+        const infoWindow = new BMap.InfoWindow(messages.address21, opts);
         this.map.openInfoWindow(infoWindow, point);
         this.map.centerAndZoom(point, 15); // 初始化地图,设置中心点坐标和地图级别
       } else if (type === "3") {
@@ -131,7 +128,7 @@ export default {
         const opts = {
           width: 300,
           height: 50,
-          title: "监管仓库"
+          title: messages.address3
         };
         if (screenWidth <= 750) {
           Object.assign(opts, {
@@ -139,10 +136,7 @@ export default {
             height: 20
           });
         }
-        const infoWindow = new BMap.InfoWindow(
-          "上海市浦东机场海关监管第二仓储区706甲",
-          opts
-        );
+        const infoWindow = new BMap.InfoWindow(messages.address31, opts);
         this.map.openInfoWindow(infoWindow, point);
         this.map.centerAndZoom(point, 15); // 初始化地图,设置中心点坐标和地图级别
       }

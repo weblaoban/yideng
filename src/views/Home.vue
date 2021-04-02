@@ -10,7 +10,7 @@
     <div class="container">
       <ul class="clear">
         <li v-for="(item,index) in sectionData" :key="index" @click="sectionClick(item)">
-          <p v-text="item.desc"></p>
+          <p v-text="$t('lang.homeMenu'+(index+1))"></p>
         </li>
       </ul>
     </div>
@@ -25,7 +25,7 @@ export default {
     return {
       sectionData: [
         {
-          desc: "货物查询",
+          // desc:$t('lang.homeMenu1'),
           link: "/list"
         },
         {
