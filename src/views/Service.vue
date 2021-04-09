@@ -243,8 +243,8 @@ export default {
     }
     .service {
       .content {
-        .left p,
-        .right p {
+        .left /deep/ p,
+        .right /deep/ p {
           font-size: 33px;
           span {
             font-size: 33px;
@@ -262,7 +262,7 @@ export default {
           width: 100%;
         }
 
-        ul {
+        /deep/ ul {
           li {
             padding-left: 40px;
             &:before {
