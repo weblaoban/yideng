@@ -24,8 +24,13 @@
           <p class="error" v-show="userNameError" v-text="userNameError"></p>
         </div>
         <div class="checkBox">
-          <input v-model="rember" type="checkbox" id="rember" />
-          <label for="rember" v-text="$t('lang.auto')"></label>
+          <div class="input">
+            <input v-model="rember" type="checkbox" id="rember" />
+            <label for="rember" v-text="$t('lang.auto')"></label>
+          </div>
+          <div class="forget">
+            <router-link to="/">忘记密码</router-link>
+          </div>
         </div>
         <div class="buttonContent">
           <div class="button" @click="confirm" v-text="$t('lang.confirm')"></div>
@@ -163,11 +168,16 @@ export default {
     .checkBox {
       display: flex;
       align-items: center;
-      justify-content: center;
+      justify-content: space-between;
       margin-bottom: 27px;
+      height: 20px;
       label {
         font-size: 15px;
         color: #000;
+      }
+      .forget a{
+        color:#787878;
+        font-size: 18px;
       }
     }
     .buttonContent {
@@ -191,9 +201,10 @@ export default {
     }
 
     .tip {
-      font-size: 15px;
+      font-size: 18px;
       color: #787878;
       text-align: center;
+      font-weight: 100;
     }
   }
 }

@@ -1,6 +1,10 @@
 <template>
   <div id="modifyPas">
-    <p>修改密码</p>
+    <div class="title">
+      <div class="circle"></div>
+      <p v-text="$t('lang.introduce')"></p>
+      <div class="line"></div>
+    </div>
     <div class="inputItem">
       <label for="oldPassword">原密码</label>
       <input type="password" placeholder="原密码" id="oldPasswird" v-model="oldPwd" />
@@ -71,7 +75,7 @@ export default {
         localStorage.removeItem("userInfo");
         sessionStorage.removeItem("userInfo");
         this.setIsLogin(false);
-        this.setTipMessage('修改成功，请重新登录');
+        this.setTipMessage("修改成功，请重新登录");
         setTimeout(() => {
           this.$router.push("/");
           location.reload();
@@ -85,6 +89,32 @@ export default {
 </script>
 <style lang="scss" scoped>
 #modifyPas {
+  .title {
+    height: 132px;
+    margin: 0 auto;
+    margin-bottom: 40px;
+    padding-left: 172px;
+    margin-top: 160px;
+    .circle {
+      width: 50px;
+      height: 50px;
+      border-radius: 25px;
+      background: #e67016;
+      margin: 0 auto;
+    }
+    p {
+      font-size: 37px;
+      color: #343434;
+      text-align: center;
+      line-height: 82px;
+      font-weight: bold;
+    }
+    .line {
+      width: 150px;
+      border-bottom: 4px solid #e67016;
+      margin: 0 auto;
+    }
+  }
   & > p {
     font-size: 28px;
     color: #787878;
@@ -104,7 +134,7 @@ export default {
       margin-right: 10px;
       display: inline-block;
       font-size: 22px;
-      color: #000000;
+      color: #787878;
       line-height: 38px;
       text-align: right;
     }
@@ -138,12 +168,12 @@ export default {
     width: 626px;
     padding-left: 172px;
     .button {
-      width: 169px;
-      height: 63px;
-      line-height: 63px;
+      width: 150px;
+      height: 60px;
+      line-height: 60px;
       background: #e67016;
       color: #fff;
-      font-size: 28px;
+      font-size: 30px;
       border-radius: 10px;
       cursor: pointer;
       margin: 0 auto;

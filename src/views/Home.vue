@@ -94,20 +94,20 @@ export default {
       left: 0;
       right: 0;
       margin: auto;
-      height: 60px;
-      margin-top: -40px;
+      // height: 60px;
+      margin-top: -70px;
       h2 {
-        font-size: 62px;
+        font-size: 80px;
         color: #fff;
         text-align: center;
         margin-bottom: 70px;
         font-weight: 500;
       }
       h4 {
-        font-size: 28px;
+        font-size: 30px;
         color: #fff;
         text-align: center;
-        font-weight: 500;
+        font-weight: 100;
       }
     }
   }
@@ -120,8 +120,9 @@ export default {
         cursor: pointer;
         padding-top: 197px;
         p {
-          color: #131313;
-          font-size: 28px;
+          color: #343434;
+          font-size: 36px;
+          font-weight: bold;
         }
         &:nth-child(2) {
           background: url("../assets/image/index_img1.png");

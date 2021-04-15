@@ -60,7 +60,7 @@ export default {
     background-position: top center;
     background-repeat: no-repeat;
     h2 {
-      font-size: 62px;
+      font-size: 80px;
       color: #fff;
       text-align: center;
       width: 100%;
@@ -78,7 +78,7 @@ export default {
     // width: 187px;
     height: 132px;
     margin: 0 auto;
-    margin-bottom: 40px;
+    margin-bottom: 50px;
     .circle {
       width: 50px;
       height: 50px;
@@ -87,26 +87,27 @@ export default {
       margin: 0 auto;
     }
     p {
-      font-size: 37px;
-      color: #000;
+      font-size: 50px;
+      color: #343434;
       text-align: center;
       line-height: 82px;
+      font-weight: bold;
       // border-bottom: 4px solid #e67016;
     }
     .line {
-      width: 187px;
+      width: 150px;
       border-bottom: 4px solid #e67016;
       margin: 0 auto;
     }
   }
   .introduce {
     p {
-      font-size: 25px;
-      color: #000;
+      font-size: 22px;
+      color: #343434;
       margin-bottom: 49px;
       line-height: 1.5;
       text-align: left;
-      font-weight: 400;
+      font-weight: 100;
     }
     ul {
       margin-bottom: 40px;
@@ -120,7 +121,7 @@ export default {
           width: 22px;
           height: 22px;
           border-radius: 12.5px;
-          border: 1px solid #e67016;
+          background: #343434;
           position: absolute;
           left: 0;
           top: 0;
@@ -139,7 +140,7 @@ export default {
         float: left;
         max-width: 260px;
         h4 {
-          font-size: 25px;
+          font-size: 22px;
           color: #000;
           font-weight: 600;
           text-align: left;
@@ -148,14 +149,13 @@ export default {
         &:nth-child(2) {
           margin: 0 150px 0 327px;
         }
-        &:last-child{
-          max-width:387px;
+        &:last-child {
+          max-width: 387px;
         }
-
       }
     }
     h3 {
-      font-size: 31px;
+      font-size: 22px;
       color: #000;
       margin-bottom: 135px;
       text-align: left;
@@ -182,7 +182,7 @@ export default {
         margin-bottom: 45px;
         ul {
           // float: none;
-        max-width: 2rem;
+          max-width: 2rem;
           h4 {
             font-size: 33px;
           }
@@ -200,7 +200,7 @@ export default {
               width: 28px;
               height: 28px;
               border-radius: 14px;
-              border: 1px solid #e67016;
+              background: #343434;
               position: absolute;
               left: 0;
               top: 0;

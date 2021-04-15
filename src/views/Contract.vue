@@ -167,7 +167,7 @@ export default {
       min-width: 1200px;
     }
     h2 {
-      font-size: 62px;
+      font-size: 80px;
       color: #fff;
       text-align: center;
       width: 100%;
@@ -238,8 +238,8 @@ export default {
           padding-right: 11px;
         }
         h4 {
-          font-size: 28px;
-          color: #000;
+          font-size: 38px;
+          color: #E67016;
           font-weight: 500;
           text-align: left;
           margin-bottom: 20px;
@@ -250,29 +250,31 @@ export default {
           font-weight: 400;
           text-align: left;
           margin-bottom: 10px;
+          color: #343434;
+          font-weight: 100;
           &:nth-child(2) {
             background: url(../assets/image/contract/icon1.png);
             background-position: left top;
             background-repeat: no-repeat;
-            background-size: 18px 27px;
+            background-size: 13px 20px;
           }
           &:nth-child(3) {
             background: url(../assets/image/contract/icon2.png);
             background-position: left 3px;
             background-repeat: no-repeat;
-            background-size: 24px 23px;
+            background-size: 20px 20px;
           }
           &:nth-child(4) {
             background: url(../assets/image/contract/icon3.png);
             background-position: left 2px;
             background-repeat: no-repeat;
-            background-size: 24px 25px;
+            background-size: 20px 15px;
           }
           &:nth-child(5) {
             background: url(../assets/image/contract/icon4.png);
             background-position: left 5px;
             background-repeat: no-repeat;
-            background-size: 26px 19px;
+            background-size: 20px 13px;
           }
         }
       }

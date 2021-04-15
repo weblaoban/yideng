@@ -3,7 +3,7 @@
     <div class="banner">
       <h2>{{ $t("lang.netTitle1") }}</h2>
     </div>
-    <div class="container">
+    <div class="container clear">
       <div class="service">
         <div class="title">
           <div class="circle"></div>
@@ -55,11 +55,11 @@
           <div class="line"></div>
         </div>
         <div class="content clear">
-          <div class="left">
+          <div class="right">
             <img src="../assets/image/service/service2.png" alt />
           </div>
 
-          <div class="right" v-html="$t('lang.servicedes5')">
+          <div class="left" v-html="$t('lang.servicedes5')">
             <p>
               上海伊登国际拥有交通部批准的无船承运人(NVOCC)经营资格。
               <br />主要经营各类货物的海运进出口运输
@@ -67,8 +67,7 @@
               MAERSK, MSC, EVERGREEN, YANGMING,
               WANHAI等多家船公司保持了长久稳定的合作关系。
               <br />上海伊登立志为客户提供
-              <span>更经济、更可靠、更高效</span
-              >的一站式物流服务，船期稳定，运价优惠，是我公司赢得客户青睐的优势之一。
+              <span>更经济、更可靠、更高效</span>的一站式物流服务，船期稳定，运价优惠，是我公司赢得客户青睐的优势之一。
             </p>
           </div>
         </div>
@@ -84,12 +83,8 @@
             <img src="../assets/image/service/service3.png" alt />
           </div>
           <div class="left" v-html="$t('lang.servicedes6')">
-            <p>
-              上海伊登为您提供中欧、中亚、中蒙等跨境铁路运输服务，包括班列订舱服务、报关服务、提货和送货服务、整箱和拼箱服务。
-            </p>
-            <p>
-              我们与国内外数十个铁路口岸保持良好的合作往来，主要包括西安、郑州、成都、重庆、沈阳、武汉、汉堡、华沙、马拉、杜伊斯堡、乌兰巴托、中亚各国铁路口岸等。
-            </p>
+            <p>上海伊登为您提供中欧、中亚、中蒙等跨境铁路运输服务，包括班列订舱服务、报关服务、提货和送货服务、整箱和拼箱服务。</p>
+            <p>我们与国内外数十个铁路口岸保持良好的合作往来，主要包括西安、郑州、成都、重庆、沈阳、武汉、汉堡、华沙、马拉、杜伊斯堡、乌兰巴托、中亚各国铁路口岸等。</p>
           </div>
         </div>
       </div>
@@ -100,16 +95,12 @@
           <div class="line"></div>
         </div>
         <div class="content clear">
-          <div class="left">
+          <div class="right">
             <img src="../assets/image/service/service4.png" alt />
           </div>
-          <div class="right" v-html="$t('lang.servicedes7')">
-            <p>
-              上海伊登国际为客户提供多种合同物流方案，包括国内运输和国内仓储，非保税和保税业务，危险品，冷藏冷冻品以及各类大件项目运输服务。
-            </p>
-            <p>
-              我们在全国搭建了多网络平台，在上海拥有上万平米的转运中心及物流仓储中心。自有及合同车辆千余部，门到门运输服务覆盖全国1,000多个城市。
-            </p>
+          <div class="left" v-html="$t('lang.servicedes7')">
+            <p>上海伊登国际为客户提供多种合同物流方案，包括国内运输和国内仓储，非保税和保税业务，危险品，冷藏冷冻品以及各类大件项目运输服务。</p>
+            <p>我们在全国搭建了多网络平台，在上海拥有上万平米的转运中心及物流仓储中心。自有及合同车辆千余部，门到门运输服务覆盖全国1,000多个城市。</p>
           </div>
         </div>
       </div>
@@ -118,7 +109,7 @@
 </template>
 <script>
 export default {
-  name: "service",
+  name: "service"
 };
 </script>
 <style lang="scss" scoped>
@@ -152,17 +143,28 @@ export default {
 
   .service {
     margin-bottom: 135px;
+    width: 570px;
+    float: left;
+    &:nth-child(2){
+      .left{
+        min-height: 666px;
+      }
+    } 
+    &:nth-child(2), &:nth-child(4){
+      float:right;
+    }
     .left /deep/ p,
     .right /deep/ p {
-      font-size: 28px;
-      color: #000;
-      margin-bottom: 25px;
-      line-height: 43px;
+      font-size: 22px;
+      color: #343434;
+      // margin-bottom: 25px;
+      line-height: 50px;
       text-align: left;
-      font-weight: 400;
+      font-weight: 100;
       span {
-        color: #e67016;
-        font-size: 28px;
+        color: #343434;
+        font-weight: 600;
+        font-size: 22px;
       }
     }
     .title {
@@ -177,7 +179,7 @@ export default {
         margin: 0 auto;
       }
       p {
-        font-size: 37px;
+        font-size: 50px;
         color: #000;
         text-align: center;
         line-height: 82px;
@@ -191,18 +193,19 @@ export default {
 
     .content {
       .left {
-        float: left;
-        width: 574px;
+        // float: left;
+        width: 100%;
       }
       .right {
-        float: right;
-        width: 574px;
+        // float: right;
+        width: 100%;
       }
       img {
         display: block;
+        width: 100%;
       }
       /deep/ ul {
-        margin-bottom: 40px;
+        // margin-bottom: 40px;
         li {
           padding-left: 30px;
           position: relative;

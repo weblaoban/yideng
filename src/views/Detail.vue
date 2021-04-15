@@ -476,25 +476,24 @@ export default {
       width: 100%;
       td {
         width: 25%;
-        height: 40px;
-        font-size: 16px;
+        height: 50px;
+        font-size: 22px;
         &:nth-child(2n + 1) {
-          background: #cecece;
-          color: #000;
+          background: #f8f8f8;
+          color: #787878;
         }
         &:nth-child(2n) {
-          background: #ebebeb;
+          background: #f8f8f8;
           font-weight: 100;
         }
       }
     }
   }
   .basic-title {
-    color: #000;
-    font-size: 22px;
-    font-weight: 300;
+    color: #E67016;
+    font-size: 38px;
     text-align: left;
-    margin-bottom: 9px;
+    margin-bottom: 30px;
   }
   .logistics {
     margin-top: 60px;
@@ -533,16 +532,16 @@ export default {
       }
     }
     .logistics-item-title {
-      color: #000;
-      font-size: 22px;
+      color: #787878;
+      font-size: 30px;
       line-height: 21px;
-      margin-bottom: 10px;
+      margin-bottom: 20px;
     }
     .logistics-item-text {
-      font-size: 16px;
-      color: #000;
+      font-size: 24px;
+      color: #787878;
       font-weight: 100;
-      line-height: 16px;
+      line-height: 30px;
     }
   }
 }

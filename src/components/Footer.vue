@@ -13,12 +13,12 @@
             <p class="desc">{{$t('lang.email')}}contact@eastern-sha.com</p>
           </li>
           <li>
-            <p class="title"  v-text="$t('lang.address2')"></p>
+            <p class="title" v-text="$t('lang.address2')"></p>
             <p class="desc">{{$t('lang.address')}}{{$t('lang.address21')}}</p>
-            <p class="desc">{{$t('lang.phone')}}：+86+21-53080005</p>
+            <p class="desc">{{$t('lang.phone')}}+86+21-53080005</p>
           </li>
           <li>
-            <p class="title"  v-text="$t('lang.address3')">监管仓库</p>
+            <p class="title" v-text="$t('lang.address3')">监管仓库</p>
             <p class="desc">{{$t('lang.address')}}{{$t('lang.address31')}}</p>
             <p class="desc">{{$t('lang.phone')}}+86+21-68351198</p>
           </li>
@@ -38,8 +38,8 @@ export default {
   name: "foot",
   data() {
     return {
-      address: [{ dictionariesValue: '' }, { dictionariesValue: '' }]
-    }
+      address: [{ dictionariesValue: "" }, { dictionariesValue: "" }]
+    };
   },
   props: {
     showFootContent: Boolean
@@ -51,7 +51,7 @@ export default {
     async getAddress() {
       const listData = await this.$API.request(this.$API.address, "POST");
       this.address = listData.data;
-    },
+    }
   }
 };
 </script>
@@ -72,10 +72,10 @@ export default {
       width: 100%;
     }
     h4 {
-      font-size: 28px;
+      font-size: 30px;
       color: #fff;
       text-align: left;
-      line-height: 47px;
+      line-height: 58px;
       font-weight: 600;
     }
     .copyRight {
@@ -94,9 +94,9 @@ export default {
           width: 33%;
           padding-right: 20px;
           p.title {
-            font-size: 28px;
+            font-size: 26px;
             color: #fff;
-            margin-bottom: 20px;
+            margin-bottom: 24px;
             text-align: left;
           }
           p.desc {
@@ -104,9 +104,32 @@ export default {
             color: #fff;
             text-align: left;
             line-height: 44px;
-            font-weight: 400;
+            font-weight: 100;
+            padding-left: 25px;
+            &:nth-child(2) {
+              background: url(../assets/image/contract/icon11.png);
+              background-size: 13.2px 20px;
+              background-repeat: no-repeat;
+              background-position: 0 0.12rem;
+            }
+            &:nth-child(3) {
+              background: url(../assets/image/contract/icon21.png);
+              background-size: 20px 20px;
+              background-repeat: no-repeat;
+              background-position: 0 0.12rem;
+            }
+            &:nth-child(4) {
+              background: url(../assets/image/contract/icon31.png);
+              background-size: 20px 15px;
+              background-repeat: no-repeat;
+              background-position: 0 0.12rem;
+            }
             &:last-child {
               margin-bottom: 18px;
+              background: url(../assets/image/contract/icon41.png);
+              background-size: 20px 13px;
+              background-repeat: no-repeat;
+              background-position: 0 0.12rem;
             }
           }
         }

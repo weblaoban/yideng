@@ -81,12 +81,13 @@ export default {
       }
       p {
         font-size: 37px;
-        color: #000;
+        color: #343434;
         text-align: center;
         line-height: 82px;
+        font-weight: bold;
       }
       .line {
-        width: 187px;
+        width: 150px;
         border-bottom: 4px solid #e67016;
         margin: 0 auto;
       }
@@ -113,14 +114,14 @@ export default {
       }
 
       p {
-        font-size: 25px;
-        color: #000;
+        font-size: 22px;
+        color: #343434;
         margin-bottom: 25px;
         line-height: 43px;
         text-align: left;
         font-weight: 400;
-        span {
-          font-size: 25px;
+        /deep/span {
+          font-size: 22px;
           font-weight: 600;
         }
       }

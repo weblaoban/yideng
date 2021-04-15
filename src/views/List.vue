@@ -1,7 +1,11 @@
 <template>
   <div class="list-box">
     <div class="container">
-      <div class="title">我的货运信息</div>
+      <div class="title">
+        <div class="circle"></div>
+        <p v-text="$t('lang.introduce')">我的货运信息</p>
+        <div class="line"></div>
+      </div>
       <div class="query-box clear">
         <input
           placeholder="输入空运分单号或空运主单号或作业编号进行查询"
@@ -52,10 +56,10 @@ export default {
       list: [],
       total: 0,
       type: {
-        Air: '空运',
-        Rail: '铁路运输',
-        Truck: '陆运',
-        Sea: '海运',
+        Air: "空运",
+        Rail: "铁路运输",
+        Truck: "陆运",
+        Sea: "海运"
       },
       listQuery: {
         pageNo: 1,
@@ -79,10 +83,14 @@ export default {
   },
   methods: {
     async getList() {
-      const listData = await this.$API.request(this.$API.list, "POST", this.listQuery);
-      console.log(listData.data)
+      const listData = await this.$API.request(
+        this.$API.list,
+        "POST",
+        this.listQuery
+      );
+      console.log(listData.data);
       this.list = listData.data.records;
-      this.total = listData.data.total
+      this.total = listData.data.total;
       //   fetchCalendarOrderList(this.listQuery).then(response => {
       //     this.list = response.data.data.list
       //     this.total = response.data.data.total
@@ -93,7 +101,7 @@ export default {
     },
     numClick(type) {
       if (type === "next") {
-        const allPage = Math.ceil(this.total / 10)
+        const allPage = Math.ceil(this.total / 10);
         if (this.listQuery.pageNo >= allPage) {
           return;
         }
@@ -119,8 +127,8 @@ export default {
   background: #fff;
   //   position: relative;
   height: calc(100vh - 72px);
-  align-items: center;
-  display: flex;
+  // align-items: center;
+  // display: flex;
   .container {
     //   position: absolute;
     //   left: 0;
@@ -133,51 +141,73 @@ export default {
     text-align: center;
   }
   .title {
-    font-size: 28px;
-    color: #787878;
-    margin-bottom: 26px;
+    // width: 187px;
+    height: 132px;
+    margin: 0 auto;
+    margin-bottom: 50px;
+    margin-top: 117px;
+    .circle {
+      width: 50px;
+      height: 50px;
+      border-radius: 25px;
+      background: #e67016;
+      margin: 0 auto;
+    }
+    p {
+      font-size: 50px;
+      color: #343434;
+      text-align: center;
+      line-height: 82px;
+      font-weight: bold;
+      // border-bottom: 4px solid #e67016;
+    }
+    .line {
+      width: 150px;
+      border-bottom: 4px solid #e67016;
+      margin: 0 auto;
+    }
   }
   .query-input {
-    width: 800px;
-    height: 50px;
+    width: 1030px;
+    height: 60px;
     border: 1px solid #000000;
     border-radius: 5px;
     // float: left;
-    margin-right: 24px;
+    margin-right: 18px;
     padding: 0 7px;
-    font-size: 16px;
+    font-size: 24px;
     outline: none;
     &::-webkit-input-placeholder {
       /* WebKit browsers */
       color: #cfcfcf;
-      font-size: 16px;
+      font-size: 24px;
     }
     &:-moz-placeholder {
       /* Mozilla Firefox 4 to 18 */
       color: #cfcfcf;
-      font-size: 16px;
+      font-size: 24px;
       //   line-height: 16px;
     }
     &::-moz-placeholder {
       /* Mozilla Firefox 19+ */
       color: #cfcfcf;
-      font-size: 16px;
+      font-size: 24px;
       //   line-height: 16px;
     }
     &:-ms-input-placeholder {
       /* Internet Explorer 10+ */
       color: #cfcfcf;
-      font-size: 16px;
+      font-size: 24px;
       //   line-height: 16px;
     }
   }
   .query-button {
     display: inline-block;
-    width: 108px;
-    height: 52px;
+    width: 150px;
+    height: 60px;
     background: #e67016;
-    line-height: 52px;
-    border-radius: 4px;
+    line-height: 60px;
+    border-radius: 10px;
     // float: left;
     color: #fff;
     cursor: pointer;
@@ -186,18 +216,20 @@ export default {
     width: 100%;
     .table-head {
       th {
-        background: #cecece;
-        color: #000;
-        font-size: 12px;
-        height: 32px;
+        background: #f8f8f8;
+        color: #787878;
+        font-size: 22px;
+        height: 50px;
       }
     }
     .table-body {
       td {
-        background: #ebebeb;
-        color: #000;
-        font-size: 12px;
-        height: 32px;
+        background: #f8f8f8;
+        color: #787878;
+        font-size: 20px;
+        height: 50px;
+        font-weight: 100;
+        // border: 1px solid #FFFFFF;
         &.td-opration {
           color: #e67016;
           cursor: pointer;
@@ -209,52 +241,55 @@ export default {
     margin-top: 30px;
     .page-button {
       display: inline-block;
-      width: 61px;
-      height: 28px;
+      width: 150px;
+      height: 60px;
       background: #e67016;
-      line-height: 28px;
+      line-height: 60px;
       color: #fff;
-      font-size: 16px;
-      border-radius: 5px;
+      border-radius: 10px;
+      font-size: 30ppx;
     }
     .page-query {
       margin: 0 10px;
     }
     .page-input {
-      width: 28px;
-      height: 28px;
-      border: 1px solid #000;
+      width: 60px;
+      height: 60px;
+      border: 1px solid #343434;
       border-radius: 5px;
-      font-size: 13px;
+      font-size: 30px;
       outline: none;
+      color: #787878;
+      text-align: center;
+      margin-right: 10px;
       &::-webkit-input-placeholder {
         /* WebKit browsers */
-        color: #000;
-        font-size: 13px;
+        color: #787878;
+        font-size: 30px;
         // line-height: 12px;
       }
       &:-moz-placeholder {
         /* Mozilla Firefox 4 to 18 */
-        color: #000;
-        font-size: 13px;
+        color: #787878;
+        font-size: 30px;
         // line-height: 12px;
       }
       &::-moz-placeholder {
         /* Mozilla Firefox 19+ */
         color: #000;
-        font-size: 13px;
+        font-size: 30px;
         // line-height: 12px;
       }
       &:-ms-input-placeholder {
         /* Internet Explorer 10+ */
         color: #000;
-        font-size: 13px;
+        font-size: 30px;
         // line-height: 28px;
       }
     }
     .page-total {
-      color: #000;
-      font-size: 16px;
+      color: #787878;
+      font-size: 30px;
     }
   }
 }

@@ -2,7 +2,7 @@
   <div class="header">
     <div class="container">
       <div class="logo">
-        <img src="../assets/image/logo-1.png" alt />
+       EASTERN
       </div>
       <div class="navigation">
         <div class="burger" @click="showNavigation()">
@@ -179,9 +179,12 @@ export default {
 };
 </script>
 <style scoped lang="scss">
-.logo img {
-  width: 430px;
-  margin-top: 8px;
+.logo {
+  color: #e67016;
+  font-size: 56px;
+  font-family: Noto Sans S Chinese;
+  font-weight: bold;
+  line-height: 82px;
 }
 .burger {
   display: none;
@@ -190,7 +193,7 @@ export default {
   display: none !important;
 }
 .header {
-  height: 74px;
+  height: 82px;
   background: #fff;
   width: 100%;
   min-width: 1200px;
@@ -233,7 +236,7 @@ export default {
 
     .userInfo {
       position: absolute;
-      top: 72px;
+      top: 80px;
       right: 0;
       z-index: 99;
       li {
@@ -299,7 +302,7 @@ export default {
 
 .navigation {
   flex: 1;
-  margin-left: 65px;
+  margin-left: 59px;
   .navigationContent {
     z-index: 99;
     display: flex;
@@ -314,8 +317,8 @@ export default {
     }
     li {
       cursor: pointer;
-      line-height: 72px;
-      font-size: 22px;
+      line-height: 80px;
+      font-size: 24px;
       color: #787878;
       padding: 0 16px;
 
