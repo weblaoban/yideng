@@ -45,24 +45,21 @@ export default {
   .banner {
     position: relative;
     margin-bottom: 120px;
-    height: 388px;
+    height: 648px;
     background: url("../assets/image/banner2.png");
     background-size: 100% 100%;
     background-position: top center;
     background-repeat: no-repeat;
     h2 {
-      font-size: 62px;
+      font-size: 80px;
       color: #fff;
       text-align: center;
       width: 100%;
       position: absolute;
-      top: 0;
-      left: 0;
-      bottom: 0;
-      right: 0;
-      margin: auto;
+      top: 50%;
       font-weight: 500;
-      height: 60px;
+      height: 80px;
+      margin-top: -60px;
     }
   }
 

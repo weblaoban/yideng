@@ -9,7 +9,6 @@
             <p class="title" v-text="$t('lang.address1')"></p>
             <p class="desc">{{$t('lang.address')}}{{ address[0].dictionariesValue }}</p>
             <p class="desc">{{$t('lang.phone')}}{{ address[1].dictionariesValue }}</p>
-            <p class="desc">{{$t('lang.chuanzhen')}}+86-21-53089827</p>
             <p class="desc">{{$t('lang.email')}}contact@eastern-sha.com</p>
           </li>
           <li>
@@ -106,6 +105,7 @@ export default {
             line-height: 44px;
             font-weight: 100;
             padding-left: 25px;
+            margin-bottom: 30px;
             &:nth-child(2) {
               background: url(../assets/image/contract/icon11.png);
               background-size: 13.2px 20px;
@@ -115,12 +115,6 @@ export default {
             &:nth-child(3) {
               background: url(../assets/image/contract/icon21.png);
               background-size: 20px 20px;
-              background-repeat: no-repeat;
-              background-position: 0 0.12rem;
-            }
-            &:nth-child(4) {
-              background: url(../assets/image/contract/icon31.png);
-              background-size: 20px 15px;
               background-repeat: no-repeat;
               background-position: 0 0.12rem;
             }

@@ -112,7 +112,7 @@ export default {
     }
   }
   .container {
-    margin-bottom: 160px;
+    margin-bottom: 134px;
     ul {
       li {
         width: 25%;
