@@ -524,7 +524,7 @@ export default {
       }
       .logistics-item {
         margin-left: 17px;
-        padding-bottom: 28px;
+        padding-bottom: 172px;
         position: relative;
         &::before {
           content: "";
@@ -532,7 +532,7 @@ export default {
           width: 2px;
           background: #e67016;
           height: 100%;
-          left: -15px;
+          left: -25px;
         }
         &:last-child {
           padding-bottom: 0;
