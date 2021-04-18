@@ -83,28 +83,30 @@ export default {
   name: "List",
   data() {
     return {
-      list: [{
-        transportation: 'Air',
-        orderNumber: 122344,
-        departure: 233344,
-        destinationPort: 'eiuii',
-        flightInfo: 'jujjjjjjj',
-        id: 1,
-      }, {
-        transportation: 'Air',
-        orderNumber: 122344,
-        departure: 233344,
-        destinationPort: 'eiuii',
-        flightInfo: 'jujjjjjjj',
-        id: 1,
-      }, {
-        transportation: 'Air',
-        orderNumber: 122344,
-        departure: 233344,
-        destinationPort: 'eiuii',
-        flightInfo: 'jujjjjjjj',
-        id: 1,
-      }],
+      list: [
+      //   {
+      //   transportation: 'Air',
+      //   orderNumber: 122344,
+      //   departure: 233344,
+      //   destinationPort: 'eiuii',
+      //   flightInfo: 'jujjjjjjj',
+      //   id: 1,
+      // }, {
+      //   transportation: 'Air',
+      //   orderNumber: 122344,
+      //   departure: 233344,
+      //   destinationPort: 'eiuii',
+      //   flightInfo: 'jujjjjjjj',
+      //   id: 1,
+      // }, {
+      //   transportation: 'Air',
+      //   orderNumber: 122344,
+      //   departure: 233344,
+      //   destinationPort: 'eiuii',
+      //   flightInfo: 'jujjjjjjj',
+      //   id: 1,
+      // }
+      ],
       total: 0,
       type: {
         Air: "空运",

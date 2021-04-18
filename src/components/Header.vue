@@ -1,9 +1,7 @@
 <template>
   <div class="header">
     <div class="container">
-      <div class="logo">
-       EASTERN
-      </div>
+      <div class="logo">EASTERN</div>
       <div class="navigation">
         <div class="burger" @click="showNavigation()">
           <img src="../assets/image/mobile/burger.png" alt />
@@ -11,22 +9,26 @@
         <div class="navigationContent" ref="navigationContent">
           <ul class="nav">
             <li
-              v-for="(item,index) in $t('lang.menu')"
+              v-for="(item, index) in $t('lang.menu')"
               :key="index"
               :index="index"
               :route="item.path"
-              :class="index===3?'languange':index===active?'active':''"
-              @click="changeLanguage(item,index)"
-            >{{ item.name }}</li>
+              :class="
+                index === 3 ? 'languange' : index === active ? 'active' : ''
+              "
+              @click="changeLanguage(item, index)"
+            >
+              {{ item.name }}
+            </li>
           </ul>
-          <ul class="info" v-if=" isLogin">
+          <ul class="info" v-if="isLogin">
             <li @click="showOperation" class="userName showInPc">
               <p v-text="$t('lang.welcome')"></p>
               <p v-text="name"></p>
             </li>
-            <li @click="showOperation" class="userName showInMobile">
+            <li @click="showOperation" :class="isShowOperation ? 'userName showInMobile userNameOPeration' : 'userName showInMobile'">
               <p>
-                {{$t('lang.welcome')}}
+                {{ $t("lang.welcome") }}
                 <span v-text="name"></span>
               </p>
             </li>
@@ -51,14 +53,14 @@ export default {
   data() {
     return {
       loading: false,
-      isShowNavigation: true
+      isShowNavigation: true,
     };
   },
   props: {
     isLoginProps: Boolean,
     userName: String,
     active: Number,
-    isShowOperation: Boolean
+    isShowOperation: Boolean,
   },
   computed: {
     isLogin() {
@@ -74,7 +76,7 @@ export default {
         ? localStorage.getItem("userInfo")
         : sessionStorage.getItem("userInfo");
       return tokenData ? JSON.parse(tokenData).customerName : this.userName;
-    }
+    },
   },
   methods: {
     ...mapActions([
@@ -82,7 +84,7 @@ export default {
       "setLoginMaskHeight",
       "setIsLogin",
       "setTipMessage",
-      "setLocale"
+      "setLocale",
     ]),
     changeLanguage(item, index) {
       const path = item.path;
@@ -174,8 +176,8 @@ export default {
           }, 30);
         }, 2000);
       }
-    }
-  }
+    },
+  },
 };
 </script>
 <style scoped lang="scss">
@@ -343,7 +345,7 @@ export default {
   clear: both;
 }
 @media screen and (max-width: 750px) {
-  .logo{
+  .logo {
     font-size: 76px;
     line-height: 129px;
   }
@@ -398,7 +400,7 @@ export default {
       }
       li {
         width: 100%;
-        background: #ECECEC;
+        background: #ececec;
         height: 80px;
         font-size: 43px;
         line-height: 80px;
@@ -410,34 +412,61 @@ export default {
     float: none;
     .userInfo {
       width: 100%;
-      top: 0.94rem;
+      top: 0.8rem;
       li {
         width: 100%;
-        background: #e4e4e4;
-        height: 0.94rem;
-        font-size: 0.3rem;
-        line-height: 0.94rem;
+        background: #fff;
+        height: 0.8rem;
+        font-size: 0.44rem;
+        line-height: 0.8rem;
+        // border: 1px solid #787878;
+        border: none;
+        position: relative;
+        &::after {
+          content: "";
+          position: absolute;
+          left: 0;
+          top: 0;
+          // z-index: -1;
+          width: 200%;
+          height: 200%;
+          border: 1px solid #787878;
+          -webkit-transform-origin: left top;
+          transform-origin: left top;
+          -webkit-transform: scale(0.5, 0.5);
+          transform: scaleY(0.5, 0.5);
+          // border-radius: 10px;
+        }
         &:first-child {
           margin-bottom: 0;
+          &::after{
+            border-bottom: none;
+          }
         }
       }
     }
     .userName {
+      &.userNameOPeration{
+        background: #E67016;
+        p{ 
+          color: #fff;
+        }
+      }
       p {
-        line-height: 94px;
-        font-size: 0.3rem;
+        line-height: 80px;
+        font-size: 0.44rem;
         span {
-          font-size: 0.3rem;
+          font-size: 0.44rem;
           position: relative;
-          &:after {
-            content: "";
-            display: block;
-            border: 8px solid transparent;
-            border-top: 12px solid #787878;
-            position: absolute;
-            bottom: 3px;
-            right: 0;
-          }
+          // &:after {
+          //   content: "";
+          //   display: block;
+          //   border: 8px solid transparent;
+          //   border-top: 12px solid #787878;
+          //   position: absolute;
+          //   bottom: 3px;
+          //   right: 0;
+          // }
         }
       }
       &:after {
