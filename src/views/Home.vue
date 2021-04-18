@@ -158,14 +158,23 @@ export default {
     min-width: auto;
     .banner {
       width: 750px;
-      height: 546px;
+      height: 400px;
       background: url("../assets/image/mobile/mobileBanner1.png");
       background-size: 100% 100%;
       background-position: top center;
       background-repeat: no-repeat;
+      margin-bottom: 160px;
       .h2 {
+        margin-top: -1.1rem;
         h2 {
-          margin-bottom: 30px;
+          margin-bottom: 18px;
+          font-size: 56px;
+          line-height: 95px;
+        }
+        h4{
+          padding: 0 103px;
+          font-size: 32px;
+          line-height: 54px;
         }
       }
     }
@@ -174,34 +183,35 @@ export default {
         li {
           float: none;
           width: 100%;
-          margin-bottom: 275px;
-          height: 383px;
-          padding-top: 332px;
+          margin-bottom: 80px;
+          height: 300px;
+          padding-top: 240px;
           p {
-            color: #131313;
-            font-size: 54px;
+            color: #343434;
+            font-size: 36px;
+            line-height: 61px;
           }
           &:nth-child(2) {
             background: url("../assets/image/index_img1.png");
-            background-size: 300px 300px;
+            background-size: 200px 200px;
             background-position: top center;
             background-repeat: no-repeat;
           }
           &:nth-child(3) {
             background: url("../assets/image/index_img2.png");
-            background-size: 319px 285px;
+            background-size: 200px 178px;
             background-position: top center;
             background-repeat: no-repeat;
           }
           &:nth-child(4) {
             background: url("../assets/image/index_img3.png");
-            background-size: 329px 293px;
+            background-size: 200px 178px;
             background-position: top center;
             background-repeat: no-repeat;
           }
           &:nth-child(1) {
             background: url("../assets/image/index_img4.png");
-            background-size: 285px 278px;
+            background-size: 200px 200px;
             background-position: top center;
             background-repeat: no-repeat;
           }

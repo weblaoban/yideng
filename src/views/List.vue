@@ -3,7 +3,7 @@
     <div class="container">
       <div class="title">
         <div class="circle"></div>
-        <p v-text="$t('lang.introduce')">我的货运信息</p>
+        <p>我的货运信息</p>
         <div class="line"></div>
       </div>
       <div class="query-box clear">
@@ -27,20 +27,50 @@
         </thead>
         <tbody class="table-body">
           <tr v-for="(item, index) in list" :key="index">
-            <td>{{ type[item.transportation] }}</td>
+            <td>{{ type[item.transportation] || item.transportation }}</td>
             <td>{{ item.orderNumber }}</td>
             <td>{{ item.departure }}</td>
             <td>{{ item.destinationPort }}</td>
             <td>{{ item.flightInfo }}</td>
-            <td class="td-opration" @click="$router.push(`/detail/${item.id}`)">查看详情</td>
+            <td class="td-opration" @click="$router.push(`/detail/${item.id}`)">
+              查看详情
+            </td>
           </tr>
         </tbody>
       </table>
+      <div class="mobile-list">
+        <div v-for="(item, index) in list" :key="index" class="mobile-item">
+          <div class="mobile-inner">
+            <div class="item-title">运输方式</div>
+            <div class="item-value">{{ type[item.transportation] || item.transportation }}</div>
+          </div>
+          <div class="mobile-inner">
+            <div class="item-title">主单号/运单号/收货凭据</div>
+            <div class="item-value">{{ item.orderNumber }}</div>
+          </div>
+          <div class="mobile-inner">
+            <div class="item-title">出发港/地</div>
+            <div class="item-value">{{ item.departure }}</div>
+          </div>
+          <div class="mobile-inner">
+            <div class="item-title">目的港/地</div>
+            <div class="item-value">{{ item.destinationPort }}</div>
+          </div>
+          <div class="mobile-inner">
+            <div class="item-title">航班/航次/车牌/班次信息</div>
+            <div class="item-value">{{ item.flightInfo }}</div>
+          </div>
+          <div class="mobile-inner">
+            <div class="item-title">操作</div>
+            <div class="item-value item-option" @click="$router.push(`/detail/${item.id}`)">查看详情</div>
+          </div>
+        </div>
+      </div>
       <div class="page-box">
         <span class="page-button" @click="numClick('pre')">上一页</span>
         <span class="page-query">
           <input class="page-input" v-model="listQuery.pageNo" />
-          <span class="page-total">/{{ Math.ceil(total/10) }}</span>
+          <span class="page-total">/{{ Math.ceil(total / 10) }}</span>
         </span>
         <span class="page-button" @click="numClick('next')">下一页</span>
       </div>
@@ -53,19 +83,40 @@ export default {
   name: "List",
   data() {
     return {
-      list: [],
+      list: [{
+        transportation: 'Air',
+        orderNumber: 122344,
+        departure: 233344,
+        destinationPort: 'eiuii',
+        flightInfo: 'jujjjjjjj',
+        id: 1,
+      }, {
+        transportation: 'Air',
+        orderNumber: 122344,
+        departure: 233344,
+        destinationPort: 'eiuii',
+        flightInfo: 'jujjjjjjj',
+        id: 1,
+      }, {
+        transportation: 'Air',
+        orderNumber: 122344,
+        departure: 233344,
+        destinationPort: 'eiuii',
+        flightInfo: 'jujjjjjjj',
+        id: 1,
+      }],
       total: 0,
       type: {
         Air: "空运",
         Rail: "铁路运输",
         Truck: "陆运",
-        Sea: "海运"
+        Sea: "海运",
       },
       listQuery: {
         pageNo: 1,
         pageSize: 10,
-        keywords: undefined
-      }
+        keywords: undefined,
+      },
     };
   },
   //创建前设置
@@ -117,8 +168,8 @@ export default {
     query() {
       this.listQuery.pageNo = 1;
       this.getList();
-    }
-  }
+    },
+  },
 };
 </script>
 
@@ -135,6 +186,9 @@ export default {
     //   right: 0;
     //   top: 0;
     //   bottom: 0;
+  }
+  .mobile-list {
+    display: none;
   }
   .query-box {
     margin-bottom: 34px;
@@ -170,7 +224,7 @@ export default {
   .query-input {
     width: 1030px;
     height: 60px;
-    border: 1px solid #000000;
+    border: 1px solid #343434;
     border-radius: 5px;
     // float: left;
     margin-right: 18px;
@@ -298,89 +352,153 @@ export default {
   .list-box {
     align-items: flex-start;
     padding-top: 146px;
-    .query-input {
-      width: 100%;
+    padding-bottom: 160px;
+    height: auto;
+    .mobile-list {
       display: block;
-      margin-right: 0;
-      margin-bottom: 27px;
-      border: 2px solid #000;
-    }
-    .title {
-      font-size: 38px;
-    }
-    .query-button {
-      width: 137px;
-      //   height: 51px;
-      border-radius: 20px;
-      line-height: normal;
-      padding: 14px 0;
-      height: auto;
+      .mobile-item{
+        background: #F8F8F8;
+        padding: 80px 40px;
+        color: #787878;
+        font-size: 44px;
+        line-height: 44px;
+        text-align: left;
+        margin-bottom: 160px;
+        .mobile-inner{
+          margin-bottom: 80px;
+          &:last-child{
+            margin-bottom: 0;
+          }
+        }
+        .item-title{
+          font-weight: bold;
+          margin-bottom: 40px;
+        }
+        .item-value{
+          font-weight: 300;
+          &.item-option{
+            color: #E67016;
+          }
+        }
+      }
     }
     .table-list {
+      display: none;
+    }
+    .query-input {
       width: 100%;
-      .table-head {
-        th {
-          width: 16.6666%;
-          font-size: 16px;
-          height: 46px;
-          zoom: 0.5;
-        }
+      height: 120px;
+      display: block;
+      margin-right: 0;
+      margin-bottom: 80px;
+      border: 2px solid #343434;
+      font-size: 28px;
+      &::-webkit-input-placeholder {
+        /* WebKit browsers */
+        color: #787878;
+        font-size: 28px;
       }
-      .table-body {
-        td {
-          font-size: 14px;
-          height: 46px;
-          zoom: 0.5;
-        }
+      &:-moz-placeholder {
+        /* Mozilla Firefox 4 to 18 */
+        color: #787878;
+        font-size: 28px;
+        //   line-height: 16px;
       }
+      &::-moz-placeholder {
+        /* Mozilla Firefox 19+ */
+        color: #787878;
+        font-size: 28px;
+        //   line-height: 16px;
+      }
+      &:-ms-input-placeholder {
+        /* Internet Explorer 10+ */
+        color: #787878;
+        font-size: 28px;
+        //   line-height: 16px;
+      }
+    }
+    .query-box{
+      margin-bottom: 140px;
+    }
+    .title {
+      height: 195px;
+      margin-top: 0;
+      .circle {
+        width: 80px;
+        height: 80px;
+        border-radius: 50%;
+        margin-bottom: 20px;
+      }
+      p {
+        font-size: 52px;
+        line-height: 52px;
+        margin-bottom: 20px;
+        font-family: Noto Sans S Chinese;
+        font-weight: bold;
+      }
+    }
+    .query-button {
+      width: 180px;
+      // height: 51px;
+      border-radius: 0;
+      line-height: normal;
+      padding: 20px 0;
+      height: auto;
+      font-size: 40px;
+      line-height: 40px;
+      border-radius: 10px;
     }
     .page-box {
       margin-top: 30px;
+      // display: flex;
+      // justify-content: space-between;
+      // align-items: center;
       .page-button {
         display: inline-block;
-        width: 91px;
-        height: 43px;
-        line-height: 43px;
-        font-size: 24px;
+        width: 180px;
+        font-size: 40px;
+        padding: 20px 0;
+        line-height: 40px;
+        height: auto;
       }
       .page-query {
-        margin: 0 10px;
+        margin: 0 40px;
       }
       .page-input {
-        width: 42px;
-        height: 42px;
-        border: 2px solid #000;
-        border-radius: 5px;
-        font-size: 19px;
+        width: 80px;
+        height: 80px;
+        border: 2px solid #343434;
+        border-radius: 10px;
+        font-size: 40px;
         outline: none;
         &::-webkit-input-placeholder {
           /* WebKit browsers */
-          color: #000;
-          font-size: 19px;
+          color: #787878;
+          font-size: 40px;
           // line-height: 12px;
         }
         &:-moz-placeholder {
           /* Mozilla Firefox 4 to 18 */
-          color: #000;
-          font-size: 19px;
+          color: #787878;
+          font-size: 40px;
           // line-height: 12px;
         }
         &::-moz-placeholder {
           /* Mozilla Firefox 19+ */
-          color: #000;
-          font-size: 19px;
+          color: #787878;
+          font-size: 40px;
           // line-height: 12px;
         }
         &:-ms-input-placeholder {
           /* Internet Explorer 10+ */
-          color: #000;
-          font-size: 19px;
+          color: #787878;
+          font-size: 40px;
           // line-height: 28px;
         }
       }
       .page-total {
-        color: #000;
-        font-size: 16px;
+        color: #787878;
+        font-size: 40px;
       }
     }
   }

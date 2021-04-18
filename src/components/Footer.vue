@@ -7,28 +7,37 @@
         <ul class="clear">
           <li>
             <p class="title" v-text="$t('lang.address1')"></p>
-            <p class="desc">{{$t('lang.address')}}{{ address[0].dictionariesValue }}</p>
-            <p class="desc">{{$t('lang.phone')}}{{ address[1].dictionariesValue }}</p>
-            <p class="desc">{{$t('lang.email')}}contact@eastern-sha.com</p>
+            <p class="desc">
+              {{ $t("lang.address") }}{{ address[0].dictionariesValue }}
+            </p>
+            <p class="desc">
+              {{ $t("lang.phone") }}{{ address[1].dictionariesValue }}
+            </p>
+            <p class="desc">{{ $t("lang.email") }}contact@eastern-sha.com</p>
           </li>
           <li>
             <p class="title" v-text="$t('lang.address2')"></p>
-            <p class="desc">{{$t('lang.address')}}{{$t('lang.address21')}}</p>
-            <p class="desc">{{$t('lang.phone')}}+86+21-53080005</p>
+            <p class="desc">
+              {{ $t("lang.address") }}{{ $t("lang.address21") }}
+            </p>
+            <p class="desc">{{ $t("lang.phone") }}+86+21-53080005</p>
           </li>
           <li>
             <p class="title" v-text="$t('lang.address3')">监管仓库</p>
-            <p class="desc">{{$t('lang.address')}}{{$t('lang.address31')}}</p>
-            <p class="desc">{{$t('lang.phone')}}+86+21-68351198</p>
+            <p class="desc">
+              {{ $t("lang.address") }}{{ $t("lang.address31") }}
+            </p>
+            <p class="desc">{{ $t("lang.phone") }}+86+21-68351198</p>
           </li>
         </ul>
       </div>
     </div>
     <div class="container">
       <img src="../assets/image/line.png" alt />
-      <p
-        class="copyRight"
-      >Copyright © 2020. Shanghai Eastern Network Logistics Co.,Ltd All rights reserved.</p>
+      <p class="copyRight">
+        Copyright © 2020. Shanghai Eastern Network Logistics Co.,Ltd All rights
+        reserved.
+      </p>
     </div>
   </div>
 </template>
@@ -37,11 +46,11 @@ export default {
   name: "foot",
   data() {
     return {
-      address: [{ dictionariesValue: "" }, { dictionariesValue: "" }]
+      address: [{ dictionariesValue: "" }, { dictionariesValue: "" }],
     };
   },
   props: {
-    showFootContent: Boolean
+    showFootContent: Boolean,
   },
   created() {
     this.getAddress();
@@ -50,8 +59,8 @@ export default {
     async getAddress() {
       const listData = await this.$API.request(this.$API.address, "POST");
       this.address = listData.data;
-    }
-  }
+    },
+  },
 };
 </script>
 <style lang="scss" scoped>
@@ -135,11 +144,15 @@ export default {
 @media screen and (max-width: 750px) {
   #foot {
     min-width: auto;
-    padding-top: 70px;
-    padding-bottom: 92px;
+    padding-top: 160px;
+    padding-bottom: 80px;
     .container {
       width: 100%;
-      padding: 0 30px;
+      padding: 0 16px;
+      h4 {
+        font-size: 36px;
+        font-weight: bold;
+      }
       .infoContent {
         ul {
           width: 100%;
@@ -150,18 +163,49 @@ export default {
             float: none;
             width: 100%;
             padding-right: 0;
-            margin-bottom: 49px;
+            margin-bottom: 160px;
             &:last-child {
-              margin-bottom: 26px;
+              margin-bottom: 86px;
             }
             p.title {
-              margin-bottom: 0.1rem;
+              font-size: 44px;
+              font-weight: bold;
+              margin-bottom: 40px;
+            }
+            p.desc {
+              font-size: 32px;
+              color: #fff;
+              text-align: left;
+              // line-height: 72px;
+              font-weight: 100;
+              padding-left: 50px;
+              margin-bottom: 40px;
+              &:nth-child(2) {
+                background: url(../assets/image/contract/icon11.png);
+                background-size: 27px 40px;
+                background-repeat: no-repeat;
+                background-position: 0 0;
+              }
+              &:nth-child(3) {
+                background: url(../assets/image/contract/icon21.png);
+                background-size: 40px 40px;
+                background-repeat: no-repeat;
+                background-position: 0 0;
+              }
+              &:last-child {
+                margin-bottom: 18px;
+                background: url(../assets/image/contract/icon41.png);
+                background-size: 40px 26px;
+                background-repeat: no-repeat;
+                background-position: 0 0.12rem;
+              }
             }
           }
         }
       }
       .copyRight {
-        font-size: 13px;
+        font-size: 19px;
+        line-height: 25px;
       }
     }
   }

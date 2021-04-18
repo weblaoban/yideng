@@ -165,26 +165,58 @@ export default {
     min-width: auto;
     .banner {
       width: 750px;
-      height: 546px;
+      height: 400px;
       background: url("../assets/image/mobile/mobileBanner1.png");
       background-size: 100% 100%;
       background-position: top center;
       background-repeat: no-repeat;
+      margin-bottom: 160px;
+      h2{
+        font-size: 56px;
+        height: 0.56rem;
+        line-height: 0.56rem;
+        margin-top: -0.28rem;
+        font-weight: bold;
+      }
+    }
+    .title {
+      height: 195px;
+      .circle {
+        width: 80px;
+        height: 80px;
+        border-radius: 50%;
+        margin-bottom: 20px;
+      }
+      p {
+        font-size: 52px;
+        line-height: 52px;
+        margin-bottom: 20px;
+        font-family: Noto Sans S Chinese;
+        font-weight: bold;
+      }
     }
     .introduce {
       p {
-        font-size: 33px;
+        font-size: 32px;
+        font-weight: 300;
+        margin-bottom: 80px;
+      }
+      h3{
+        font-size: 32px;
+        line-height: 50px;
+        color: #343434;
       }
       .section {
         margin-bottom: 45px;
         ul {
-          // float: none;
-          max-width: 2rem;
+          float: none;
+          // max-width: 2rem;
+          // margin-bottom: 80px;
           h4 {
             font-size: 33px;
           }
           &:nth-child(2) {
-            margin: 0 33px 50px 160px;
+            margin: 80px 0 80px;
           }
           &:nth-child(3) {
             max-width: 100%;
@@ -209,9 +241,10 @@ export default {
       }
       ul {
         float: none;
-        &:nth-child(2) {
-          margin: 0;
-        }
+        margin-bottom: 80px;
+        // &:nth-child(2) {
+        //   margin: 0;
+        // }
         h4 {
           font-size: 33px;
         }
@@ -223,7 +256,6 @@ export default {
             width: 28px;
             height: 28px;
             border-radius: 14px;
-            border: 1px solid #e67016;
             position: absolute;
             left: 0;
             top: 0;

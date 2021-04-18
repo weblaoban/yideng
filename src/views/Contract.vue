@@ -282,33 +282,41 @@ export default {
   #contract {
     min-width: auto;
     .banner {
+      height: 400px;
+      margin-bottom: 160px;
+      h2 {
+        font-size: 56px;
+        height: 0.56rem;
+        line-height: 0.56rem;
+        margin-top: -0.28rem;
+        font-weight: bold;
+      }
       img {
         min-width: auto;
       }
     }
     #container {
-      height: 400px;
-      margin-bottom: 69px;
+      height: 448px;
+      margin-bottom: 160px;
     }
 
     .contract {
-      margin-bottom: 120px;
+      margin-bottom: 156px;
       .title {
-        height: 132px;
-        margin: 0 auto;
-        margin-bottom: 40px;
+        height: 195px;
+        margin-bottom: 78px;
         .circle {
-          width: 50px;
-          height: 50px;
-          border-radius: 25px;
-          background: #e67016;
-          margin: 0 auto;
+          width: 80px;
+          height: 80px;
+          border-radius: 50%;
+          margin-bottom: 20px;
         }
         p {
-          font-size: 37px;
-          color: #000;
-          text-align: center;
-          line-height: 82px;
+          font-size: 52px;
+          line-height: 52px;
+          margin-bottom: 20px;
+          font-family: Noto Sans S Chinese;
+          font-weight: bold;
         }
         .line {
           width: 187px;
@@ -325,37 +333,33 @@ export default {
           width: 100% !important;
           border-right: none !important;
           // padding-right: 0 !important;
-          padding-left: 100px;
-          padding-right: 100px;
+          padding-left: 0 !important;
+          padding-right: 0 !important;
           &:first-child {
-            border-bottom: 1px solid #e67016;
-            padding-bottom: 60px;
-            padding-left: 100px;
-            padding-right: 100px;
+            padding-bottom: 160px;
           }
           &:nth-child(2) {
-            border-bottom: 1px solid #e67016;
-            padding-bottom: 60px;
-            padding-top: 74px;
-            padding-left: 100px;
-            padding-right: 100px;
+            padding-bottom: 160px;
+            li{
+              &:nth-child(2){
+                font-size: 28px;
+              }
+            }
           }
           &:nth-child(3) {
-            padding-top: 74px;
-            padding-left: 100px;
-            padding-right: 100px;
+            // padding-top: 74px;
           }
           h4 {
-            font-size: 42px;
-            color: #000;
-            font-weight: 500;
+            font-size: 55px;
+            color: #E67016;
+            font-weight: bold;
             text-align: left;
-            margin-bottom: 20px;
+            margin-bottom: 40px;
           }
           li {
             // padding-left: 30px;
-            font-size: 33px;
-            font-weight: 400;
+            font-size: 32px;
+            font-weight: 300;
             text-align: left;
             margin-bottom: 19px;
             // padding: 0 130px;

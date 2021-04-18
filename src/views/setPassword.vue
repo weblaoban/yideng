@@ -142,7 +142,7 @@ export default {
       width: 454px;
       height: 38px;
       outline: none;
-      border: 1px solid #000;
+      border: 1px solid #343434;
       border-radius: 5px;
       padding: 0 10px;
       font-size: 22px;
@@ -184,6 +184,25 @@ export default {
 @media screen and (max-width: 750px) {
   #modifyPas {
     padding: 0 33px;
+    .title {
+      padding-left: 0;
+      height: 195px;
+      margin-top: 160px;
+      margin-bottom: 78px;
+      .circle {
+        width: 80px;
+        height: 80px;
+        border-radius: 50%;
+        margin-bottom: 20px;
+      }
+      p {
+        font-size: 52px;
+        line-height: 52px;
+        margin-bottom: 20px;
+        font-family: Noto Sans S Chinese;
+        font-weight: bold;
+      }
+    }
     & > p {
       font-size: 38px;
       margin-top: 146px;
@@ -220,12 +239,12 @@ export default {
       width: 100%;
       padding-left: 0;
       .button {
-        width: 169px;
-        height: 63px;
-        line-height: 63px;
+        width: 180px;
+        height: 80px;
+        line-height: 80px;
         background: #e67016;
         color: #fff;
-        font-size: 28px;
+        font-size: 40px;
         border-radius: 10px;
         cursor: pointer;
         margin: 0 auto;

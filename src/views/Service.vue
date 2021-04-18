@@ -51,7 +51,7 @@
       <div class="service">
         <div class="title">
           <div class="circle"></div>
-          <p>{{$t('lang.serviceTitle2')}}</p>
+          <p>{{ $t("lang.serviceTitle2") }}</p>
           <div class="line"></div>
         </div>
         <div class="content clear">
@@ -67,7 +67,8 @@
               MAERSK, MSC, EVERGREEN, YANGMING,
               WANHAI等多家船公司保持了长久稳定的合作关系。
               <br />上海伊登立志为客户提供
-              <span>更经济、更可靠、更高效</span>的一站式物流服务，船期稳定，运价优惠，是我公司赢得客户青睐的优势之一。
+              <span>更经济、更可靠、更高效</span
+              >的一站式物流服务，船期稳定，运价优惠，是我公司赢得客户青睐的优势之一。
             </p>
           </div>
         </div>
@@ -75,7 +76,7 @@
       <div class="service">
         <div class="title">
           <div class="circle"></div>
-          <p>{{$t('lang.serviceTitle3')}}</p>
+          <p>{{ $t("lang.serviceTitle3") }}</p>
           <div class="line"></div>
         </div>
         <div class="content clear">
@@ -83,15 +84,19 @@
             <img src="../assets/image/service/service3.png" alt />
           </div>
           <div class="left" v-html="$t('lang.servicedes6')">
-            <p>上海伊登为您提供中欧、中亚、中蒙等跨境铁路运输服务，包括班列订舱服务、报关服务、提货和送货服务、整箱和拼箱服务。</p>
-            <p>我们与国内外数十个铁路口岸保持良好的合作往来，主要包括西安、郑州、成都、重庆、沈阳、武汉、汉堡、华沙、马拉、杜伊斯堡、乌兰巴托、中亚各国铁路口岸等。</p>
+            <p>
+              上海伊登为您提供中欧、中亚、中蒙等跨境铁路运输服务，包括班列订舱服务、报关服务、提货和送货服务、整箱和拼箱服务。
+            </p>
+            <p>
+              我们与国内外数十个铁路口岸保持良好的合作往来，主要包括西安、郑州、成都、重庆、沈阳、武汉、汉堡、华沙、马拉、杜伊斯堡、乌兰巴托、中亚各国铁路口岸等。
+            </p>
           </div>
         </div>
       </div>
       <div class="service">
         <div class="title">
           <div class="circle"></div>
-          <p>{{$t('lang.serviceTitle4')}}</p>
+          <p>{{ $t("lang.serviceTitle4") }}</p>
           <div class="line"></div>
         </div>
         <div class="content clear">
@@ -99,8 +104,12 @@
             <img src="../assets/image/service/service4.png" alt />
           </div>
           <div class="left" v-html="$t('lang.servicedes7')">
-            <p>上海伊登国际为客户提供多种合同物流方案，包括国内运输和国内仓储，非保税和保税业务，危险品，冷藏冷冻品以及各类大件项目运输服务。</p>
-            <p>我们在全国搭建了多网络平台，在上海拥有上万平米的转运中心及物流仓储中心。自有及合同车辆千余部，门到门运输服务覆盖全国1,000多个城市。</p>
+            <p>
+              上海伊登国际为客户提供多种合同物流方案，包括国内运输和国内仓储，非保税和保税业务，危险品，冷藏冷冻品以及各类大件项目运输服务。
+            </p>
+            <p>
+              我们在全国搭建了多网络平台，在上海拥有上万平米的转运中心及物流仓储中心。自有及合同车辆千余部，门到门运输服务覆盖全国1,000多个城市。
+            </p>
           </div>
         </div>
       </div>
@@ -109,7 +118,7 @@
 </template>
 <script>
 export default {
-  name: "service"
+  name: "service",
 };
 </script>
 <style lang="scss" scoped>
@@ -134,7 +143,7 @@ export default {
       top: 50%;
       font-weight: 500;
       height: 80px;
-      margin-top:-60px;
+      margin-top: -60px;
     }
   }
 
@@ -142,13 +151,14 @@ export default {
     margin-bottom: 135px;
     width: 570px;
     float: left;
-    &:nth-child(2){
-      .left{
+    &:nth-child(2) {
+      .left {
         min-height: 666px;
       }
-    } 
-    &:nth-child(2), &:nth-child(4){
-      float:right;
+    }
+    &:nth-child(2),
+    &:nth-child(4) {
+      float: right;
     }
     .left /deep/ p,
     .right /deep/ p {
@@ -160,7 +170,7 @@ export default {
       font-weight: 100;
       span {
         color: #343434;
-        font-weight: 600;
+        font-weight: bold;
         font-size: 22px;
       }
     }
@@ -213,12 +223,12 @@ export default {
             width: 22px;
             height: 22px;
             border-radius: 12.5px;
-            border: 1px solid #e67016;
             position: absolute;
             left: 0;
             top: 0;
             bottom: 0;
             margin: auto;
+            background: #343434;;
           }
           p {
             margin-bottom: 0;
@@ -235,26 +245,55 @@ export default {
     min-width: auto;
     .banner {
       width: 750px;
-      height: 546px;
+      height: 400px;
       background: url("../assets/image/mobile/mobileBanner1.png");
       background-size: 100% 100%;
       background-position: top center;
       background-repeat: no-repeat;
+      margin-bottom: 160px;
+      h2 {
+        font-size: 56px;
+        height: 0.56rem;
+        line-height: 0.56rem;
+        margin-top: -0.28rem;
+        font-weight: bold;
+      }
     }
     .service {
-      float: none;
-      margin:0 auto 1.35rem;
+      float: none !important;
+      width: 100%;
+      margin: 0 auto 1.35rem;
+      .title {
+        height: 195px;
+        margin-bottom: 78px;
+        .circle {
+          width: 80px;
+          height: 80px;
+          border-radius: 50%;
+          margin-bottom: 20px;
+        }
+        p {
+          font-size: 52px;
+          line-height: 52px;
+          margin-bottom: 20px;
+          font-family: Noto Sans S Chinese;
+          font-weight: bold;
+        }
+      }
       .content {
         .left /deep/ p,
         .right /deep/ p {
-          font-size: 33px;
+          font-size: 32px;
+          font-weight: 300;
           span {
-            font-size: 33px;
+            font-size: 32px;
+            font-weight: bold;
           }
         }
         .left {
           float: none;
           width: 100%;
+          min-height: auto !important;
         }
         .right {
           float: none;
@@ -262,6 +301,7 @@ export default {
         }
         img {
           width: 100%;
+          margin-bottom: 80px;
         }
 
         /deep/ ul {
@@ -273,7 +313,7 @@ export default {
               width: 28px;
               height: 28px;
               border-radius: 14px;
-              border: 1px solid #e67016;
+              // border: 1px solid #e67016;
               position: absolute;
               left: 0;
               top: 0;

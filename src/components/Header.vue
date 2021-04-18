@@ -343,6 +343,10 @@ export default {
   clear: both;
 }
 @media screen and (max-width: 750px) {
+  .logo{
+    font-size: 76px;
+    line-height: 129px;
+  }
   .logo img {
     width: 548px;
     height: 71px;
@@ -360,7 +364,8 @@ export default {
     height: auto;
     .container {
       width: 100%;
-      padding: 20px 32px;
+      // padding: 40px 30px;
+      height: 160px;
     }
     h4 {
       font-size: 28px;
@@ -368,9 +373,10 @@ export default {
   }
   .burger {
     display: block;
+    text-align: right;
     img {
-      width: 98px;
-      height: 71px;
+      width: 120px;
+      height: 100px;
     }
   }
   .navigation {
@@ -380,8 +386,8 @@ export default {
       width: 100%;
       position: absolute;
       left: 0;
-      padding: 0 32px;
-      top: 118px;
+      padding: 0 40px;
+      top: 160px;
     }
     ul {
       display: block;
@@ -392,11 +398,11 @@ export default {
       }
       li {
         width: 100%;
-        background: #e4e4e4;
-        height: 94px;
-        font-size: 30px;
-        line-height: 94px;
-        border-bottom: 1px dashed #666;
+        background: #ECECEC;
+        height: 80px;
+        font-size: 43px;
+        line-height: 80px;
+        // border-bottom: 1px dashed #666;
       }
     }
   }
