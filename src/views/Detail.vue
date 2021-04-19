@@ -243,7 +243,7 @@ export default {
         Air: "空运",
         Rail: "铁路运输",
         Truck: "陆运",
-        Sea: "海运",
+        Ocean: "海运",
       },
       detail: {
         zd: "海运",
