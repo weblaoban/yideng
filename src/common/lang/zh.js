@@ -64,10 +64,10 @@ export const lang = {
     //网络
     netTitle: '我们的网络',
     netTitle1: '服务产品',
-    net1: '<span style="font-weight: 600;">空运：</span>服务覆盖全球, 满足几乎所有进出口贸易的空运需求。',
-    net2: ' <span style="font-weight: 600;">海运：</span>已于COSCO, MAERSK, MSC, EVERGREEN, YANGMING, WANHAI等多家船公司保持了长久稳定的合作关系, 通行亚、欧、非、南美、北美各航线。',
-    net3: ' <span style="font-weight: 600;">铁路运输：</span>通行中国-欧洲各国、中国-亚洲各国、中国-蒙古等路线。 <br /> 与西安、 郑州、 成都、 重庆、 沈阳、 武汉、 汉堡、 华沙、 马拉、 杜伊斯堡、 乌兰巴托、 中亚等数十个站点保持长期往来。 ',
-    net4: '   <span style="font-weight: 600;">合同物流:</span>自有及合同车辆千余部，门到门运输服务覆盖全国1,000多个城市。',
+    net1: '<span>空运：</span>服务覆盖全球, 满足几乎所有进出口贸易的空运需求。',
+    net2: ' <span>海运：</span>已于COSCO, MAERSK, MSC, EVERGREEN, YANGMING, WANHAI等多家船公司保持了长久稳定的合作关系, 通行亚、欧、非、南美、北美各航线。',
+    net3: ' <span>铁路运输：</span>通行中国-欧洲各国、中国-亚洲各国、中国-蒙古等路线。 <br /> 与西安、 郑州、 成都、 重庆、 沈阳、 武汉、 汉堡、 华沙、 马拉、 杜伊斯堡、 乌兰巴托、 中亚等数十个站点保持长期往来。 ',
+    net4: '   <span>合同物流：</span>自有及合同车辆千余部，门到门运输服务覆盖全国1,000多个城市。',
     //服务
     serviceTitle: '国际空运',
     servicedes: '上海伊登已经在海外主要国家建立了完善的国际合作网络，为您提供：',

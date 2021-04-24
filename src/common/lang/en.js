@@ -64,10 +64,10 @@ export const lang = {
     //网络
     netTitle: 'Our network',
     netTitle1: ' Service Products:',
-    net1: '<span style="font-weight: 600;">Air freight:  </span> The service covers the whole world and meets the almost all air transportation demand of import and export trade.',
-    net2: ' <span style="font-weight: 600;">Ocean freight:</span>We have maintained a long-term and stable cooperative relationship with COSCO, MAERSK, MSC, EVERGREEN, YANGMING, WANHAI and other shipping companies. And we operate routes in Asia, Europe, Africa, South America and North America.',
-    net3: ' <span style="font-weight: 600;">Railway freight: </span> Through China - European countries, China - Asian countries,     China - Mongolia and other routes.We keep long - term business dealing with dozens of rail stations such as Xi \' an, Zhengzhou, Chengdu, Chongqing, Shenyang, Wuhan,  Hamburg, Warsaw, Mala, Duisburg, Ulaanbaatar, Central Asia, etc. ',
-    net4: '   <span style="font-weight: 600;">Contract logistics::</span>The door-to-door service we provided, covering over 1000 cities in China with more than 1000 self-owned and contract vehicles.',
+    net1: '<span>Air freight:  </span> The service covers the whole world and meets the almost all air transportation demand of import and export trade.',
+    net2: ' <span>Ocean freight: </span>We have maintained a long-term and stable cooperative relationship with COSCO, MAERSK, MSC, EVERGREEN, YANGMING, WANHAI and other shipping companies. And we operate routes in Asia, Europe, Africa, South America and North America.',
+    net3: ' <span>Railway freight: </span> Through China - European countries, China - Asian countries,     China - Mongolia and other routes.We keep long - term business dealing with dozens of rail stations such as Xi \' an, Zhengzhou, Chengdu, Chongqing, Shenyang, Wuhan,  Hamburg, Warsaw, Mala, Duisburg, Ulaanbaatar, Central Asia, etc. ',
+    net4: '   <span>Contract logistics: </span>The door-to-door service we provided, covering over 1000 cities in China with more than 1000 self-owned and contract vehicles.',
     //服务
     serviceTitle: 'International Air Freight',
     servicedes: 'Shanghai Eastern established a well-cooperated network worldwide to provide you with',

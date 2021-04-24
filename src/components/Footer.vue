@@ -192,6 +192,7 @@ export default {
               margin-bottom: 86px;
             }
             p.title {
+              font-size: 30px;
               margin-bottom: 40px;
             }
             p.desc {
@@ -200,7 +201,7 @@ export default {
               text-align: left;
               // line-height: 72px;
               font-weight: 100;
-              padding-left: 50px;
+              padding-left: 40px;
               margin-bottom: 40px;
               &:nth-child(2) {
                 background: url(../assets/image/contract/icon11.png);

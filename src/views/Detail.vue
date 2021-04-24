@@ -342,6 +342,7 @@ export default {
 <style lang="scss" scoped>
 .detail-box {
   background: #fff;
+  padding-top: 82px;
   padding-bottom: 78px;
   .mobile-item {
     display: none;
@@ -454,7 +455,7 @@ export default {
 
 @media screen and (max-width: 750px) {
   .detail-box {
-    padding-top: 160px;
+    padding-top: 290px;
     padding-bottom: 78px;
     .basic-table {
       display: none;
@@ -487,24 +488,27 @@ export default {
         }
       }
     }
-    .title {
-      height: 195px;
+    .title{
       margin-top: 0;
-      margin-bottom: 158px;
-      .circle {
-        width: 80px;
-        height: 80px;
-        border-radius: 50%;
-        margin-bottom: 20px;
-      }
-      p {
-        font-size: 52px;
-        line-height: 52px;
-        margin-bottom: 20px;
-        font-family: Noto Sans S Chinese;
-        font-weight: bold;
-      }
     }
+    // .title {
+    //   height: 195px;
+    //   margin-top: 0;
+    //   margin-bottom: 158px;
+    //   .circle {
+    //     width: 80px;
+    //     height: 80px;
+    //     border-radius: 50%;
+    //     margin-bottom: 20px;
+    //   }
+    //   p {
+    //     font-size: 52px;
+    //     line-height: 52px;
+    //     margin-bottom: 20px;
+    //     font-family: Noto Sans S Chinese;
+    //     font-weight: bold;
+    //   }
+    // }
     .basic {
       width: 100%;
       .basic-table {
@@ -535,7 +539,7 @@ export default {
         &::before {
           content: "";
           position: absolute;
-          width: 2px;
+          width: 4px;
           background: #e67016;
           height: 100%;
           left: -25px;

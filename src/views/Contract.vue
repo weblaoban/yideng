@@ -157,6 +157,7 @@ export default {
   padding-bottom: 1px;
   min-width: 1200px;
   font-size: 12px;
+  padding-top: 82px;
   .banner {
     position: relative;
     margin-bottom: 120px;
@@ -284,6 +285,7 @@ export default {
 @media screen and (max-width: 750px) {
   #contract {
     min-width: auto;
+    padding-top: 130px;
     .banner {
       height: 400px;
       background: url("../assets/image/mobile/mobileBanner1.png");

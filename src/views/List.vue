@@ -186,7 +186,9 @@ export default {
 .list-box {
   background: #fff;
   //   position: relative;
-  height: calc(100vh - 72px);
+  // height: calc(100vh - 82px);
+  padding-top: 82px;
+  padding-bottom: 40px;
   // align-items: center;
   // display: flex;
   .container {
@@ -361,7 +363,7 @@ export default {
 @media screen and (max-width: 750px) {
   .list-box {
     align-items: flex-start;
-    padding-top: 160px;
+    padding-top: 290px;
     padding-bottom: 160px;
     height: auto;
     .mobile-list {

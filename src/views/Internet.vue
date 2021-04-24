@@ -70,7 +70,7 @@ export default {
     .title {
       height: 135px;
       margin: 0 auto;
-      margin-bottom: 40px;
+      margin-bottom: 80px;
       .circle {
         width: 50px;
         height: 50px;
@@ -79,10 +79,10 @@ export default {
         margin: 0 auto;
       }
       p {
-        font-size: 37px;
+        font-size: 40px;
         color: #343434;
         text-align: center;
-        line-height: 82px;
+        line-height: 80px;
         font-weight: bold;
       }
       .line {
@@ -94,13 +94,13 @@ export default {
     .content {
       .img {
         width: 100%;
-        height: 747px;
+        height: 748px;
         overflow: hidden;
-        background: url(../assets/image/net.png);
+        background: url(../assets/image/net.gif);
         background-position: center center;
         background-repeat: no-repeat;
         background-size: 100% 100%;
-        margin-bottom: 66px;
+        margin-bottom: 80px;
         &:hover {
           background-size: 110% 110%;
         }
@@ -113,14 +113,14 @@ export default {
       }
 
       p {
-        font-size: 22px;
+        font-size: 20px;
         color: #343434;
         margin-bottom: 25px;
-        line-height: 43px;
+        line-height: 40px;
         text-align: left;
-        font-weight: 400;
-        /deep/span {
-          font-size: 22px;
+        font-weight: 300;
+        /deep/ span {
+          font-size: 20px;
           font-weight: bold;
         }
       }
@@ -139,7 +139,7 @@ export default {
       background-position: top center;
       background-repeat: no-repeat;
       margin-bottom: 160px;
-      h2{
+      h2 {
         font-size: 56px;
         height: 0.56rem;
         line-height: 0.56rem;
@@ -148,35 +148,38 @@ export default {
       }
     }
     .internet {
-      .title {
-        height: 195px;
-        .circle {
-          width: 80px;
-          height: 80px;
-          border-radius: 50%;
-          margin-bottom: 20px;
-        }
-        p {
-          font-size: 52px;
-          line-height: 52px;
-          margin-bottom: 20px;
-          font-family: Noto Sans S Chinese;
-          font-weight: bold;
-        }
-      }
+      // .title {
+      //   height: 195px;
+      //   .circle {
+      //     width: 80px;
+      //     height: 80px;
+      //     border-radius: 50%;
+      //     margin-bottom: 20px;
+      //   }
+      //   p {
+      //     font-size: 52px;
+      //     line-height: 52px;
+      //     margin-bottom: 20px;
+      //     font-family: Noto Sans S Chinese;
+      //     font-weight: bold;
+      //   }
+      // }
       .content {
         .img {
           width: 100%;
-          height: 428px;
-          background: url("../assets/image/mobile/net.png");
+          height: 400px;
+          background: url("../assets/image/mobile/net.gif");
           background-position: center center;
           background-repeat: no-repeat;
           background-size: 100% 100%;
         }
         p {
-          font-size: 32px;
+          font-size: 30px;
+          line-height: 50px;
           /deep/ span {
-            font-size: 32px;
+            font-size: 30px;
+            line-height: 50px;
+            font-weight: bold;
           }
         }
       }

@@ -74,6 +74,7 @@ export default {
   min-width: 1200px;
   background: #fff;
   padding-bottom: 1px;
+  padding-top: 82px;
   .banner {
     position: relative;
     margin-bottom: 130px;
@@ -156,6 +157,7 @@ export default {
 @media screen and (max-width: 750px) {
   .home {
     min-width: auto;
+    padding-top: 130px;
     .banner {
       width: 750px;
       height: 400px;

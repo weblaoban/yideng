@@ -224,6 +224,8 @@ export default {
   background: #fff;
   width: 100%;
   min-width: 1200px;
+  position: fixed;
+  z-index: 1;
   .container {
     width: 1200px;
     margin: 0 auto;
