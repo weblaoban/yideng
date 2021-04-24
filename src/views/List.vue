@@ -42,7 +42,9 @@
         <div v-for="(item, index) in list" :key="index" class="mobile-item">
           <div class="mobile-inner">
             <div class="item-title">运输方式</div>
-            <div class="item-value">{{ type[item.transportation] || item.transportation }}</div>
+            <div class="item-value">
+              {{ type[item.transportation] || item.transportation }}
+            </div>
           </div>
           <div class="mobile-inner">
             <div class="item-title">主单号/运单号/收货凭据</div>
@@ -62,7 +64,12 @@
           </div>
           <div class="mobile-inner">
             <div class="item-title">操作</div>
-            <div class="item-value item-option" @click="$router.push(`/detail/${item.id}`)">查看详情</div>
+            <div
+              class="item-value item-option"
+              @click="$router.push(`/detail/${item.id}`)"
+            >
+              查看详情
+            </div>
           </div>
         </div>
       </div>
@@ -84,28 +91,28 @@ export default {
   data() {
     return {
       list: [
-      //   {
-      //   transportation: 'Air',
-      //   orderNumber: 122344,
-      //   departure: 233344,
-      //   destinationPort: 'eiuii',
-      //   flightInfo: 'jujjjjjjj',
-      //   id: 1,
-      // }, {
-      //   transportation: 'Air',
-      //   orderNumber: 122344,
-      //   departure: 233344,
-      //   destinationPort: 'eiuii',
-      //   flightInfo: 'jujjjjjjj',
-      //   id: 1,
-      // }, {
-      //   transportation: 'Air',
-      //   orderNumber: 122344,
-      //   departure: 233344,
-      //   destinationPort: 'eiuii',
-      //   flightInfo: 'jujjjjjjj',
-      //   id: 1,
-      // }
+        //   {
+        //   transportation: 'Air',
+        //   orderNumber: 122344,
+        //   departure: 233344,
+        //   destinationPort: 'eiuii',
+        //   flightInfo: 'jujjjjjjj',
+        //   id: 1,
+        // }, {
+        //   transportation: 'Air',
+        //   orderNumber: 122344,
+        //   departure: 233344,
+        //   destinationPort: 'eiuii',
+        //   flightInfo: 'jujjjjjjj',
+        //   id: 1,
+        // }, {
+        //   transportation: 'Air',
+        //   orderNumber: 122344,
+        //   departure: 233344,
+        //   destinationPort: 'eiuii',
+        //   flightInfo: 'jujjjjjjj',
+        //   id: 1,
+        // }
       ],
       total: 0,
       type: {
@@ -193,15 +200,15 @@ export default {
     display: none;
   }
   .query-box {
-    margin-bottom: 34px;
+    margin-bottom: 40px;
     text-align: center;
   }
   .title {
     // width: 187px;
-    height: 132px;
+    height: 135px;
     margin: 0 auto;
-    margin-bottom: 50px;
-    margin-top: 117px;
+    margin-bottom: 40px;
+    margin-top: 160px;
     .circle {
       width: 50px;
       height: 50px;
@@ -210,16 +217,15 @@ export default {
       margin: 0 auto;
     }
     p {
-      font-size: 50px;
+      font-size: 40px;
       color: #343434;
       text-align: center;
-      line-height: 82px;
+      line-height: 80px;
       font-weight: bold;
-      // border-bottom: 4px solid #e67016;
     }
     .line {
       width: 150px;
-      border-bottom: 4px solid #e67016;
+      border-bottom: 5px solid #e67016;
       margin: 0 auto;
     }
   }
@@ -265,6 +271,7 @@ export default {
     line-height: 60px;
     border-radius: 10px;
     // float: left;
+    font-size: 30px;
     color: #fff;
     cursor: pointer;
   }
@@ -274,8 +281,9 @@ export default {
       th {
         background: #f8f8f8;
         color: #787878;
-        font-size: 22px;
+        font-size: 20px;
         height: 50px;
+        font-weight: bold;
       }
     }
     .table-body {
@@ -306,13 +314,13 @@ export default {
       font-size: 30ppx;
     }
     .page-query {
-      margin: 0 10px;
+      margin: 0 29px;
     }
     .page-input {
       width: 60px;
       height: 60px;
       border: 1px solid #343434;
-      border-radius: 5px;
+      border-radius: 10px;
       font-size: 30px;
       outline: none;
       color: #787878;
@@ -353,33 +361,35 @@ export default {
 @media screen and (max-width: 750px) {
   .list-box {
     align-items: flex-start;
-    padding-top: 146px;
+    padding-top: 160px;
     padding-bottom: 160px;
     height: auto;
     .mobile-list {
       display: block;
-      .mobile-item{
-        background: #F8F8F8;
+      .mobile-item {
+        background: #f8f8f8;
         padding: 80px 40px;
         color: #787878;
-        font-size: 44px;
-        line-height: 44px;
+        font-size: 40px;
+        line-height: 40px;
         text-align: left;
         margin-bottom: 160px;
-        .mobile-inner{
+        .mobile-inner {
           margin-bottom: 80px;
-          &:last-child{
+          &:last-child {
             margin-bottom: 0;
           }
         }
-        .item-title{
+        .item-title {
           font-weight: bold;
+          font-size: 40px;
           margin-bottom: 40px;
         }
-        .item-value{
+        .item-value {
           font-weight: 300;
-          &.item-option{
-            color: #E67016;
+          font-size: 40px;
+          &.item-option {
+            color: #e67016;
           }
         }
       }
@@ -419,26 +429,29 @@ export default {
         //   line-height: 16px;
       }
     }
-    .query-box{
-      margin-bottom: 140px;
+    .query-box {
+      margin-bottom: 160px;
     }
-    .title {
-      height: 195px;
+    .title{
       margin-top: 0;
-      .circle {
-        width: 80px;
-        height: 80px;
-        border-radius: 50%;
-        margin-bottom: 20px;
-      }
-      p {
-        font-size: 52px;
-        line-height: 52px;
-        margin-bottom: 20px;
-        font-family: Noto Sans S Chinese;
-        font-weight: bold;
-      }
     }
+    // .title {
+    //   height: 195px;
+    //   margin-top: 0;
+    //   .circle {
+    //     width: 80px;
+    //     height: 80px;
+    //     border-radius: 50%;
+    //     margin-bottom: 20px;
+    //   }
+    //   p {
+    //     font-size: 52px;
+    //     line-height: 52px;
+    //     margin-bottom: 20px;
+    //     font-family: Noto Sans S Chinese;
+    //     font-weight: bold;
+    //   }
+    // }
     .query-button {
       width: 180px;
       // height: 51px;

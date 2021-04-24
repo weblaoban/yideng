@@ -12,7 +12,9 @@
           <tbody>
             <tr>
               <td>运输方式</td>
-              <td>{{ type[detail.transportation] || detail.transportation }}</td>
+              <td>
+                {{ type[detail.transportation] || detail.transportation }}
+              </td>
               <td>航班信息</td>
               <td>{{ detail.flightInfo }}</td>
             </tr>
@@ -45,7 +47,9 @@
         <div class="mobile-item">
           <div class="mobile-inner">
             <div class="item-title">运输方式</div>
-            <div class="item-value">{{ type[detail.transportation] || detail.transportation }}</div>
+            <div class="item-value">
+              {{ type[detail.transportation] || detail.transportation }}
+            </div>
           </div>
           <div class="mobile-inner">
             <div class="item-title">空运主单号</div>
@@ -69,9 +73,7 @@
           </div>
           <div class="mobile-inner">
             <div class="item-title">数量</div>
-            <div
-              class="item-value"
-            >
+            <div class="item-value">
               {{ detail.quantity }}
             </div>
           </div>
@@ -341,14 +343,14 @@ export default {
 .detail-box {
   background: #fff;
   padding-bottom: 78px;
-  .mobile-item{
+  .mobile-item {
     display: none;
   }
   .title {
     // width: 187px;
-    height: 132px;
+    height: 135px;
     margin: 0 auto;
-    margin-bottom: 50px;
+    margin-bottom: 80px;
     margin-top: 117px;
     .circle {
       width: 50px;
@@ -358,16 +360,15 @@ export default {
       margin: 0 auto;
     }
     p {
-      font-size: 50px;
+      font-size: 40px;
       color: #343434;
       text-align: center;
-      line-height: 82px;
+      line-height: 80px;
       font-weight: bold;
-      // border-bottom: 4px solid #e67016;
     }
     .line {
       width: 150px;
-      border-bottom: 4px solid #e67016;
+      border-bottom: 5px solid #e67016;
       margin: 0 auto;
     }
   }
@@ -379,29 +380,31 @@ export default {
       td {
         width: 25%;
         height: 50px;
-        font-size: 22px;
+        font-size: 20px;
         &:nth-child(2n + 1) {
           background: #f8f8f8;
           color: #787878;
+          font-weight: bold;
         }
         &:nth-child(2n) {
           background: #f8f8f8;
-          font-weight: 100;
+          font-weight: 300;
         }
       }
     }
   }
   .basic-title {
     color: #e67016;
-    font-size: 38px;
+    font-size: 30px;
     text-align: left;
-    margin-bottom: 30px;
+    margin-bottom: 10px;
+    font-weight: bold;
   }
   .logistics {
-    margin-top: 60px;
+    margin-top: 164px;
     .logistics-box {
       background: #f8f8f8;
-      padding: 50px 93px 40px;
+      padding: 80px 40px;
       text-align: left;
     }
     .logistics-item {
@@ -414,7 +417,7 @@ export default {
         width: 2px;
         background: #e67016;
         height: 100%;
-        left: -15px;
+        left: -20px;
       }
       &:last-child {
         padding-bottom: 0;
@@ -436,13 +439,14 @@ export default {
     .logistics-item-title {
       color: #787878;
       font-size: 30px;
-      line-height: 21px;
+      line-height: 30px;
       margin-bottom: 20px;
+      font-weight: bold;
     }
     .logistics-item-text {
-      font-size: 24px;
+      font-size: 20px;
       color: #787878;
-      font-weight: 100;
+      font-weight: 300;
       line-height: 30px;
     }
   }
@@ -452,35 +456,37 @@ export default {
   .detail-box {
     padding-top: 160px;
     padding-bottom: 78px;
-    .basic-table{
+    .basic-table {
       display: none;
     }
-    .mobile-item{
+    .mobile-item {
       display: block;
-        background: #F8F8F8;
-        padding: 80px 40px;
-        color: #787878;
-        font-size: 44px;
-        line-height: 44px;
-        text-align: left;
-        margin-bottom: 160px;
-        .mobile-inner{
-          margin-bottom: 80px;
-          &:last-child{
-            margin-bottom: 0;
-          }
-        }
-        .item-title{
-          font-weight: bold;
-          margin-bottom: 40px;
-        }
-        .item-value{
-          font-weight: 300;
-          &.item-option{
-            color: #E67016;
-          }
+      background: #f8f8f8;
+      padding: 80px 40px;
+      color: #787878;
+      font-size: 40px;
+      line-height: 40px;
+      text-align: left;
+      margin-bottom: 160px;
+      .mobile-inner {
+        margin-bottom: 80px;
+        &:last-child {
+          margin-bottom: 0;
         }
       }
+      .item-title {
+        font-size: 40px;
+        font-weight: bold;
+        margin-bottom: 40px;
+      }
+      .item-value {
+        font-size: 40px;
+        font-weight: 300;
+        &.item-option {
+          color: #e67016;
+        }
+      }
+    }
     .title {
       height: 195px;
       margin-top: 0;
@@ -510,16 +516,16 @@ export default {
       }
     }
     .basic-title {
-      font-size: 44px;
+      font-size: 40px;
+      line-height: 40px;
       font-weight: bold;
-      text-align: center;
       margin-bottom: 20px;
     }
     .logistics {
       margin-top: 60px;
       .logistics-box {
         background: #f8f8f8;
-        padding: 50px 93px 40px;
+        padding: 80px 40px;
         text-align: left;
       }
       .logistics-item {
@@ -552,13 +558,13 @@ export default {
         }
       }
       .logistics-item-title {
-        font-size: 44px;
-        line-height: 44px;
+        font-size: 40px;
+        line-height: 40px;
         font-weight: bold;
         margin-bottom: 20px;
       }
       .logistics-item-text {
-        font-size: 32px;
+        font-size: 30px;
         line-height: 60px;
         margin-bottom: 6px;
       }

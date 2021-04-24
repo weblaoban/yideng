@@ -53,22 +53,22 @@ export default {
     background-position: top center;
     background-repeat: no-repeat;
     h2 {
-      font-size: 80px;
+      font-size: 40px;
       color: #fff;
       text-align: center;
       width: 100%;
       position: absolute;
       top: 50%;
-      font-weight: 500;
-      height: 80px;
-      margin-top: -60px;
+      font-weight: bold;
+      line-height: 40px;
+      margin-top: -20px;
     }
   }
 
   .internet {
     margin-bottom: 120px;
     .title {
-      height: 132px;
+      height: 135px;
       margin: 0 auto;
       margin-bottom: 40px;
       .circle {
@@ -87,7 +87,7 @@ export default {
       }
       .line {
         width: 150px;
-        border-bottom: 4px solid #e67016;
+        border-bottom: 5px solid #e67016;
         margin: 0 auto;
       }
     }

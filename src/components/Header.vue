@@ -26,13 +26,21 @@
               <p v-text="$t('lang.welcome')"></p>
               <p v-text="name"></p>
             </li>
-            <li @click="showOperation" :class="isShowOperation ? 'userName showInMobile userNameOPeration' : 'userName showInMobile'">
+            <li
+              @click="showOperation"
+              :class="
+                isShowOperation
+                  ? 'userName showInMobile userNameOPeration'
+                  : 'userName showInMobile'
+              "
+            >
               <p>
                 {{ $t("lang.welcome") }}
                 <span v-text="name"></span>
               </p>
             </li>
             <div v-show="isShowOperation" class="userInfo">
+              <li @click="sectionClick" v-text="$t('lang.homeMenu1')"></li>
               <li @click="toModifyPas">修改密码</li>
               <li @click="logOut" v-text="$t('lang.logout')"></li>
             </div>
@@ -137,6 +145,23 @@ export default {
         this.$refs.navigationContent.style.display = "none";
       }
     },
+    sectionClick() {
+      const bodyWidth = document.body.clientWidth;
+      if (this.isLogin) {
+        this.$router.push('/list');
+        if (bodyWidth <= 750) {
+              this.$refs.navigationContent.style.display = "none";
+            }
+      } else {
+        this.$nextTick(() => {
+          const app = document.getElementById("app");
+          this.setLoginMaskHeight(app.offsetHeight);
+        });
+        this.setShowLogin(true);
+        sessionStorage.setItem("toList", "toList");
+        window.scrollTo(0, 0);
+      }
+    },
     async logOut() {
       if (this.loading) {
         return;
@@ -221,9 +246,9 @@ export default {
       min-width: 103px;
       padding-right: 17px;
       p {
-        font-size: 22px;
+        font-size: 20px;
         color: #787878;
-        line-height: 1.2;
+        line-height: 1.5;
       }
       &:after {
         content: "";
@@ -242,14 +267,28 @@ export default {
       right: 0;
       z-index: 99;
       li {
-        line-height: 32px;
-        font-size: 18px;
+        height: 40px;
+        line-height: 40px;
+        font-size: 20px;
         width: 103px;
         text-align: center;
-        background: #fff;
+        background: #f8f8f8;
         padding: 0;
-        &:first-child {
-          margin-bottom: 2px;
+        position: relative;
+        &::after {
+          position: absolute;
+          content: "";
+          width: 100%;
+          // height: 6px;
+          border-bottom: 6px solid #707070;
+          transform: scaleY(0.05);
+          bottom: 0;
+          left: 0;
+        }
+        &:last-child {
+          &::after{
+            display: none;
+          }
         }
       }
     }
@@ -304,7 +343,7 @@ export default {
 
 .navigation {
   flex: 1;
-  margin-left: 59px;
+  margin-left: 50px;
   .navigationContent {
     z-index: 99;
     display: flex;
@@ -320,9 +359,11 @@ export default {
     li {
       cursor: pointer;
       line-height: 80px;
-      font-size: 24px;
+      font-size: 20px;
       color: #787878;
-      padding: 0 16px;
+      // padding: 0 16px;
+      width: 120px;
+      text-align: center;
 
       // &.active,
       // &:hover {
@@ -367,7 +408,7 @@ export default {
     .container {
       width: 100%;
       // padding: 40px 30px;
-      height: 160px;
+      height: 130px;
     }
     h4 {
       font-size: 28px;
@@ -377,8 +418,8 @@ export default {
     display: block;
     text-align: right;
     img {
-      width: 120px;
-      height: 100px;
+      width: 72px;
+      height: 44px;
     }
   }
   .navigation {
@@ -389,7 +430,7 @@ export default {
       position: absolute;
       left: 0;
       padding: 0 40px;
-      top: 160px;
+      top: 130px;
     }
     ul {
       display: block;
@@ -417,11 +458,13 @@ export default {
         width: 100%;
         background: #fff;
         height: 0.8rem;
-        font-size: 0.44rem;
+        font-size: 0.4rem;
         line-height: 0.8rem;
         // border: 1px solid #787878;
         border: none;
         position: relative;
+        background: #fff;
+        color: #787878;
         &::after {
           content: "";
           position: absolute;
@@ -439,17 +482,22 @@ export default {
         }
         &:first-child {
           margin-bottom: 0;
-          &::after{
+          &::after {
             border-bottom: none;
+          }
+        }
+        &:last-child {
+          &::after{
+            display: block;
           }
         }
       }
     }
     .userName {
-      &.userNameOPeration{
-        background: #E67016;
-        p{ 
-          color: #fff;
+      &.userNameOPeration {
+        // background: #e67016;
+        p {
+          // color: #fff;
         }
       }
       p {

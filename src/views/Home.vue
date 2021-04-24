@@ -76,8 +76,8 @@ export default {
   padding-bottom: 1px;
   .banner {
     position: relative;
-    margin-bottom: 140px;
-    height: 857px;
+    margin-bottom: 130px;
+    height: 1000px;
     background: url("../assets/image/banner1.png");
     background-size: 100% 100%;
     background-position: top center;
@@ -97,54 +97,54 @@ export default {
       // height: 60px;
       margin-top: -70px;
       h2 {
-        font-size: 80px;
+        font-size: 40px;
         color: #fff;
         text-align: center;
-        margin-bottom: 70px;
-        font-weight: 500;
+        margin-bottom: 11px;
+        font-weight: bold;
       }
       h4 {
-        font-size: 30px;
+        font-size: 20px;
         color: #fff;
         text-align: center;
-        font-weight: 100;
+        font-weight: bold;
       }
     }
   }
   .container {
-    margin-bottom: 134px;
+    margin-bottom: 130px;
     ul {
       li {
         width: 25%;
         float: left;
         cursor: pointer;
-        padding-top: 197px;
+        padding-top: 210px;
         p {
           color: #343434;
-          font-size: 36px;
+          font-size: 30px;
           font-weight: bold;
         }
         &:nth-child(2) {
           background: url("../assets/image/index_img1.png");
-          background-size: 166px 165px;
+          background-size: 180px 180px;
           background-position: top center;
           background-repeat: no-repeat;
         }
         &:nth-child(3) {
           background: url("../assets/image/index_img2.png");
-          background-size: 175px 157px;
+          background-size: 180px 180px;
           background-position: top center;
           background-repeat: no-repeat;
         }
         &:nth-child(4) {
           background: url("../assets/image/index_img3.png");
-          background-size: 172px 154px;
+          background-size: 180px 180px;
           background-position: top center;
           background-repeat: no-repeat;
         }
         &:nth-child(1) {
           background: url("../assets/image/index_img4.png");
-          background-size: 155px 151px;
+          background-size: 180px 180px;
           background-position: top center;
           background-repeat: no-repeat;
         }
@@ -165,31 +165,29 @@ export default {
       background-repeat: no-repeat;
       margin-bottom: 160px;
       .h2 {
-        margin-top: -1.1rem;
+        // margin-top: -1.1rem;
         h2 {
-          margin-bottom: 18px;
-          font-size: 56px;
-          line-height: 95px;
+          margin-bottom: 30px;
         }
         h4{
-          padding: 0 103px;
-          font-size: 32px;
-          line-height: 54px;
+          font-size: 30px;
+          font-weight: 300;
         }
       }
     }
     .container {
+      margin-bottom: 1.6rem;
       ul {
         li {
           float: none;
           width: 100%;
           margin-bottom: 80px;
-          height: 300px;
-          padding-top: 240px;
+          height: 276px;
+          padding-top: 246px;
           p {
             color: #343434;
-            font-size: 36px;
-            line-height: 61px;
+            font-size: 30px;
+            line-height: 30px;
           }
           &:nth-child(2) {
             background: url("../assets/image/index_img1.png");
@@ -199,13 +197,13 @@ export default {
           }
           &:nth-child(3) {
             background: url("../assets/image/index_img2.png");
-            background-size: 200px 178px;
+            background-size: 200px 200px;
             background-position: top center;
             background-repeat: no-repeat;
           }
           &:nth-child(4) {
             background: url("../assets/image/index_img3.png");
-            background-size: 200px 178px;
+            background-size: 200px 200px;
             background-position: top center;
             background-repeat: no-repeat;
           }

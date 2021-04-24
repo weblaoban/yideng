@@ -10,7 +10,7 @@
           <p>{{ $t("lang.serviceTitle") }}</p>
           <div class="line"></div>
         </div>
-        <div class="content clear">
+        <div class="content">
           <div class="right">
             <img src="../assets/image/service/service1.png" alt />
           </div>
@@ -24,6 +24,7 @@
                 <p>{{ $t("lang.servicedes3") }}</p>
               </li>
             </ul>
+            <br />
             <div v-html="$t('lang.servicedes4')">
               <p style="margin-bottom: 0px">
                 我们提供
@@ -54,7 +55,7 @@
           <p>{{ $t("lang.serviceTitle2") }}</p>
           <div class="line"></div>
         </div>
-        <div class="content clear">
+        <div class="content">
           <div class="right">
             <img src="../assets/image/service/service2.png" alt />
           </div>
@@ -79,7 +80,7 @@
           <p>{{ $t("lang.serviceTitle3") }}</p>
           <div class="line"></div>
         </div>
-        <div class="content clear">
+        <div class="content">
           <div class="right">
             <img src="../assets/image/service/service3.png" alt />
           </div>
@@ -99,7 +100,7 @@
           <p>{{ $t("lang.serviceTitle4") }}</p>
           <div class="line"></div>
         </div>
-        <div class="content clear">
+        <div class="content">
           <div class="right">
             <img src="../assets/image/service/service4.png" alt />
           </div>
@@ -135,15 +136,15 @@ export default {
     background-position: top center;
     background-repeat: no-repeat;
     h2 {
-      font-size: 80px;
+      font-size: 40px;
       color: #fff;
       text-align: center;
       width: 100%;
       position: absolute;
       top: 50%;
-      font-weight: 500;
-      height: 80px;
-      margin-top: -60px;
+      font-weight: bold;
+      line-height: 40px;
+      margin-top: -20px;
     }
   }
 
@@ -153,7 +154,7 @@ export default {
     float: left;
     &:nth-child(2) {
       .left {
-        min-height: 666px;
+        min-height: 510px;
       }
     }
     &:nth-child(2),
@@ -162,22 +163,22 @@ export default {
     }
     .left /deep/ p,
     .right /deep/ p {
-      font-size: 22px;
+      font-size: 20px;
       color: #343434;
       // margin-bottom: 25px;
-      line-height: 50px;
+      line-height: 40px;
       text-align: left;
-      font-weight: 100;
+      font-weight: 300;
       span {
         color: #343434;
         font-weight: bold;
-        font-size: 22px;
+        font-size: 20px;
       }
     }
     .title {
-      height: 132px;
+      height: 135px;
       margin: 0 auto;
-      margin-bottom: 40px;
+      margin-bottom: 80px;
       .circle {
         width: 50px;
         height: 50px;
@@ -186,14 +187,15 @@ export default {
         margin: 0 auto;
       }
       p {
-        font-size: 50px;
-        color: #000;
+        font-size: 40px;
+        color: #343434;
         text-align: center;
-        line-height: 82px;
+        line-height: 80px;
+        font-weight: bold;
       }
       .line {
-        width: 187px;
-        border-bottom: 4px solid #e67016;
+        width: 150px;
+        border-bottom: 5px solid #e67016;
         margin: 0 auto;
       }
     }
@@ -210,6 +212,7 @@ export default {
       img {
         display: block;
         width: 100%;
+        margin-bottom: 80px;
       }
       /deep/ ul {
         // margin-bottom: 40px;
@@ -228,7 +231,7 @@ export default {
             top: 0;
             bottom: 0;
             margin: auto;
-            background: #343434;;
+            background: #343434;
           }
           p {
             margin-bottom: 0;
@@ -263,31 +266,33 @@ export default {
       float: none !important;
       width: 100%;
       margin: 0 auto 1.35rem;
-      .title {
-        height: 195px;
-        margin-bottom: 78px;
-        .circle {
-          width: 80px;
-          height: 80px;
-          border-radius: 50%;
-          margin-bottom: 20px;
-        }
-        p {
-          font-size: 52px;
-          line-height: 52px;
-          margin-bottom: 20px;
-          font-family: Noto Sans S Chinese;
-          font-weight: bold;
-        }
-      }
+      // .title {
+      //   height: 195px;
+      //   margin-bottom: 78px;
+      //   .circle {
+      //     width: 80px;
+      //     height: 80px;
+      //     border-radius: 50%;
+      //     margin-bottom: 20px;
+      //   }
+      //   p {
+      //     font-size: 52px;
+      //     line-height: 52px;
+      //     margin-bottom: 20px;
+      //     font-family: Noto Sans S Chinese;
+      //     font-weight: bold;
+      //   }
+      // }
       .content {
         .left /deep/ p,
         .right /deep/ p {
-          font-size: 32px;
+          font-size: 30px;
           font-weight: 300;
+          line-height: 50px;
           span {
-            font-size: 32px;
+            font-size: 30px;
             font-weight: bold;
+            line-height: 50px;
           }
         }
         .left {

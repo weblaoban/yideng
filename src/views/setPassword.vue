@@ -90,7 +90,7 @@ export default {
 <style lang="scss" scoped>
 #modifyPas {
   .title {
-    height: 132px;
+    height: 135px;
     margin: 0 auto;
     margin-bottom: 40px;
     padding-left: 172px;
@@ -111,7 +111,7 @@ export default {
     }
     .line {
       width: 150px;
-      border-bottom: 4px solid #e67016;
+      border-bottom: 5px solid #e67016;
       margin: 0 auto;
     }
   }

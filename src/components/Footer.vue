@@ -2,7 +2,8 @@
   <div id="foot">
     <div v-show="showFootContent" class="container">
       <h4 v-text="$t('lang.contractTitle')"></h4>
-      <img src="../assets/image/line.png" alt />
+      <div class="line" />
+      <!-- <img src="../assets/image/line.png" alt /> -->
       <div class="infoContent">
         <ul class="clear">
           <li>
@@ -33,7 +34,8 @@
       </div>
     </div>
     <div class="container">
-      <img src="../assets/image/line.png" alt />
+      <!-- <img src="../assets/image/line.png" alt /> -->
+      <div class="line line2" />
       <p class="copyRight">
         Copyright © 2020. Shanghai Eastern Network Logistics Co.,Ltd All rights
         reserved.
@@ -71,68 +73,81 @@ export default {
   background-repeat: no-repeat;
   width: 100%;
   min-width: 1200px;
-  padding: 63px 0 53px 0;
+  padding: 59px 0 20px 0;
   .container {
     width: 1200px;
-    img {
-      display: block;
-      margin-bottom: 24px;
-      width: 100%;
+    .line{
+      height: 0;
+      border: 1px solid #FFFFFF;
+      margin-bottom: 20px;
     }
+    // img {
+    //   display: block;
+    //   margin-bottom: 20px;
+    //   width: 100%;
+    // }
     h4 {
-      font-size: 30px;
+      font-size: 20px;
       color: #fff;
       text-align: left;
-      line-height: 58px;
-      font-weight: 600;
+      line-height: 40px;
+      font-weight: bold;
     }
     .copyRight {
-      font-size: 15px;
-      color: #cecece;
+      font-size: 12px;
+      color: #fff;
+      font-weight: 100;
       text-align: center;
     }
     .infoContent {
       ul {
         width: 100%;
+        display: flex;
+        justify-content: space-between;
         &:last-child {
           padding: 0;
         }
         li {
           float: left;
           width: 33%;
-          padding-right: 20px;
+          margin-right: 200px;
+          &:last-child{
+            margin-right: 0;
+          }
           p.title {
-            font-size: 26px;
+            font-size: 20px;
+            line-height: 20px;
             color: #fff;
-            margin-bottom: 24px;
+            margin-bottom: 30px;
             text-align: left;
+            font-weight: bold;
           }
           p.desc {
-            font-size: 22px;
+            font-size: 20px;
             color: #fff;
             text-align: left;
-            line-height: 44px;
-            font-weight: 100;
+            line-height: 36px;
+            font-weight: 300;
             padding-left: 25px;
             margin-bottom: 30px;
             &:nth-child(2) {
               background: url(../assets/image/contract/icon11.png);
-              background-size: 13.2px 20px;
+              background-size: 14px 20px;
               background-repeat: no-repeat;
-              background-position: 0 0.12rem;
+              background-position: 0 8px;
             }
             &:nth-child(3) {
               background: url(../assets/image/contract/icon21.png);
               background-size: 20px 20px;
               background-repeat: no-repeat;
-              background-position: 0 0.12rem;
+              background-position: 0 8px;
             }
-            &:last-child {
+            &:nth-child(4) {
               margin-bottom: 18px;
               background: url(../assets/image/contract/icon41.png);
               background-size: 20px 13px;
               background-repeat: no-repeat;
-              background-position: 0 0.12rem;
+              background-position: 0 11.5px;
             }
           }
         }
@@ -144,18 +159,26 @@ export default {
 @media screen and (max-width: 750px) {
   #foot {
     min-width: auto;
-    padding-top: 160px;
-    padding-bottom: 80px;
+    padding-top: 150px;
+    padding-bottom: 160px;
     .container {
       width: 100%;
       padding: 0 16px;
       h4 {
-        font-size: 36px;
+        font-size: 30px;
+        line-height: 50px;
         font-weight: bold;
+      }
+      .line{
+        margin-bottom: 70px;
+      }
+      .line2{
+        margin-bottom: 38px;
       }
       .infoContent {
         ul {
           width: 100%;
+          display: block;
           &:last-child {
             padding: 0;
           }
@@ -163,17 +186,16 @@ export default {
             float: none;
             width: 100%;
             padding-right: 0;
-            margin-bottom: 160px;
+            margin-bottom: 80px;
+            margin-right: 0;
             &:last-child {
               margin-bottom: 86px;
             }
             p.title {
-              font-size: 44px;
-              font-weight: bold;
               margin-bottom: 40px;
             }
             p.desc {
-              font-size: 32px;
+              font-size: 30px;
               color: #fff;
               text-align: left;
               // line-height: 72px;
@@ -182,20 +204,20 @@ export default {
               margin-bottom: 40px;
               &:nth-child(2) {
                 background: url(../assets/image/contract/icon11.png);
-                background-size: 27px 40px;
+                background-size: 20px 30px;
                 background-repeat: no-repeat;
                 background-position: 0 0;
               }
               &:nth-child(3) {
                 background: url(../assets/image/contract/icon21.png);
-                background-size: 40px 40px;
+                background-size: 30px 30px;
                 background-repeat: no-repeat;
                 background-position: 0 0;
               }
-              &:last-child {
+              &:nth-child(4) {
                 margin-bottom: 18px;
                 background: url(../assets/image/contract/icon41.png);
-                background-size: 40px 26px;
+                background-size: 30px 20px;
                 background-repeat: no-repeat;
                 background-position: 0 0.12rem;
               }
@@ -204,8 +226,8 @@ export default {
         }
       }
       .copyRight {
-        font-size: 19px;
-        line-height: 25px;
+        font-size: 20px;
+        line-height: 30px;
       }
     }
   }

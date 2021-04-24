@@ -16,7 +16,7 @@
             <h4 v-text="$t('lang.address1')"></h4>
             <li>{{ address[0].dictionariesValue }}</li>
             <li>{{ address[1].dictionariesValue }}</li>
-            <li>+86-21-53089827</li>
+            <!-- <li>+86-21-53089827</li> -->
             <li>contact@eastern-sha.com</li>
           </ul>
           <ul @click="changeCenter('2')">
@@ -166,32 +166,32 @@ export default {
     background-position: top center;
     background-repeat: no-repeat;
     h2 {
-      font-size: 80px;
+      font-size: 40px;
       color: #fff;
       text-align: center;
       width: 100%;
       position: absolute;
       top: 50%;
-      font-weight: 500;
-      height: 80px;
-      margin-top: -60px;
+      font-weight: bold;
+      line-height: 40px;
+      margin-top: -20px;
     }
   }
 
   #container {
     overflow: hidden;
     width: 100%;
-    height: 430px;
-    margin-bottom: 34px;
+    height: 500px;
+    margin-bottom: 70px;
     font-family: "微软雅黑";
   }
 
   .contract {
     margin-bottom: 120px;
     .title {
-      height: 132px;
+      height: 135px;
       margin: 0 auto;
-      margin-bottom: 40px;
+      margin-bottom: 80px;
       .circle {
         width: 50px;
         height: 50px;
@@ -200,14 +200,15 @@ export default {
         margin: 0 auto;
       }
       p {
-        font-size: 37px;
-        color: #000;
+        font-size: 40px;
+        color: #343434;
         text-align: center;
-        line-height: 82px;
+        line-height: 80px;
+        font-weight: bold;
       }
       .line {
-        width: 187px;
-        border-bottom: 4px solid #e67016;
+        width: 150px;
+        border-bottom: 5px solid #e67016;
         margin: 0 auto;
       }
     }
@@ -215,16 +216,16 @@ export default {
     .info {
       ul {
         float: left;
-        height: 247px;
+        height: 277px;
         cursor: pointer;
         &:first-child {
-          width: 385px;
-          border-right: 1px dashed #000;
-          padding-right: 48px;
+          width: 373px;
+          border-right: 1px solid #E67016;
+          padding-right: 107px;
         }
         &:nth-child(2) {
           width: 457px;
-          border-right: 1px dashed #000;
+          border-right: 1px solid #E67016;
           padding-left: 93px;
           padding-right: 45px;
         }
@@ -234,37 +235,39 @@ export default {
           padding-right: 11px;
         }
         h4 {
-          font-size: 38px;
+          font-size: 30px;
+          line-height: 50px;
           color: #E67016;
-          font-weight: 500;
+          font-weight: bold;
           text-align: left;
-          margin-bottom: 20px;
+          margin-bottom: 30px;
         }
         li {
-          padding-left: 30px;
-          font-size: 22px;
+          padding-left: 25px;
+          font-size: 20px;
+          line-height: 36px;
           font-weight: 400;
           text-align: left;
-          margin-bottom: 10px;
+          margin-bottom: 24px;
           color: #343434;
-          font-weight: 100;
+          font-weight: 300;
           &:nth-child(2) {
             background: url(../assets/image/contract/icon1.png);
-            background-position: left top;
+            background-position: left 8px;
             background-repeat: no-repeat;
-            background-size: 13px 20px;
+            background-size: 14px 20px;
           }
           &:nth-child(3) {
             background: url(../assets/image/contract/icon2.png);
-            background-position: left 3px;
+            background-position: left 8px;
             background-repeat: no-repeat;
             background-size: 20px 20px;
           }
           &:nth-child(4) {
             background: url(../assets/image/contract/icon3.png);
-            background-position: left 2px;
+            background-position: left 11.5px;
             background-repeat: no-repeat;
-            background-size: 20px 15px;
+            background-size: 20px 13px;
           }
           &:nth-child(5) {
             background: url(../assets/image/contract/icon4.png);
@@ -283,9 +286,13 @@ export default {
     min-width: auto;
     .banner {
       height: 400px;
+      background: url("../assets/image/mobile/mobileBanner1.png");
+      background-size: 100% 100%;
+      background-position: top center;
+      background-repeat: no-repeat;
       margin-bottom: 160px;
       h2 {
-        font-size: 56px;
+        font-size: 40px;
         height: 0.56rem;
         line-height: 0.56rem;
         margin-top: -0.28rem;
@@ -301,29 +308,29 @@ export default {
     }
 
     .contract {
-      margin-bottom: 156px;
-      .title {
-        height: 195px;
-        margin-bottom: 78px;
-        .circle {
-          width: 80px;
-          height: 80px;
-          border-radius: 50%;
-          margin-bottom: 20px;
-        }
-        p {
-          font-size: 52px;
-          line-height: 52px;
-          margin-bottom: 20px;
-          font-family: Noto Sans S Chinese;
-          font-weight: bold;
-        }
-        .line {
-          width: 187px;
-          border-bottom: 4px solid #e67016;
-          margin: 0 auto;
-        }
-      }
+      margin-bottom: 160px;
+      // .title {
+      //   height: 195px;
+      //   margin-bottom: 78px;
+      //   .circle {
+      //     width: 80px;
+      //     height: 80px;
+      //     border-radius: 50%;
+      //     margin-bottom: 20px;
+      //   }
+      //   p {
+      //     font-size: 52px;
+      //     line-height: 52px;
+      //     margin-bottom: 20px;
+      //     font-family: Noto Sans S Chinese;
+      //     font-weight: bold;
+      //   }
+      //   .line {
+      //     width: 187px;
+      //     border-bottom: 5px solid #e67016;
+      //     margin: 0 auto;
+      //   }
+      // }
 
       .info {
         ul {
@@ -336,51 +343,44 @@ export default {
           padding-left: 0 !important;
           padding-right: 0 !important;
           &:first-child {
-            padding-bottom: 160px;
+            padding-bottom: 154px;
           }
           &:nth-child(2) {
-            padding-bottom: 160px;
+            padding-bottom: 154px;
             li{
               &:nth-child(2){
-                font-size: 28px;
+                // font-size: 28px;
               }
             }
           }
           &:nth-child(3) {
             // padding-top: 74px;
           }
-          h4 {
-            font-size: 55px;
-            color: #E67016;
-            font-weight: bold;
-            text-align: left;
-            margin-bottom: 40px;
-          }
           li {
-            // padding-left: 30px;
-            font-size: 32px;
+            padding-left: 37px;
+            font-size: 30px;
             font-weight: 300;
             text-align: left;
-            margin-bottom: 19px;
+            margin-bottom: 40px;
             // padding: 0 130px;
-            line-height: 33px;
+            line-height: 30px;
             &:nth-child(2) {
               background: url(../assets/image/contract/icon1.png);
-              background-position: left 3px;
+              background-position: left top;
               background-repeat: no-repeat;
-              background-size: 18px 27px;
+              background-size: 20px 30px;
             }
             &:nth-child(3) {
               background: url(../assets/image/contract/icon2.png);
-              background-position: left 3px;
+              background-position: left top;
               background-repeat: no-repeat;
-              background-size: 24px 23px;
+              background-size: 30px 30px;
             }
             &:nth-child(4) {
               background: url(../assets/image/contract/icon3.png);
-              background-position: left 2px;
+              background-position: left 5px;
               background-repeat: no-repeat;
-              background-size: 24px 25px;
+              background-size: 30px 20px;
             }
             &:nth-child(5) {
               background: url(../assets/image/contract/icon4.png);

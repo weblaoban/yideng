@@ -10,7 +10,7 @@
     </div>
     <div class="container">
       <div class="introduce">
-        <p class="desc" v-text="$t('lang.introducep1')"></p>
+        <p class="desc desc2" v-text="$t('lang.introducep1')"></p>
         <ul>
           <li v-for="(item,index) in $t('lang.introduceMenu1')" :key="index">
             <p v-text="item"></p>
@@ -29,7 +29,7 @@
         <h3 v-text="$t('lang.introducep4')"></h3>
       </div>
     </div>
-    <div class="title">
+    <!-- <div class="title">
       <div class="circle"></div>
       <p v-text="$t('lang.introduceTitle1')"></p>
       <div class="line"></div>
@@ -38,7 +38,7 @@
       <div class="introduce">
         <p class="desc" v-html="$t('lang.introducep5')"></p>
       </div>
-    </div>
+    </div> -->
   </div>
 </template>
 <script>
@@ -60,22 +60,22 @@ export default {
     background-position: top center;
     background-repeat: no-repeat;
     h2 {
-      font-size: 80px;
+      font-size: 40px;
       color: #fff;
       text-align: center;
       width: 100%;
       position: absolute;
       top: 50%;
-      font-weight: 500;
-      height: 80px;
-      margin-top: -60px;
+      font-weight: bold;
+      line-height: 40px;
+      margin-top: -20px;
     }
   }
   .title {
     // width: 187px;
-    height: 132px;
+    height: 135px;
     margin: 0 auto;
-    margin-bottom: 50px;
+    margin-bottom: 80px;
     .circle {
       width: 50px;
       height: 50px;
@@ -84,40 +84,43 @@ export default {
       margin: 0 auto;
     }
     p {
-      font-size: 50px;
+      font-size: 40px;
       color: #343434;
       text-align: center;
-      line-height: 82px;
+      line-height: 80px;
       font-weight: bold;
-      // border-bottom: 4px solid #e67016;
+      // border-bottom: 5px solid #e67016;
     }
     .line {
       width: 150px;
-      border-bottom: 4px solid #e67016;
+      border-bottom: 5px solid #e67016;
       margin: 0 auto;
     }
   }
   .introduce {
     p {
-      font-size: 22px;
+      font-size: 20px;
       color: #343434;
-      margin-bottom: 49px;
-      line-height: 1.5;
+      margin-bottom: 41px;
+      line-height: 40px;
       text-align: left;
-      font-weight: 100;
+      font-weight: 300;
+      &.desc2{
+        font-weight: 400;
+      }
     }
     ul {
       margin-bottom: 40px;
       li {
-        padding-left: 30px;
+        padding-left: 21px;
         position: relative;
-        margin-bottom: 8px;
+        // margin-bottom: 8px;
         &:before {
           content: "";
           display: block;
-          width: 22px;
-          height: 22px;
-          border-radius: 12.5px;
+          width: 16px;
+          height: 16px;
+          border-radius: 8px;
           background: #343434;
           position: absolute;
           left: 0;
@@ -137,14 +140,15 @@ export default {
         float: left;
         max-width: 260px;
         h4 {
-          font-size: 22px;
-          color: #000;
-          font-weight: 600;
+          font-size: 20px;
+          line-height: 40px;
+          color: #343434;
+          font-weight: bold;
           text-align: left;
-          margin-bottom: 8px;
+          // margin-bottom: 8px;
         }
         &:nth-child(2) {
-          margin: 0 150px 0 327px;
+          margin: 0 299px 0 292px;
         }
         &:last-child {
           max-width: 387px;
@@ -152,10 +156,12 @@ export default {
       }
     }
     h3 {
-      font-size: 22px;
-      color: #000;
+      font-size: 20px;
+      line-height: 40px;
+      color: #343434;
       margin-bottom: 135px;
       text-align: left;
+      font-weight: bold;
     }
   }
 }
@@ -179,30 +185,34 @@ export default {
         font-weight: bold;
       }
     }
-    .title {
-      height: 195px;
-      .circle {
-        width: 80px;
-        height: 80px;
-        border-radius: 50%;
-        margin-bottom: 20px;
-      }
-      p {
-        font-size: 52px;
-        line-height: 52px;
-        margin-bottom: 20px;
-        font-family: Noto Sans S Chinese;
-        font-weight: bold;
-      }
-    }
+    // .title {
+    //   height: 195px;
+    //   .circle {
+    //     width: 80px;
+    //     height: 80px;
+    //     border-radius: 50%;
+    //     margin-bottom: 20px;
+    //   }
+    //   p {
+    //     font-size: 52px;
+    //     line-height: 52px;
+    //     margin-bottom: 20px;
+    //     font-family: Noto Sans S Chinese;
+    //     font-weight: bold;
+    //   }
+    // }
     .introduce {
       p {
-        font-size: 32px;
+        font-size: 30px;
+        line-height: 50px;
         font-weight: 300;
         margin-bottom: 80px;
+        &.desc2{
+          font-weight: 300;
+        }
       }
       h3{
-        font-size: 32px;
+        font-size: 30px;
         line-height: 50px;
         color: #343434;
       }
@@ -213,7 +223,8 @@ export default {
           // max-width: 2rem;
           // margin-bottom: 80px;
           h4 {
-            font-size: 33px;
+            font-size: 30px;
+            line-height: 50px;
           }
           &:nth-child(2) {
             margin: 80px 0 80px;
@@ -222,13 +233,13 @@ export default {
             max-width: 100%;
           }
           li {
-            padding-left: 40px;
+            padding-left: 28px;
             &:before {
               content: "";
               display: block;
-              width: 28px;
-              height: 28px;
-              border-radius: 14px;
+              width: 20px;
+              height: 20px;
+              border-radius: 10px;
               background: #343434;
               position: absolute;
               left: 0;
@@ -241,7 +252,7 @@ export default {
       }
       ul {
         float: none;
-        margin-bottom: 80px;
+        margin-bottom: 74px;
         // &:nth-child(2) {
         //   margin: 0;
         // }
