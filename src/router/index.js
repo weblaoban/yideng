@@ -81,6 +81,18 @@ const routes = [
         meta: {
             title: '修改密码'
         }
+    },
+    {
+        path: '/forgetPas',
+        name: 'ForgetPas',
+        // route level code-splitting
+        // this generates a separate chunk (about.[hash].js) for this route
+        // which is lazy-loaded when the route is visited.
+        component: () =>
+            import ( /* webpackChunkName: "about" */ '../views/ForgetPas.vue'),
+        meta: {
+            title: '忘记密码'
+        }
     }
     // ylj
     , {
@@ -115,19 +127,19 @@ const router = new VueRouter({
     routes,
     scrollBehavior
 });
-router.beforeEach((to, _, next) => {
-    const remeber = localStorage.getItem('rember');
-    const tokenData = remeber ? localStorage.getItem('userInfo') : sessionStorage.getItem('userInfo');
-    const userInfo = tokenData ? JSON.parse(tokenData) : {};
-    if (!userInfo.id) {
-        if (to.path.indexOf('list') > -1 || to.path.indexOf('detail') > -1 || to.path.indexOf('modifyPas') > -1) {
-            next(false)
-        } else {
-            next();
-        }
-    } else {
-        next();
-    }
-});
+// router.beforeEach((to, _, next) => {
+    // const remeber = localStorage.getItem('rember');
+    // const tokenData = remeber ? localStorage.getItem('userInfo') : sessionStorage.getItem('userInfo');
+    // const userInfo = tokenData ? JSON.parse(tokenData) : {};
+    // if (!userInfo.id) {
+    //     if (to.path.indexOf('list') > -1 || to.path.indexOf('detail') > -1 || to.path.indexOf('modifyPas') > -1) {
+    //         next(false)
+    //     } else {
+    //         next();
+    //     }
+    // } else {
+    //     next();
+    // }
+// });
 
 export default router

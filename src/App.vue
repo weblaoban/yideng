@@ -18,7 +18,7 @@
 import Header from "./components/Header.vue";
 import Login from "./components/Login";
 import Foot from "./components/Footer";
-import TipMessage from './components/CommonTip';
+import TipMessage from "./components/CommonTip";
 import "./scss/resource.scss";
 import { mapGetters, mapActions } from "vuex";
 export default {
@@ -39,8 +39,6 @@ export default {
     Login,
     Foot,
     TipMessage
-  },
-  mounted() {
   },
   async created() {
     const path = this.$route.path.substr(1);
@@ -67,7 +65,7 @@ export default {
     }
   },
   computed: {
-    ...mapGetters(["showLogin",'tipMessage'])
+    ...mapGetters(["showLogin", "tipMessage"])
   },
   watch: {
     $route() {
@@ -87,7 +85,7 @@ export default {
         this.activeNavigation = -1;
       }
 
-      if (path.indexOf("modifyPas") > -1) {
+      if (path.indexOf("modifyPas") > -1 || path.indexOf("forgetPas") > -1) {
         this.showFoot = false;
         this.isShowOperation = false;
       } else if (path.indexOf("detail") > -1 || path.indexOf("list") > -1) {
@@ -118,10 +116,10 @@ export default {
 .anchorBL {
   display: none;
 }
-.BMap_bubble_title{
+.BMap_bubble_title {
   font-size: 16px;
 }
-.BMap_bubble_content{
+.BMap_bubble_content {
   font-size: 16px;
 }
 </style>

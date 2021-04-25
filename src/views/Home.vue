@@ -1,7 +1,13 @@
 <template>
   <div class="home">
     <div class="banner">
-      <!-- <img src="../assets/image/banner1.png" alt /> -->
+      <div class="swiper-container">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide"></div>
+          <div class="swiper-slide"></div>
+          <div class="swiper-slide"></div>
+        </div>
+      </div>
       <div class="h2">
         <h2 v-text="$t('lang.homeTitle')"></h2>
         <h4 v-text="$t('lang.homeP')"></h4>
@@ -16,13 +22,14 @@
     </div>
   </div>
 </template>
-
 <script>
 import { mapGetters, mapActions } from "vuex";
+import Swiper from "swiper";
 export default {
   name: "Home",
   data() {
     return {
+      mySwiper: null,
       sectionData: [
         {
           // desc:$t('lang.homeMenu1'),
@@ -43,6 +50,18 @@ export default {
       ]
     };
   },
+  mounted() {
+    this.$nextTick(() => {
+      new Swiper(".swiper-container", {
+        autoplay: true,
+        effect: "fade",
+        // loop: true,
+        fadeEffect: {
+          crossFade: true
+        }
+      });
+    });
+  },
   computed: {
     ...mapGetters(["isLogin"])
   },
@@ -58,7 +77,7 @@ export default {
             this.setLoginMaskHeight(app.offsetHeight);
           });
           this.setShowLogin(true);
-          sessionStorage.setItem('toList',"toList");
+          sessionStorage.setItem("toList", "toList");
           window.scrollTo(0, 0);
         }
       } else {
@@ -79,15 +98,46 @@ export default {
     position: relative;
     margin-bottom: 130px;
     height: 1000px;
-    background: url("../assets/image/banner1.png");
-    background-size: 100% 100%;
-    background-position: top center;
-    background-repeat: no-repeat;
     // img {
     //   display: block;
     //   width: 100%;
     //   min-width: 1200px;
     // }
+    .swiper-container {
+      width: 100%;
+      height: 1000px;
+      overflow: hidden;
+      .swiper-wrapper {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        z-index: 1;
+        display: flex;
+        transition-property: transform;
+        box-sizing: content-box;
+      }
+      .swiper-slide {
+        flex-shrink: 0;
+        width: 100%;
+        height: 1000px;
+        background: url("../assets/image/banner/banner1.png");
+        background-size: 100% 100%;
+        background-position: top center;
+        background-repeat: no-repeat;
+        &:nth-child(2) {
+          background: url("../assets/image/banner/banner2.png");
+          background-size: 100% 100%;
+          background-position: top center;
+          background-repeat: no-repeat;
+        }
+        &:nth-child(3) {
+          background: url("../assets/image/banner/banner3.png");
+          background-size: 100% 100%;
+          background-position: top center;
+          background-repeat: no-repeat;
+        }
+      }
+    }
     .h2 {
       width: 100%;
       position: absolute;
@@ -97,6 +147,7 @@ export default {
       margin: auto;
       // height: 60px;
       margin-top: -70px;
+      z-index: 2;
       h2 {
         font-size: 40px;
         color: #fff;
@@ -161,17 +212,48 @@ export default {
     .banner {
       width: 750px;
       height: 400px;
-      background: url("../assets/image/mobile/mobileBanner1.png");
-      background-size: 100% 100%;
-      background-position: top center;
-      background-repeat: no-repeat;
       margin-bottom: 160px;
+      .swiper-container {
+        width: 100%;
+        height: 400px;
+        overflow: hidden;
+        .swiper-wrapper {
+          position: relative;
+          width: 100%;
+          height: 100%;
+          z-index: 1;
+          display: flex;
+          transition-property: transform;
+          box-sizing: content-box;
+        }
+        .swiper-slide {
+          flex-shrink: 0;
+          width: 100%;
+          height: 1000px;
+          background: url("../assets/image/mobile/banner1.png");
+          background-size: 100% 100%;
+          background-position: top center;
+          background-repeat: no-repeat;
+          &:nth-child(2) {
+            background: url("../assets/image/mobile/banner2.png");
+            background-size: 100% 100%;
+            background-position: top center;
+            background-repeat: no-repeat;
+          }
+          &:nth-child(3) {
+            background: url("../assets/image/mobile/banner3.png");
+            background-size: 100% 100%;
+            background-position: top center;
+            background-repeat: no-repeat;
+          }
+        }
+      }
       .h2 {
         // margin-top: -1.1rem;
         h2 {
           margin-bottom: 30px;
         }
-        h4{
+        h4 {
           font-size: 30px;
           font-weight: 300;
         }

@@ -17,9 +17,7 @@
                 index === 3 ? 'languange' : index === active ? 'active' : ''
               "
               @click="changeLanguage(item, index)"
-            >
-              {{ item.name }}
-            </li>
+            >{{ item.name }}</li>
           </ul>
           <ul class="info" v-if="isLogin">
             <li @click="showOperation" class="userName showInPc">
@@ -40,9 +38,15 @@
               </p>
             </li>
             <div v-show="isShowOperation" class="userInfo">
-              <li @click="sectionClick" v-text="$t('lang.homeMenu1')"></li>
-              <li @click="toModifyPas">修改密码</li>
-              <li @click="logOut" v-text="$t('lang.logout')"></li>
+              <li @click="sectionClick">
+                <span v-text="$t('lang.homeMenu1')"></span>
+              </li>
+              <li @click="toModifyPas">
+                <span v-text="$t('lang.modifyPas')"></span>
+              </li>
+              <li @click="logOut">
+                <span v-text="$t('lang.logout')"></span>
+              </li>
             </div>
           </ul>
           <ul class="info login" v-if="!isLogin">
@@ -61,14 +65,14 @@ export default {
   data() {
     return {
       loading: false,
-      isShowNavigation: true,
+      isShowNavigation: true
     };
   },
   props: {
     isLoginProps: Boolean,
     userName: String,
     active: Number,
-    isShowOperation: Boolean,
+    isShowOperation: Boolean
   },
   computed: {
     isLogin() {
@@ -84,7 +88,7 @@ export default {
         ? localStorage.getItem("userInfo")
         : sessionStorage.getItem("userInfo");
       return tokenData ? JSON.parse(tokenData).customerName : this.userName;
-    },
+    }
   },
   methods: {
     ...mapActions([
@@ -92,7 +96,7 @@ export default {
       "setLoginMaskHeight",
       "setIsLogin",
       "setTipMessage",
-      "setLocale",
+      "setLocale"
     ]),
     changeLanguage(item, index) {
       const path = item.path;
@@ -147,11 +151,12 @@ export default {
     },
     sectionClick() {
       const bodyWidth = document.body.clientWidth;
+      this.showOperation();
       if (this.isLogin) {
-        this.$router.push('/list');
+        this.$router.push("/list");
         if (bodyWidth <= 750) {
-              this.$refs.navigationContent.style.display = "none";
-            }
+          this.$refs.navigationContent.style.display = "none";
+        }
       } else {
         this.$nextTick(() => {
           const app = document.getElementById("app");
@@ -201,8 +206,8 @@ export default {
           }, 30);
         }, 2000);
       }
-    },
-  },
+    }
+  }
 };
 </script>
 <style scoped lang="scss">
@@ -225,7 +230,7 @@ export default {
   width: 100%;
   min-width: 1200px;
   position: fixed;
-  z-index: 1;
+  z-index: 2;
   .container {
     width: 1200px;
     margin: 0 auto;
@@ -272,11 +277,18 @@ export default {
         height: 40px;
         line-height: 40px;
         font-size: 20px;
-        width: 103px;
+        min-width: 103px;
+        width: auto;
+        padding: 0 5px;
         text-align: center;
         background: #f8f8f8;
-        padding: 0;
         position: relative;
+        span {
+          line-height: 40px;
+          font-size: 20px;
+          white-space: nowrap;
+          color: #787878;
+        }
         &::after {
           position: absolute;
           content: "";
@@ -288,7 +300,7 @@ export default {
           left: 0;
         }
         &:last-child {
-          &::after{
+          &::after {
             display: none;
           }
         }
@@ -467,6 +479,12 @@ export default {
         position: relative;
         background: #fff;
         color: #787878;
+        span {
+          font-size: 0.4rem;
+          line-height: 0.8rem;
+          white-space: nowrap;
+          color: #787878;
+        }
         &::after {
           content: "";
           position: absolute;
@@ -489,7 +507,7 @@ export default {
           }
         }
         &:last-child {
-          &::after{
+          &::after {
             display: block;
           }
         }
@@ -508,15 +526,15 @@ export default {
         span {
           font-size: 0.44rem;
           position: relative;
-          // &:after {
-          //   content: "";
-          //   display: block;
-          //   border: 8px solid transparent;
-          //   border-top: 12px solid #787878;
-          //   position: absolute;
-          //   bottom: 3px;
-          //   right: 0;
-          // }
+          &:after {
+            content: "";
+            display: block;
+            border: 16px solid transparent;
+            border-top: 24px solid #787878;
+            position: absolute;
+            bottom: -10px;
+            right: -40px;
+          }
         }
       }
       &:after {

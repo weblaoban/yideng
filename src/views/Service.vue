@@ -3,18 +3,18 @@
     <div class="banner">
       <h2>{{ $t("lang.netTitle1") }}</h2>
     </div>
-    <div class="container clear">
+    <div class="container">
       <div class="service">
         <div class="title">
           <div class="circle"></div>
           <p>{{ $t("lang.serviceTitle") }}</p>
           <div class="line"></div>
         </div>
-        <div class="content">
+        <div class="content" @click="showMessage(1)">
           <div class="right">
             <img src="../assets/image/service/service1.png" alt />
           </div>
-          <div class="left">
+          <div ref="left1" class="left">
             <p>{{ $t("lang.servicedes") }}</p>
             <ul>
               <li>
@@ -55,12 +55,12 @@
           <p>{{ $t("lang.serviceTitle2") }}</p>
           <div class="line"></div>
         </div>
-        <div class="content">
+        <div class="content" @click="showMessage(2)">
           <div class="right">
             <img src="../assets/image/service/service2.png" alt />
           </div>
 
-          <div class="left" v-html="$t('lang.servicedes5')">
+          <div ref="left2" class="left" v-html="$t('lang.servicedes5')">
             <p>
               上海伊登国际拥有交通部批准的无船承运人(NVOCC)经营资格。
               <br />主要经营各类货物的海运进出口运输
@@ -68,8 +68,7 @@
               MAERSK, MSC, EVERGREEN, YANGMING,
               WANHAI等多家船公司保持了长久稳定的合作关系。
               <br />上海伊登立志为客户提供
-              <span>更经济、更可靠、更高效</span
-              >的一站式物流服务，船期稳定，运价优惠，是我公司赢得客户青睐的优势之一。
+              <span>更经济、更可靠、更高效</span>的一站式物流服务，船期稳定，运价优惠，是我公司赢得客户青睐的优势之一。
             </p>
           </div>
         </div>
@@ -80,17 +79,13 @@
           <p>{{ $t("lang.serviceTitle3") }}</p>
           <div class="line"></div>
         </div>
-        <div class="content">
+        <div class="content" @click="showMessage(3)">
           <div class="right">
             <img src="../assets/image/service/service3.png" alt />
           </div>
-          <div class="left" v-html="$t('lang.servicedes6')">
-            <p>
-              上海伊登为您提供中欧、中亚、中蒙等跨境铁路运输服务，包括班列订舱服务、报关服务、提货和送货服务、整箱和拼箱服务。
-            </p>
-            <p>
-              我们与国内外数十个铁路口岸保持良好的合作往来，主要包括西安、郑州、成都、重庆、沈阳、武汉、汉堡、华沙、马拉、杜伊斯堡、乌兰巴托、中亚各国铁路口岸等。
-            </p>
+          <div class="left" ref="left3" v-html="$t('lang.servicedes6')">
+            <p>上海伊登为您提供中欧、中亚、中蒙等跨境铁路运输服务，包括班列订舱服务、报关服务、提货和送货服务、整箱和拼箱服务。</p>
+            <p>我们与国内外数十个铁路口岸保持良好的合作往来，主要包括西安、郑州、成都、重庆、沈阳、武汉、汉堡、华沙、马拉、杜伊斯堡、乌兰巴托、中亚各国铁路口岸等。</p>
           </div>
         </div>
       </div>
@@ -100,17 +95,13 @@
           <p>{{ $t("lang.serviceTitle4") }}</p>
           <div class="line"></div>
         </div>
-        <div class="content">
+        <div class="content" @click="showMessage(4)">
           <div class="right">
             <img src="../assets/image/service/service4.png" alt />
           </div>
-          <div class="left" v-html="$t('lang.servicedes7')">
-            <p>
-              上海伊登国际为客户提供多种合同物流方案，包括国内运输和国内仓储，非保税和保税业务，危险品，冷藏冷冻品以及各类大件项目运输服务。
-            </p>
-            <p>
-              我们在全国搭建了多网络平台，在上海拥有上万平米的转运中心及物流仓储中心。自有及合同车辆千余部，门到门运输服务覆盖全国1,000多个城市。
-            </p>
+          <div class="left" ref="left4" v-html="$t('lang.servicedes7')">
+            <p>上海伊登国际为客户提供多种合同物流方案，包括国内运输和国内仓储，非保税和保税业务，危险品，冷藏冷冻品以及各类大件项目运输服务。</p>
+            <p>我们在全国搭建了多网络平台，在上海拥有上万平米的转运中心及物流仓储中心。自有及合同车辆千余部，门到门运输服务覆盖全国1,000多个城市。</p>
           </div>
         </div>
       </div>
@@ -120,6 +111,21 @@
 <script>
 export default {
   name: "service",
+  methods: {
+    showMessage(index) {
+      const clientWidth =
+        document.body.clientWidth || document.documentElement.clientWidth;
+      if (clientWidth > 750) {
+        return;
+      }
+      const elName = "left" + index;
+      const el = this.$refs[elName];
+      if (el) {
+        console.log(el.classList)
+        el.classList.toggle('showLeft')
+      }
+    }
+  }
 };
 </script>
 <style lang="scss" scoped>
@@ -148,11 +154,15 @@ export default {
       margin-top: -20px;
     }
   }
-
+  .container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
   .service {
     margin-bottom: 135px;
     width: 570px;
-    float: left;
+    flex-shrink: 0;
     &:nth-child(2) {
       .left {
         min-height: 510px;
@@ -202,9 +212,13 @@ export default {
     }
 
     .content {
+      // .showLeft {
+      //   display: none!important;
+      // }
       .left {
         // float: left;
         width: 100%;
+        display: block;
       }
       .right {
         // float: right;
@@ -297,7 +311,11 @@ export default {
             line-height: 50px;
           }
         }
+        .showLeft {
+          display: block!important;
+        }
         .left {
+          display: none;
           float: none;
           width: 100%;
           min-height: auto !important;

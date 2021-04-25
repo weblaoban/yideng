@@ -29,7 +29,7 @@
             <label for="rember" v-text="$t('lang.auto')"></label>
           </div>
           <div class="forget">
-            <router-link to="/">忘记密码</router-link>
+            <router-link to="/forgetPas">忘记密码</router-link>
           </div>
         </div>
         <div class="buttonContent">
@@ -127,21 +127,21 @@ export default {
   z-index: 999;
   min-width: 1200px;
   .maskContent {
-    width: 798px;
-    height: 522px;
-    background: rgba(255, 255, 255, 0.8);
+    width: 600px;
+    // height: 400px;
+    background: rgba(255, 255, 255, 1);
     border-radius: 10px;
-    margin: 200px auto 0;
-    padding: 49px 127px 35px;
+    margin: 300px auto 0;
+    padding: 70px 100px 17px;
     & > p {
       color: #787878;
-      font-size: 28px;
+      font-size: 20px;
       text-align: left;
       margin-bottom: 25px;
     }
     .inputItem {
       width: 100%;
-      padding-bottom: 27px;
+      padding-bottom: 20px;
       position: relative;
       text-align: left;
       input {
@@ -149,16 +149,19 @@ export default {
         border-radius: 5px;
         outline: none;
         color: #787878;
-        font-size: 28px;
-        padding-left: 30px;
-        height: 70px;
+        font-size: 20px;
+        padding-left: 10px;
+        height: 50px;
         width: 100%;
         background: transparent;
+      }
+      input::placeholder {
+        font-weight: 100;
       }
       .error {
         position: absolute;
         bottom: 0;
-        line-height: 27px;
+        line-height: 20px;
         left: 0;
         font-size: 14px;
         color: red;
@@ -169,42 +172,57 @@ export default {
       display: flex;
       align-items: center;
       justify-content: space-between;
-      margin-bottom: 27px;
+      margin-bottom: 20px;
       height: 20px;
-      label {
-        font-size: 15px;
-        color: #000;
+      .input {
+        display: flex;
+        align-items: center;
+        justify-content: start;
+        input {
+          width: 20px;
+          height: 20px;
+          margin-right: 3px;
+        }
       }
-      .forget a{
-        color:#787878;
-        font-size: 18px;
+
+      label {
+        font-size: 20px;
+        font-weight: 300;
+        color: #787878;
+      }
+      .forget a {
+        color: #787878;
+        font-size: 20px;
+        font-weight: 300;
       }
     }
     .buttonContent {
       display: flex;
       justify-content: center;
       align-items: center;
-      margin-bottom: 45px;
+      margin-bottom: 30px;
       .button {
-        width: 169px;
-        height: 62px;
-        border-radius: 20px;
+        width: 80px;
+        height: 40px;
+        border-radius: 10px;
         cursor: pointer;
         color: #fff;
-        line-height: 62px;
+        line-height: 40px;
         background: #787878;
+        font-size: 20px;
         &:first-child {
-          margin-right: 40px;
+          margin-right: 60px;
           background: #e67016;
         }
       }
     }
 
     .tip {
-      font-size: 18px;
+      font-size: 14px;
       color: #787878;
       text-align: center;
       font-weight: 100;
+      margin-bottom:0;
     }
   }
 }
@@ -215,26 +233,59 @@ export default {
     min-width: auto;
     .maskContent {
       width: 100%;
+      padding: 80px 100px 30px;    
+      margin: 200px auto 0;
       .tip {
-        font-size: 13px;
+        font-size: 27px;
       }
       & > p {
-        font-size: 23px;
+        font-size: 30px;
+        margin-bottom: 30px;
       }
       .inputItem {
+        padding-bottom: 30px;
         input {
-          height: 56px;
-          font-size: 22px;
+          border: 2px solid #000000;
+          height: 80px;
+          font-size: 30px;
+        }
+        .error {
+          position: absolute;
+          bottom: 0;
+          line-height: 30px;
+          left: 0;
+          font-size: 20px;
+          color: red;
         }
       }
-      .checkBox label {
-        font-size: 13px;
+      .checkBox {
+        margin-bottom: 62px;
+        height: 30px;
+        .input {
+          input {
+            width: 30px;
+            height: 30px;
+            margin-right: 10px;
+          }
+        }
+
+        label {
+          font-size: 28px;
+          font-weight: 300;
+          color: #787878;
+        }
+        .forget a {
+          color: #787878;
+          font-size: 30px;
+          font-weight: 300;
+        }
       }
       .buttonContent {
         .button {
-          width: 135px;
-          height: 50px;
-          line-height: 50px;
+          width: 120px;
+          height: 60px;
+          line-height: 60px;
+          font-size: 30px;
         }
       }
     }

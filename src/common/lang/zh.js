@@ -80,4 +80,13 @@ export const lang = {
     serviceTitle2: '国际海运',
     serviceTitle3: '跨境铁路运输',
     serviceTitle4: '合同物流',
+    //修改密码
+    modifyPas:'修改密码',
+    oldPas:'原密码',
+    newPas:'新密码',
+    twoPas:'再输一次新密码',
+    submit:'提交',
+    //忘记密码
+    forgetPas:'忘记密码',
+    forgetPasTip:'请以登记邮箱发送申请至'
 }
