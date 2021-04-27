@@ -44,6 +44,7 @@ export default {
   background: #fff;
   padding-bottom: 1px;
   min-width: 1200px;
+  padding-top: 82px;
   .banner {
     position: relative;
     margin-bottom: 120px;
@@ -131,6 +132,7 @@ export default {
 @media screen and (max-width: 750px) {
   #internet {
     min-width: auto;
+    padding-top: 130px;
     .banner {
       width: 750px;
       height: 400px;
