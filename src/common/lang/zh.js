@@ -88,5 +88,6 @@ export const lang = {
     submit:'提交',
     //忘记密码
     forgetPas:'忘记密码',
-    forgetPasTip:'请以登记邮箱发送申请至'
+    forgetPasTip:'请以登记邮箱发送申请至',
+    forgetPasTip1:'',
 }

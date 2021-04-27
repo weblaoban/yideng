@@ -7,6 +7,7 @@
     </div>
     <p v-text="$t('lang.forgetPasTip')"></p>
     <p class="email">contact@eastern-sha.com</p>
+    <p v-text="$t('lang.forgetPasTip1')"></p>
   </div>
 </template>
 <script>
@@ -65,43 +66,42 @@ export default {
     line-height: 50px;
     color: #e67016;
   }
-
-  @media screen and (max-width: 750px) {
-    #modifyPas {
-      padding: 0 33px;
-      padding-top: 130px;
-      .title {
-        padding-left: 0;
-        // height: 195px;
-        margin-top: 160px;
-        margin-bottom: 78px;
-        .circle {
-          width: 50px;
-          height: 50px;
-          border-radius: 50%;
-          // margin-bottom: 20px;
-        }
-        p {
-          font-size: 40px;
-          line-height: 80px;
-          // margin-bottom: 20px;
-          font-family: Noto Sans S Chinese;
-          font-weight: bold;
-        }
+}
+@media screen and (max-width: 750px) {
+  #modifyPas {
+    padding: 0 33px;
+    padding-top: 130px;
+    .title {
+      padding-left: 0;
+      // height: 195px;
+      margin-top: 160px;
+      margin-bottom: 78px;
+      .circle {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        // margin-bottom: 20px;
       }
-      & > p {
+      p {
         font-size: 40px;
-        color: #787878;
-        margin: 0 auto;
-        font-weight: 100;
-      }
-      p.email {
-        font-size: 40px;
+        line-height: 80px;
+        // margin-bottom: 20px;
         font-family: Noto Sans S Chinese;
         font-weight: bold;
-        line-height: 50px;
-        color: #e67016;
       }
+    }
+    & > p {
+      font-size: 40px;
+      color: #787878;
+      margin: 0 auto;
+      font-weight: 100;
+    }
+    p.email {
+      font-size: 40px;
+      font-family: Noto Sans S Chinese;
+      font-weight: bold;
+      line-height: 50px;
+      color: #e67016;
     }
   }
 }

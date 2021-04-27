@@ -121,7 +121,6 @@ export default {
       const elName = "left" + index;
       const el = this.$refs[elName];
       if (el) {
-        console.log(el.classList)
         el.classList.toggle('showLeft')
       }
     }

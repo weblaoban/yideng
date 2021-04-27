@@ -321,20 +321,11 @@ export default {
   },
   methods: {
     async getDetail() {
-      console.log(this.$route.params);
       const freightOrderId = this.$route.params.id;
       const listData = await this.$API.request(this.$API.detail, "POST", {
         freightOrderId,
       });
       this.detail = listData.data;
-      console.log(listData);
-      //   this.$API.requeat(this.$API.login,'POST',this.listQuery).then(response => {
-      //     this.list = response.data.data.list
-      //     this.total = response.data.data.total
-      //   }).catch((response) => {
-      //     this.list = []
-      //     this.total = 0
-      //   })
     },
   },
 };

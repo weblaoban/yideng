@@ -29,7 +29,7 @@
             <label for="rember" v-text="$t('lang.auto')"></label>
           </div>
           <div class="forget">
-            <router-link to="/forgetPas">忘记密码</router-link>
+            <router-link to="/forgetPas"  v-text="$t('lang.forgetPas')"></router-link>
           </div>
         </div>
         <div class="buttonContent">
@@ -132,7 +132,7 @@ export default {
     background: rgba(255, 255, 255, 1);
     border-radius: 10px;
     margin: 300px auto 0;
-    padding: 70px 100px 17px;
+    padding: 70px 80px 17px;
     & > p {
       color: #787878;
       font-size: 20px;
@@ -233,7 +233,7 @@ export default {
     min-width: auto;
     .maskContent {
       width: 100%;
-      padding: 80px 100px 30px;    
+      padding: 80px 30px 30px;    
       margin: 200px auto 0;
       .tip {
         font-size: 27px;

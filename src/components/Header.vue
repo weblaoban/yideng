@@ -2,12 +2,12 @@
   <div class="header">
     <div class="container">
       <!-- <div class="logo" /> -->
-      <img src="../assets/image/logo.png" class="logo"/>
+      <img src="../assets/image/logo.png" class="logo" />
       <div class="navigation">
         <div class="burger" @click="showNavigation()">
           <img src="../assets/image/mobile/burger.png" alt />
         </div>
-        <div class="navigationContent" ref="navigationContent">
+        <div class="navigationContent showOpInPc" ref="navigationContent">
           <ul class="nav">
             <li
               v-for="(item, index) in $t('lang.menu')"
@@ -17,16 +17,16 @@
               :class="
                 index === 3 ? 'languange' : index === active ? 'active' : ''
               "
-              @click="changeLanguage(item, index)"
+              @click.stop="changeLanguage(item, index)"
             >{{ item.name }}</li>
           </ul>
           <ul class="info" v-if="isLogin">
-            <li @click="showOperation" class="userName showInPc">
+            <li @click.stop="showOperation" class="userName showInPc">
               <p v-text="$t('lang.welcome')"></p>
               <p v-text="name"></p>
             </li>
             <li
-              @click="showOperation"
+              @click.stop="showOperation"
               :class="
                 isShowOperation
                   ? 'userName showInMobile userNameOPeration'
@@ -127,11 +127,8 @@ export default {
       }
     },
     showNavigation() {
-      if (this.$refs.navigationContent.style.display === "block") {
-        this.$refs.navigationContent.style.display = "none";
-      } else {
-        this.$refs.navigationContent.style.display = "block";
-      }
+      const el = document.querySelector(".navigationContent");
+      el.classList.toggle('showOpInMobile')
     },
     showOperation() {
       this.$emit("toggleOperation");
@@ -232,7 +229,7 @@ export default {
   width: 100%;
   min-width: 1200px;
   position: fixed;
-  z-index: 2;
+  z-index: 3;
   .container {
     width: 1200px;
     margin: 0 auto;
@@ -364,6 +361,9 @@ export default {
     z-index: 99;
     display: flex;
     justify-content: space-between;
+    &.showOpInPc {
+      // display: flex;
+    }
   }
   ul {
     display: flex;
@@ -448,6 +448,9 @@ export default {
       left: 0;
       padding: 0 40px;
       top: 130px;
+      &.showOpInMobile {
+        display: block;
+      }
     }
     ul {
       display: block;

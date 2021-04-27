@@ -148,16 +148,8 @@ export default {
         "POST",
         this.listQuery
       );
-      console.log(listData.data);
       this.list = listData.data.records;
       this.total = listData.data.total;
-      //   fetchCalendarOrderList(this.listQuery).then(response => {
-      //     this.list = response.data.data.list
-      //     this.total = response.data.data.total
-      //   }).catch((response) => {
-      //     this.list = []
-      //     this.total = 0
-      //   })
     },
     numClick(type) {
       if (type === "next") {

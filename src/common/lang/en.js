@@ -95,7 +95,7 @@ export const lang = {
   about: "About us",
   //网络
   netTitle: "Our network",
-  netTitle1: " Service Products:",
+  netTitle1: " Service Products",
   net1:
     "<span>Air freight:  </span> The service covers the whole world and meets the almost all air transportation demand of import and export trade.",
   net2:
@@ -130,5 +130,6 @@ export const lang = {
   submit:'Finish',
   //忘记密码
   forgetPas: "Forget your Password?",
-  forgetPasTip: "请以登记邮箱发送申请至",
+  forgetPasTip:'Please sent email to',
+  forgetPasTip1:'via your registered email address',
 };
