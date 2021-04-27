@@ -1,7 +1,8 @@
 <template>
   <div class="header">
     <div class="container">
-      <div class="logo">EASTERN</div>
+      <!-- <div class="logo" /> -->
+      <img src="../assets/image/logo.png" class="logo"/>
       <div class="navigation">
         <div class="burger" @click="showNavigation()">
           <img src="../assets/image/mobile/burger.png" alt />
@@ -212,11 +213,12 @@ export default {
 </script>
 <style scoped lang="scss">
 .logo {
-  color: #e67016;
-  font-size: 56px;
-  font-family: Noto Sans S Chinese;
-  font-weight: bold;
-  line-height: 82px;
+  // color: #e67016;
+  // font-size: 56px;
+  // font-family: Noto Sans S Chinese;
+  // font-weight: bold;
+  // line-height: 82px;
+  height: 32px;
 }
 .burger {
   display: none;
@@ -401,8 +403,9 @@ export default {
 }
 @media screen and (max-width: 750px) {
   .logo {
-    font-size: 76px;
-    line-height: 129px;
+    // font-size: 76px;
+    // line-height: 129px;
+    height: 50px;
   }
   .logo img {
     width: 548px;

@@ -161,7 +161,7 @@ export default {
   .banner {
     position: relative;
     margin-bottom: 120px;
-    height: 648px;
+    height: 640px;
     background: url("../assets/image/banner2.png");
     background-size: 100% 100%;
     background-position: top center;

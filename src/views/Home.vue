@@ -97,7 +97,7 @@ export default {
   .banner {
     position: relative;
     margin-bottom: 130px;
-    height: 1000px;
+    height: 640px;
     // img {
     //   display: block;
     //   width: 100%;
@@ -105,7 +105,7 @@ export default {
     // }
     .swiper-container {
       width: 100%;
-      height: 1000px;
+      height: 640px;
       overflow: hidden;
       .swiper-wrapper {
         position: relative;
@@ -119,7 +119,7 @@ export default {
       .swiper-slide {
         flex-shrink: 0;
         width: 100%;
-        height: 1000px;
+        height: 640px;
         background: url("../assets/image/banner/banner1.png");
         background-size: 100% 100%;
         background-position: top center;
@@ -229,7 +229,7 @@ export default {
         .swiper-slide {
           flex-shrink: 0;
           width: 100%;
-          height: 1000px;
+          height: 400px;
           background: url("../assets/image/mobile/banner1.png");
           background-size: 100% 100%;
           background-position: top center;
