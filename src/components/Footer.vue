@@ -21,14 +21,14 @@
             <p class="desc">
               {{ $t("lang.address") }}{{ $t("lang.address21") }}
             </p>
-            <p class="desc">{{ $t("lang.phone") }}+86+21-53080005</p>
+            <p class="desc">{{ $t("lang.phone") }}+86-21-53080005</p>
           </li>
           <li>
             <p class="title" v-text="$t('lang.address3')">监管仓库</p>
             <p class="desc">
               {{ $t("lang.address") }}{{ $t("lang.address31") }}
             </p>
-            <p class="desc">{{ $t("lang.phone") }}+86+21-68351198</p>
+            <p class="desc">{{ $t("lang.phone") }}+86-21-68351198</p>
           </li>
         </ul>
       </div>
@@ -109,10 +109,13 @@ export default {
         }
         li {
           float: left;
-          width: 33%;
+          width: 245px;
           margin-right: 200px;
           &:last-child{
             margin-right: 0;
+          }
+          &:nth-child(1){
+            width: 265px;
           }
           p.title {
             font-size: 20px;
@@ -191,6 +194,9 @@ export default {
             &:last-child {
               margin-bottom: 86px;
             }
+          &:nth-child(1){
+            width: 100%;
+          }
             p.title {
               font-size: 30px;
               margin-bottom: 40px;

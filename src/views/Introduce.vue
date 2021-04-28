@@ -125,8 +125,7 @@ export default {
           background: #343434;
           position: absolute;
           left: 0;
-          top: 0;
-          bottom: 0;
+          top: 0.12rem;
           margin: auto;
         }
         p {
@@ -245,8 +244,7 @@ export default {
               background: #343434;
               position: absolute;
               left: 0;
-              top: 0;
-              bottom: 0;
+              top: 15px;
               margin: auto;
             }
           }
@@ -262,17 +260,16 @@ export default {
           font-size: 33px;
         }
         li {
-          padding-left: 40px;
+          padding-left: 28px;
           &:before {
             content: "";
             display: block;
-            width: 28px;
-            height: 28px;
-            border-radius: 14px;
+            width: 20px;
+            height: 20px;
+            border-radius: 10px;
             position: absolute;
             left: 0;
-            top: 0;
-            bottom: 0;
+            top: 15px;
             margin: auto;
           }
         }

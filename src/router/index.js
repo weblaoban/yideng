@@ -134,7 +134,7 @@ router.beforeEach((to, _, next) => {
     document.body.clientWidth || document.documentElement.clientWidth;
   if (clientWidth <= 750) {
     if (document.querySelector(".navigationContent"))
-      document.querySelector(".navigationContent").style.display = "none";
+      document.querySelector(".navigationContent").classList.remove('showOpInMobile');
   }
 
   if (!userInfo.id) {

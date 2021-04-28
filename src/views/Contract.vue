@@ -264,15 +264,15 @@ export default {
             background-repeat: no-repeat;
             background-size: 20px 20px;
           }
+          // &:nth-child(4) {
+          //   background: url(../assets/image/contract/icon3.png);
+          //   background-position: left 11.5px;
+          //   background-repeat: no-repeat;
+          //   background-size: 20px 13px;
+          // }
           &:nth-child(4) {
-            background: url(../assets/image/contract/icon3.png);
-            background-position: left 11.5px;
-            background-repeat: no-repeat;
-            background-size: 20px 13px;
-          }
-          &:nth-child(5) {
             background: url(../assets/image/contract/icon4.png);
-            background-position: left 5px;
+            background-position: 0 11.5px;
             background-repeat: no-repeat;
             background-size: 20px 13px;
           }
@@ -379,16 +379,10 @@ export default {
               background-size: 30px 30px;
             }
             &:nth-child(4) {
-              background: url(../assets/image/contract/icon3.png);
-              background-position: left 5px;
+              background: url(../assets/image/contract/icon4.png);
+              background-position: 0 12px;
               background-repeat: no-repeat;
               background-size: 30px 20px;
-            }
-            &:nth-child(5) {
-              background: url(../assets/image/contract/icon4.png);
-              background-position: left 5px;
-              background-repeat: no-repeat;
-              background-size: 26px 19px;
             }
           }
         }

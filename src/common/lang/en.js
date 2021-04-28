@@ -15,7 +15,7 @@ export const lang = {
   homeMenu1: "Cargo Tracking",
   homeMenu2: "Our Team",
   homeMenu3: "Our Service",
-  homeMenu4: "Our network",
+  homeMenu4: "Our Network",
   //登陆部分
   loginTip: "Log in to track your cargo information",
   username: "Username",
@@ -40,7 +40,7 @@ export const lang = {
   introduceMenu1: [
     "Won Class A International Freight Forwarder Certificate approved by the Ministry of Commerce,",
     "IATA first-class air bronze agent qualification and direct contract with airlines,",
-    "Customs Agency Approved by General Administration of Customs,",
+    "Customs Agency Approved by General Administration of Customs,",
     "Membership of World Cargo Alliance（WCA）,",
     "ISO9001:2015 quality management system certification. ",
   ],
@@ -101,7 +101,7 @@ export const lang = {
   net2:
     " <span>Ocean freight: </span>We have maintained a long-term and stable cooperative relationship with COSCO, MAERSK, MSC, EVERGREEN, YANGMING, WANHAI and other shipping companies. And we operate routes in Asia, Europe, Africa, South America and North America.",
   net3:
-    " <span>Railway freight: </span> Through China - European countries, China - Asian countries,     China - Mongolia and other routes.We keep long - term business dealing with dozens of rail stations such as Xi ' an, Zhengzhou, Chengdu, Chongqing, Shenyang, Wuhan,  Hamburg, Warsaw, Mala, Duisburg, Ulaanbaatar, Central Asia, etc. ",
+    " <span>Railway freight: </span> Through China - European countries, China - Asian countries,China - Mongolia and other routes.We keep long - term business dealing with dozens of rail stations such as Xi ' an, Zhengzhou, Chengdu, Chongqing, Shenyang, Wuhan,  Hamburg, Warsaw, Mala, Duisburg, Ulaanbaatar, Central Asia, etc. ",
   net4:
     "   <span>Contract logistics: </span>The door-to-door service we provided, covering over 1000 cities in China with more than 1000 self-owned and contract vehicles.",
   //服务

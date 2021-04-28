@@ -114,13 +114,13 @@ export default {
           if (path === "/") {
             this.$router.push(path);
             if (bodyWidth <= 750) {
-              this.$refs.navigationContent.style.display = "none";
+              this.$refs.navigationContent.classList.remove('showOpInMobile');
             }
           }
           if (!(location.href.indexOf(path) > -1)) {
             this.$router.push(path);
             if (bodyWidth <= 750) {
-              this.$refs.navigationContent.style.display = "none";
+              this.$refs.navigationContent.classList.remove('showOpInMobile');
             }
           }
         }
@@ -144,7 +144,7 @@ export default {
       const bodyWidth = document.body.clientWidth;
       this.$router.push("/modifyPas");
       if (bodyWidth <= 750) {
-        this.$refs.navigationContent.style.display = "none";
+              this.$refs.navigationContent.classList.remove('showOpInMobile');
       }
     },
     sectionClick() {
@@ -153,7 +153,7 @@ export default {
       if (this.isLogin) {
         this.$router.push("/list");
         if (bodyWidth <= 750) {
-          this.$refs.navigationContent.style.display = "none";
+              this.$refs.navigationContent.classList.remove('showOpInMobile');
         }
       } else {
         this.$nextTick(() => {
@@ -228,6 +228,7 @@ export default {
   background: #fff;
   width: 100%;
   min-width: 1200px;
+  max-width: 1920px;
   position: fixed;
   z-index: 3;
   .container {

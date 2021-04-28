@@ -121,7 +121,7 @@ export default {
       const elName = "left" + index;
       const el = this.$refs[elName];
       if (el) {
-        el.classList.toggle('showLeft')
+        el.classList.toggle("showLeft");
       }
     }
   }
@@ -160,7 +160,7 @@ export default {
   }
   .service {
     margin-bottom: 135px;
-    width: 570px;
+    width: 510px;
     flex-shrink: 0;
     &:nth-child(2) {
       .left {
@@ -237,15 +237,14 @@ export default {
           &:before {
             content: "";
             display: block;
-            width: 22px;
-            height: 22px;
-            border-radius: 12.5px;
+            width: 16px;
+            height: 16px;
+            border-radius: 8px;
+            background: #343434;
             position: absolute;
             left: 0;
-            top: 0;
-            bottom: 0;
+            top: 0.12rem;
             margin: auto;
-            background: #343434;
           }
           p {
             margin-bottom: 0;
@@ -311,7 +310,7 @@ export default {
           }
         }
         .showLeft {
-          display: block!important;
+          display: block !important;
         }
         .left {
           display: none;
@@ -334,14 +333,12 @@ export default {
             &:before {
               content: "";
               display: block;
-              width: 28px;
-              height: 28px;
-              border-radius: 14px;
-              // border: 1px solid #e67016;
+              width: 20px;
+              height: 20px;
+              border-radius: 10px;
               position: absolute;
               left: 0;
-              top: 0;
-              bottom: 0;
+              top: 15px;
               margin: auto;
             }
           }
