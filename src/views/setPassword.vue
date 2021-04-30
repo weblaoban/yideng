@@ -70,7 +70,7 @@ export default {
       } else {
         this.twoError = "";
       }
-      if (!this.newPwdConfirm !== this.newPwd) {
+      if (this.newPwdConfirm !== this.newPwd) {
         this.twoError =
           local === "en-US"
             ? "两次密码不一致"
@@ -92,9 +92,11 @@ export default {
         this.setIsLogin(false);
         this.setTipMessage("修改成功，请重新登录");
         setTimeout(() => {
-          this.$router.push("/");
+        this.$router.push("/");
+        }, 300);
+        setTimeout(() => {
           location.reload();
-        }, 1500);
+        }, 500);
       } else {
         this.setTipMessage(loginData.msg);
       }

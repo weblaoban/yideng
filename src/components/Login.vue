@@ -1,6 +1,7 @@
 <template>
   <div class="login">
-    <div class="mask" :style="'height:'+loginMaskHeight+'px'">
+    <div class="mask">
+      <!-- :style="'height:'+loginMaskHeight+'px'" -->
       <div class="maskContent">
         <p v-text="$t('lang.loginTip')"></p>
         <div class="inputItem">
@@ -29,7 +30,7 @@
             <label for="rember" v-text="$t('lang.auto')"></label>
           </div>
           <div class="forget">
-            <router-link to="/forgetPas"  v-text="$t('lang.forgetPas')"></router-link>
+            <router-link to="/forgetPas" v-text="$t('lang.forgetPas')"></router-link>
           </div>
         </div>
         <div class="buttonContent">
@@ -119,19 +120,21 @@ export default {
 </script>
 <style lang="scss">
 .mask {
-  position: absolute;
+  position: fixed;
   top: 0;
+  bottom: 0;
   width: 100%;
   min-height: 100vh;
   background: rgba(0, 0, 0, 0.5);
   z-index: 999;
   min-width: 1200px;
+  max-width: 1920px;
   .maskContent {
     width: 600px;
     // height: 400px;
-    background: rgba(255, 255, 255, 1);
+    background: rgba(255, 255, 255, 0.8);
     border-radius: 10px;
-    margin: 300px auto 0;
+    margin: calc(50vh - 200px) auto 0;
     padding: 70px 80px 17px;
     & > p {
       color: #787878;
@@ -222,7 +225,7 @@ export default {
       color: #787878;
       text-align: center;
       font-weight: 100;
-      margin-bottom:0;
+      margin-bottom: 0;
     }
   }
 }
@@ -233,8 +236,8 @@ export default {
     min-width: auto;
     .maskContent {
       width: 100%;
-      padding: 80px 30px 30px;    
-      margin: 200px auto 0;
+      padding: 80px 30px 30px;
+      margin: calc(50vh - 260px) auto 0;
       .tip {
         font-size: 27px;
       }
