@@ -2,7 +2,7 @@
   <div class="detail-box">
     <div class="container">
       <div class="title">
-        <div class="circle"></div>
+        <!-- <div class="circle"></div> -->
         <p>货运详情</p>
         <div class="line"></div>
       </div>
@@ -340,10 +340,10 @@ export default {
   }
   .title {
     // width: 187px;
-    height: 135px;
+    // height: 135px;
     margin: 0 auto;
     margin-bottom: 80px;
-    margin-top: 117px;
+    margin-top: 60px;
     .circle {
       width: 50px;
       height: 50px;
@@ -430,16 +430,16 @@ export default {
     }
     .logistics-item-title {
       color: #787878;
-      font-size: 30px;
+      font-size: 20px;
       line-height: 30px;
-      margin-bottom: 20px;
+      margin-bottom: 10px;
       font-weight: bold;
     }
     .logistics-item-text {
-      font-size: 20px;
+      font-size: 16px;
       color: #787878;
-      font-weight: 300;
-      line-height: 30px;
+      font-weight: 500;
+      line-height: 1.5;
     }
   }
 }
@@ -525,7 +525,7 @@ export default {
       }
       .logistics-item {
         margin-left: 17px;
-        padding-bottom: 172px;
+        padding-bottom: 80px;
         position: relative;
         &::before {
           content: "";

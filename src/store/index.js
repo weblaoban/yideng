@@ -9,7 +9,7 @@ export default new Vuex.Store({
         isLogin: false,
         loginMaskHeight: 0,
         tipMessage: '',
-        locale: 'zh-CN'
+        locale: localStorage.getItem("local") || 'zh-CN'
     },
     mutations: {
         SET_SHOWLOGIN(state, isShowLogin) {

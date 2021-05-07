@@ -36,23 +36,24 @@
 </template>
 <script>
 //坐标  港陆广场：121.485297,31.235345    智慧：121.77183,31.150607   仓储：121.773815,31.17121
-import { mapGetters } from "vuex";
+import { mapState } from "vuex";
 export default {
   name: "contract",
   data() {
     return {
+      type: "1",
       center: [121.485297, 31.235345],
       center2: [121.77183, 31.150607],
       center3: [121.773815, 31.17121],
       map: null,
-      address: [{ dictionariesValue: "" }, { dictionariesValue: "" }],
+      address: [{ dictionariesValue: "" }, { dictionariesValue: "" }]
     };
   },
   created() {
     this.getAddress();
   },
   computed: {
-    ...mapGetters(["locale"])
+    ...mapState(["locale"])
   },
   mounted() {
     this.$nextTick(() => {
@@ -91,6 +92,7 @@ export default {
       const screenWidth = screen.width;
       const locale = this.locale;
       const messages = this.$i18n.messages[locale].lang;
+      this.type = type;
       if (type === "1") {
         const point = new BMap.Point(this.center[0], this.center[1]);
         const opts = {
@@ -141,6 +143,11 @@ export default {
         this.map.centerAndZoom(point, 15); // 初始化地图,设置中心点坐标和地图级别
       }
     }
+  },
+  watch: {
+    locale: function() {
+     this.changeCenter(this.type)
+    },
   }
 };
 </script>
@@ -221,12 +228,12 @@ export default {
         cursor: pointer;
         &:first-child {
           width: 373px;
-          border-right: 1px solid #E67016;
+          border-right: 1px solid #e67016;
           padding-right: 107px;
         }
         &:nth-child(2) {
           width: 457px;
-          border-right: 1px solid #E67016;
+          border-right: 1px solid #e67016;
           padding-left: 93px;
           padding-right: 45px;
         }
@@ -238,7 +245,7 @@ export default {
         h4 {
           font-size: 30px;
           line-height: 50px;
-          color: #E67016;
+          color: #e67016;
           font-weight: bold;
           text-align: left;
           margin-bottom: 30px;
@@ -349,8 +356,8 @@ export default {
           }
           &:nth-child(2) {
             padding-bottom: 154px;
-            li{
-              &:nth-child(2){
+            li {
+              &:nth-child(2) {
                 // font-size: 28px;
               }
             }

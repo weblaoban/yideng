@@ -2,7 +2,7 @@
   <div class="list-box">
     <div class="container">
       <div class="title">
-        <div class="circle"></div>
+        <!-- <div class="circle"></div> -->
         <p>我的货运信息</p>
         <div class="line"></div>
       </div>
@@ -199,10 +199,10 @@ export default {
   }
   .title {
     // width: 187px;
-    height: 135px;
+    // height: 135px;
     margin: 0 auto;
     margin-bottom: 40px;
-    margin-top: 160px;
+    margin-top: 60px;
     .circle {
       width: 50px;
       height: 50px;

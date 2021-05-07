@@ -5,16 +5,16 @@
     </div>
     <div class="container">
       <div class="service">
-        <div class="title">
+        <div class="title" @click="showMessage(1)">
           <div class="circle"></div>
           <p>{{ $t("lang.serviceTitle") }}</p>
           <div class="line"></div>
         </div>
-        <div class="content" @click="showMessage(1)">
+        <div class="content" ref="left1">
           <div class="right">
             <img src="../assets/image/service/service1.png" alt />
           </div>
-          <div ref="left1" class="left">
+          <div class="left">
             <p>{{ $t("lang.servicedes") }}</p>
             <ul>
               <li>
@@ -50,17 +50,17 @@
         </div>
       </div>
       <div class="service">
-        <div class="title">
+        <div class="title" @click="showMessage(2)">
           <div class="circle"></div>
           <p>{{ $t("lang.serviceTitle2") }}</p>
           <div class="line"></div>
         </div>
-        <div class="content" @click="showMessage(2)">
+        <div class="content" ref="left2">
           <div class="right">
             <img src="../assets/image/service/service2.png" alt />
           </div>
 
-          <div ref="left2" class="left" v-html="$t('lang.servicedes5')">
+          <div class="left" v-html="$t('lang.servicedes5')">
             <p>
               上海伊登国际拥有交通部批准的无船承运人(NVOCC)经营资格。
               <br />主要经营各类货物的海运进出口运输
@@ -74,32 +74,32 @@
         </div>
       </div>
       <div class="service">
-        <div class="title">
+        <div class="title" @click="showMessage(3)">
           <div class="circle"></div>
           <p>{{ $t("lang.serviceTitle3") }}</p>
           <div class="line"></div>
         </div>
-        <div class="content" @click="showMessage(3)">
+        <div class="content" ref="left3">
           <div class="right">
             <img src="../assets/image/service/service3.png" alt />
           </div>
-          <div class="left" ref="left3" v-html="$t('lang.servicedes6')">
+          <div class="left" v-html="$t('lang.servicedes6')">
             <p>上海伊登为您提供中欧、中亚、中蒙等跨境铁路运输服务，包括班列订舱服务、报关服务、提货和送货服务、整箱和拼箱服务。</p>
             <p>我们与国内外数十个铁路口岸保持良好的合作往来，主要包括西安、郑州、成都、重庆、沈阳、武汉、汉堡、华沙、马拉、杜伊斯堡、乌兰巴托、中亚各国铁路口岸等。</p>
           </div>
         </div>
       </div>
       <div class="service">
-        <div class="title">
+        <div class="title" @click="showMessage(4)">
           <div class="circle"></div>
           <p>{{ $t("lang.serviceTitle4") }}</p>
           <div class="line"></div>
         </div>
-        <div class="content" @click="showMessage(4)">
+        <div class="content" ref="left4">
           <div class="right">
             <img src="../assets/image/service/service4.png" alt />
           </div>
-          <div class="left" ref="left4" v-html="$t('lang.servicedes7')">
+          <div class="left" v-html="$t('lang.servicedes7')">
             <p>上海伊登国际为客户提供多种合同物流方案，包括国内运输和国内仓储，非保税和保税业务，危险品，冷藏冷冻品以及各类大件项目运输服务。</p>
             <p>我们在全国搭建了多网络平台，在上海拥有上万平米的转运中心及物流仓储中心。自有及合同车辆千余部，门到门运输服务覆盖全国1,000多个城市。</p>
           </div>
@@ -280,24 +280,18 @@ export default {
       float: none !important;
       width: 100%;
       margin: 0 auto 1.35rem;
-      // .title {
-      //   height: 195px;
-      //   margin-bottom: 78px;
-      //   .circle {
-      //     width: 80px;
-      //     height: 80px;
-      //     border-radius: 50%;
-      //     margin-bottom: 20px;
-      //   }
-      //   p {
-      //     font-size: 52px;
-      //     line-height: 52px;
-      //     margin-bottom: 20px;
-      //     font-family: Noto Sans S Chinese;
-      //     font-weight: bold;
-      //   }
-      // }
+      .title {
+        .circle {
+          &:after {
+            content: "+";
+            font-size: 0.5rem;
+            color: #fff;
+            line-height: 50px;
+          }
+        }
+      }
       .content {
+        display: none;
         .left /deep/ p,
         .right /deep/ p {
           font-size: 30px;
@@ -309,11 +303,11 @@ export default {
             line-height: 50px;
           }
         }
-        .showLeft {
+        &.showLeft {
           display: block !important;
         }
         .left {
-          display: none;
+          // display: none;
           float: none;
           width: 100%;
           min-height: auto !important;

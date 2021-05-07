@@ -162,8 +162,8 @@ export default {
 @media screen and (max-width: 750px) {
   #foot {
     min-width: auto;
-    padding-top: 150px;
-    padding-bottom: 160px;
+    padding-top: 50px;
+    padding-bottom: 60px;
     .container {
       width: 100%;
       padding: 0 16px;
@@ -189,10 +189,10 @@ export default {
             float: none;
             width: 100%;
             padding-right: 0;
-            margin-bottom: 80px;
+            margin-bottom: 60px;
             margin-right: 0;
             &:last-child {
-              margin-bottom: 86px;
+              margin-bottom: 66px;
             }
           &:nth-child(1){
             width: 100%;
