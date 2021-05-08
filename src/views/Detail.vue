@@ -3,96 +3,92 @@
     <div class="container">
       <div class="title">
         <!-- <div class="circle"></div> -->
-        <p>货运详情</p>
+        <p v-text="$t('lang.detail_title')">货运详情</p>
         <div class="line"></div>
       </div>
       <div class="basic">
-        <p class="basic-title">基本信息</p>
+        <p class="basic-title" v-text="$t('lang.detail_basic')">基本信息</p>
         <table class="basic-table">
           <tbody>
             <tr>
-              <td>运输方式</td>
-              <td>
-                {{ type[detail.transportation] || detail.transportation }}
-              </td>
-              <td>航班信息</td>
+              <td v-text="$t('lang.detail_basic1')">运输方式</td>
+              <td>{{ locale==='zh-CN'?type[detail.transportation] : detail.transportation }}</td>
+              <td v-text="$t('lang.detail_basic2')">航班信息</td>
               <td>{{ detail.flightInfo }}</td>
             </tr>
             <tr>
-              <td>空运主单号</td>
+              <td v-text="$t('lang.detail_basic3')">空运主单号</td>
               <td>{{ detail.orderNumber }}</td>
-              <td>数量</td>
+              <td v-text="$t('lang.detail_basic4')">数量</td>
               <td>{{ detail.quantity }}</td>
             </tr>
             <tr>
-              <td>空运分单号</td>
+              <td v-text="$t('lang.detail_basic5')">空运分单号</td>
               <td>{{ detail.branchOrderNumber }}</td>
-              <td>毛重(kg)</td>
+              <td v-text="$t('lang.detail_basic6')">毛重(kg)</td>
               <td>{{ detail.grossWeight }}</td>
             </tr>
             <tr>
-              <td>起运港</td>
+              <td v-text="$t('lang.detail_basic7')">起运港</td>
               <td>{{ detail.departure }}</td>
-              <td>计费重量(kg)</td>
+              <td v-text="$t('lang.detail_basic8')">计费重量(kg)</td>
               <td>{{ detail.chargeableWeight }}</td>
             </tr>
             <tr>
-              <td>目的港</td>
+              <td v-text="$t('lang.detail_basic9')">目的港</td>
               <td>{{ detail.destinationPort }}</td>
-              <td>体积(CBM)</td>
+              <td v-text="$t('lang.detail_basic10')">体积(CBM)</td>
               <td>{{ detail.volume }}</td>
             </tr>
           </tbody>
         </table>
         <div class="mobile-item">
           <div class="mobile-inner">
-            <div class="item-title">运输方式</div>
-            <div class="item-value">
-              {{ type[detail.transportation] || detail.transportation }}
-            </div>
+            <div class="item-title" v-text="$t('lang.detail_basic1')">运输方式</div>
+            <div
+              class="item-value"
+            >{{ locale==='zh-CN'?type[detail.transportation] : detail.transportation }}</div>
           </div>
           <div class="mobile-inner">
-            <div class="item-title">空运主单号</div>
+            <div class="item-title" v-text="$t('detail_basic3')">空运主单号</div>
             <div class="item-value">{{ detail.orderNumber }}</div>
           </div>
           <div class="mobile-inner">
-            <div class="item-title">空运分单号</div>
+            <div class="item-title" v-text="$t('detail_basic5')">空运分单号</div>
             <div class="item-value">{{ detail.branchOrderNumber }}</div>
           </div>
           <div class="mobile-inner">
-            <div class="item-title">起运港</div>
+            <div class="item-title" v-text="$t('detail_basic7')">起运港</div>
             <div class="item-value">{{ detail.departure }}</div>
           </div>
           <div class="mobile-inner">
-            <div class="item-title">目的港</div>
+            <div class="item-title" v-text="$t('detail_basic9')">目的港</div>
             <div class="item-value">{{ detail.destinationPort }}</div>
           </div>
           <div class="mobile-inner">
-            <div class="item-title">航班信息</div>
+            <div class="item-title" v-text="$t('detail_basic2')">航班信息</div>
             <div class="item-value">{{ detail.flightInfo }}</div>
           </div>
           <div class="mobile-inner">
-            <div class="item-title">数量</div>
-            <div class="item-value">
-              {{ detail.quantity }}
-            </div>
+            <div class="item-title" v-text="$t('detail_basic4')">数量</div>
+            <div class="item-value">{{ detail.quantity }}</div>
           </div>
           <div class="mobile-inner">
-            <div class="item-title">毛重(kg)</div>
+            <div class="item-title" v-text="$t('detail_basic6')">毛重(kg)</div>
             <div class="item-value">{{ detail.grossWeight }}</div>
           </div>
           <div class="mobile-inner">
-            <div class="item-title">计费重量(kg)</div>
+            <div class="item-title" v-text="$t('detail_basic8')">计费重量(kg)</div>
             <div class="item-value">{{ detail.chargeableWeight }}</div>
           </div>
           <div class="mobile-inner">
-            <div class="item-title">体积(CBM)</div>
+            <div class="item-title" v-text="$t('detail_basic10')">体积(CBM)</div>
             <div class="item-value">{{ detail.volume }}</div>
           </div>
         </div>
       </div>
       <div class="basic logistics">
-        <p class="basic-title">物流信息</p>
+        <p class="basic-title" v-text="$t('lang.detail_wuliu')">物流信息</p>
         <ul
           class="logistics-box"
           v-if="
@@ -100,62 +96,48 @@
           "
         >
           <li class="logistics-item" v-if="detail.signatureDate">
-            <p class="logistics-item-title">签收</p>
-            <p class="logistics-item-text">
-              签收日期：{{ detail.signatureDate }}
-            </p>
+            <p class="logistics-item-title">{{$t('lang.detail_as1')}}</p>
+            <p class="logistics-item-text">{{$t('lang.detail_as2')}}{{ detail.signatureDate }}</p>
           </li>
           <li class="logistics-item" v-if="detail.outboundDate">
-            <p class="logistics-item-title">出库</p>
-            <p class="logistics-item-text">
-              出库日期：{{ detail.outboundDate }}
-            </p>
+            <p class="logistics-item-title">{{$t('lang.detail_as3')}}</p>
+            <p class="logistics-item-text">{{$t('lang.detail_as4')}}{{ detail.outboundDate }}</p>
           </li>
           <li class="logistics-item" v-if="detail.destinationPort">
-            <p class="logistics-item-title">目的港口</p>
-            <p class="logistics-item-text">
-              港口：{{ detail.destinationPort }}
-            </p>
-            <p class="logistics-item-text">预计到达日期：{{ detail.ETA }}</p>
-            <p class="logistics-item-text">实际到达日期：{{ detail.ATA }}</p>
+            <p class="logistics-item-title">{{$t('lang.detail_as5')}}</p>
+            <p class="logistics-item-text">{{$t('lang.detail_as6')}}{{ detail.destinationPort }}</p>
+            <p class="logistics-item-text">{{$t('lang.detail_as7')}}{{ detail.ETA }}</p>
+            <p class="logistics-item-text">{{$t('lang.detail_as8')}}{{ detail.ATA }}</p>
           </li>
           <li class="logistics-item" v-if="detail.fourDeparture">
-            <p class="logistics-item-title">四程港口</p>
-            <p class="logistics-item-text">港口：{{ detail.fourDeparture }}</p>
-            <p class="logistics-item-text">
-              航班信息：{{ detail.fourFlightInfo }}
-            </p>
-            <p class="logistics-item-text">起飞日期：{{ detail.fourATD }}</p>
+            <p class="logistics-item-title">{{$t('lang.detail_as9')}}</p>
+            <p class="logistics-item-text">{{$t('lang.detail_as6')}}{{ detail.fourDeparture }}</p>
+            <p class="logistics-item-text">{{$t('lang.detail_as10')}}{{ detail.fourFlightInfo }}</p>
+            <p class="logistics-item-text">{{$t('lang.detail_as11')}}{{ detail.fourATD }}</p>
           </li>
           <li class="logistics-item" v-if="detail.threeDeparture">
-            <p class="logistics-item-title">三程港口</p>
-            <p class="logistics-item-text">港口：{{ detail.threeDeparture }}</p>
-            <p class="logistics-item-text">
-              航班信息：{{ detail.threeFlightInfo }}
-            </p>
-            <p class="logistics-item-text">起飞日期：{{ detail.threeATD }}</p>
+            <p class="logistics-item-title">{{$t('lang.detail_as12')}}</p>
+            <p class="logistics-item-text">{{$t('lang.detail_as6')}}{{ detail.threeDeparture }}</p>
+            <p class="logistics-item-text">{{$t('lang.detail_as10')}}{{ detail.threeFlightInfo }}</p>
+            <p class="logistics-item-text">{{$t('lang.detail_as11')}}{{ detail.threeATD }}</p>
           </li>
           <li class="logistics-item" v-if="detail.transit">
-            <p class="logistics-item-title">二程港口</p>
-            <p class="logistics-item-text">港口：{{ detail.transit }}</p>
-            <p class="logistics-item-text">
-              航班信息：{{ detail.transitFlightInfo }}
-            </p>
-            <p class="logistics-item-text">起飞日期：{{ detail.threeATD }}</p>
+            <p class="logistics-item-title">{{$t('lang.detail_as13')}}</p>
+            <p class="logistics-item-text">{{$t('lang.detail_as6')}}{{ detail.transit }}</p>
+            <p class="logistics-item-text">{{$t('lang.detail_as10')}}{{ detail.transitFlightInfo }}</p>
+            <p class="logistics-item-text">{{$t('lang.detail_as11')}}{{ detail.threeATD }}</p>
           </li>
           <li class="logistics-item" v-if="detail.departure">
-            <p class="logistics-item-title">起运港口</p>
-            <p class="logistics-item-text">港口：{{ detail.departure }}</p>
-            <p class="logistics-item-text">
-              航班信息：{{ detail.transitFlightInfo }}
-            </p>
-            <p class="logistics-item-text">预计起运日期：{{ detail.ETD }}</p>
-            <p class="logistics-item-text">实际起运日期：{{ detail.ATD }}</p>
+            <p class="logistics-item-title">{{$t('lang.detail_as14')}}</p>
+            <p class="logistics-item-text">{{$t('lang.detail_as6')}}{{ detail.departure }}</p>
+            <p class="logistics-item-text">{{$t('lang.detail_as10')}}{{ detail.transitFlightInfo }}</p>
+            <p class="logistics-item-text">{{$t('lang.detail_as15')}}{{ detail.ETD }}</p>
+            <p class="logistics-item-text">{{$t('lang.detail_as16')}}{{ detail.ATD }}</p>
           </li>
           <li class="logistics-item">
-            <p class="logistics-item-title">提货</p>
-            <p class="logistics-item-text">城市：{{ detail.pickupCity }}</p>
-            <p class="logistics-item-text">日期：{{ detail.pickupDate }}</p>
+            <p class="logistics-item-title">{{$t('lang.detail_as17')}}</p>
+            <p class="logistics-item-text">{{$t('lang.detail_as18')}}{{ detail.pickupCity }}</p>
+            <p class="logistics-item-text">{{$t('lang.detail_as19')}}{{ detail.pickupDate }}</p>
           </li>
           <!-- <li
             v-for="(item, index) in logistics"
@@ -170,66 +152,56 @@
             >
               {{ el.name }}：{{ el.value }}
             </p>
-          </li> -->
+          </li>-->
         </ul>
         <ul class="logistics-box" v-else>
           <li class="logistics-item" v-if="detail.signatureDate">
-            <p class="logistics-item-title">签收</p>
-            <p class="logistics-item-text">
-              签收日期：{{ detail.signatureDate }}
-            </p>
+            <p class="logistics-item-title">{{$t('lang.detail_as1')}}</p>
+            <p class="logistics-item-text">{{$t('lang.detail_as2')}}{{ detail.signatureDate }}</p>
           </li>
           <li class="logistics-item" v-if="detail.outboundDate">
-            <p class="logistics-item-title">出库</p>
-            <p class="logistics-item-text">
-              出库日期：{{ detail.outboundDate }}
-            </p>
+            <p class="logistics-item-title">{{$t('lang.detail_as3')}}</p>
+            <p class="logistics-item-text">{{$t('lang.detail_as4')}}{{ detail.outboundDate }}</p>
           </li>
           <li class="logistics-item" v-if="detail.destinationPort">
-            <p class="logistics-item-title">到达站</p>
-            <p class="logistics-item-text">
-              站点：{{ detail.destinationPort }}
-            </p>
-            <p class="logistics-item-text">预计到达日期：{{ detail.ETA }}</p>
-            <p class="logistics-item-text">实际到达日期：{{ detail.ATA }}</p>
+            <p class="logistics-item-title">{{$t('lang.detail_common1')}}</p>
+            <p class="logistics-item-text">{{$t('lang.detail_common2')}}{{ detail.destinationPort }}</p>
+            <p class="logistics-item-text">{{$t('lang.detail_as7')}}{{ detail.ETA }}</p>
+            <p class="logistics-item-text">{{$t('lang.detail_as8')}}{{ detail.ATA }}</p>
           </li>
           <li class="logistics-item" v-if="detail.fourDeparture">
-            <p class="logistics-item-title">四程中转站</p>
-            <p class="logistics-item-text">站点：{{ detail.fourDeparture }}</p>
-            <p class="logistics-item-text">
-              班次信息：{{ detail.fourFlightInfo }}
-            </p>
-            <p class="logistics-item-text">起运日期：{{ detail.fourATD }}</p>
+            <p class="logistics-item-title">{{$t('lang.detail_common3')}}</p>
+            <p class="logistics-item-text">{{$t('lang.detail_common2')}}{{ detail.fourDeparture }}</p>
+            <p class="logistics-item-text">{{$t('lang.detail_common4')}}{{ detail.fourFlightInfo }}</p>
+            <p class="logistics-item-text">{{$t('lang.detail_common5')}}{{ detail.fourATD }}</p>
           </li>
           <li class="logistics-item" v-if="detail.threeDeparture">
-            <p class="logistics-item-title">三程中转站</p>
-            <p class="logistics-item-text">站点：{{ detail.threeDeparture }}</p>
-            <p class="logistics-item-text">
-              班次信息：{{ detail.threeFlightInfo }}
-            </p>
-            <p class="logistics-item-text">起运日期：{{ detail.threeATD }}</p>
+            <p class="logistics-item-title">{{$t('lang.detail_common6')}}</p>
+            <p class="logistics-item-text">{{$t('lang.detail_common2')}}{{ detail.threeDeparture }}</p>
+            <p class="logistics-item-text">{{$t('lang.detail_common4')}}{{ detail.threeFlightInfo }}</p>
+            <p class="logistics-item-text">{{$t('lang.detail_common5')}}{{ detail.threeATD }}</p>
           </li>
           <li class="logistics-item" v-if="detail.transit">
-            <p class="logistics-item-title">二程中转站</p>
-            <p class="logistics-item-text">站点：{{ detail.transit }}</p>
-            <p class="logistics-item-text">
-              班次信息：{{ detail.transitFlightInfo }}
-            </p>
-            <p class="logistics-item-text">起运日期：{{ detail.threeATD }}</p>
+            <p class="logistics-item-title">{{$t('lang.detail_common7')}}</p>
+            <p class="logistics-item-text">{{$t('lang.detail_common2')}}{{ detail.transit }}</p>
+            <p
+              class="logistics-item-text"
+            >{{$t('lang.detail_common4')}}{{ detail.transitFlightInfo }}</p>
+            <p class="logistics-item-text">{{$t('lang.detail_common5')}}{{ detail.threeATD }}</p>
           </li>
           <li class="logistics-item" v-if="detail.departure">
-            <p class="logistics-item-title">始发站</p>
-            <p class="logistics-item-text">站点：{{ detail.departure }}</p>
-            <p class="logistics-item-text">
-              班次信息：{{ detail.transitFlightInfo }}
-            </p>
-            <p class="logistics-item-text">预计起运日期：{{ detail.ETD }}</p>
-            <p class="logistics-item-text">实际起运日期：{{ detail.ATD }}</p>
+            <p class="logistics-item-title">{{$t('lang.detail_common8')}}</p>
+            <p class="logistics-item-text">{{$t('lang.detail_common2')}}{{ detail.departure }}</p>
+            <p
+              class="logistics-item-text"
+            >{{$t('lang.detail_common4')}}{{ detail.transitFlightInfo }}</p>
+            <p class="logistics-item-text">{{$t('lang.detail_as15')}}{{ detail.ETD }}</p>
+            <p class="logistics-item-text">{{$t('lang.detail_as16')}}{{ detail.ATD }}</p>
           </li>
           <li class="logistics-item">
-            <p class="logistics-item-title">提货</p>
-            <p class="logistics-item-text">城市：{{ detail.pickupCity }}</p>
-            <p class="logistics-item-text">日期：{{ detail.pickupDate }}</p>
+            <p class="logistics-item-title">{{$t('lang.detail_as17')}}</p>
+            <p class="logistics-item-text">{{$t('lang.detail_as18')}}{{ detail.pickupCity }}</p>
+            <p class="logistics-item-text">{{$t('lang.detail_as19')}}{{ detail.pickupDate }}</p>
           </li>
         </ul>
       </div>
@@ -237,6 +209,7 @@
   </div>
 </template>
 <script>
+import { mapState } from "vuex";
 export default {
   name: "detail",
   data() {
@@ -245,10 +218,10 @@ export default {
         Air: "空运",
         Rail: "铁路运输",
         Truck: "陆运",
-        Ocean: "海运",
+        Ocean: "海运"
       },
       detail: {
-        zd: "海运",
+        zd: "海运"
       },
       logistics: [
         {
@@ -256,55 +229,58 @@ export default {
           detail: [
             {
               name: "城市",
-              value: "杭州",
+              value: "杭州"
             },
             {
               name: "日期",
-              value: "2021-03-25",
-            },
-          ],
+              value: "2021-03-25"
+            }
+          ]
         },
         {
           title: "提货",
           detail: [
             {
               name: "城市",
-              value: "杭州",
+              value: "杭州"
             },
             {
               name: "日期",
-              value: "2021-03-25",
-            },
-          ],
+              value: "2021-03-25"
+            }
+          ]
         },
         {
           title: "提货",
           detail: [
             {
               name: "城市",
-              value: "杭州",
+              value: "杭州"
             },
             {
               name: "日期",
-              value: "2021-03-25",
-            },
-          ],
+              value: "2021-03-25"
+            }
+          ]
         },
         {
           title: "提货",
           detail: [
             {
               name: "城市",
-              value: "杭州",
+              value: "杭州"
             },
             {
               name: "日期",
-              value: "2021-03-25",
-            },
-          ],
-        },
-      ],
+              value: "2021-03-25"
+            }
+          ]
+        }
+      ]
     };
+  },
+  computed: {
+    ...mapState(["locale"])
   },
   //创建前设置
   beforeCreate() {
@@ -323,11 +299,11 @@ export default {
     async getDetail() {
       const freightOrderId = this.$route.params.id;
       const listData = await this.$API.request(this.$API.detail, "POST", {
-        freightOrderId,
+        freightOrderId
       });
       this.detail = listData.data;
-    },
-  },
+    }
+  }
 };
 </script>
 <style lang="scss" scoped>
@@ -479,7 +455,7 @@ export default {
         }
       }
     }
-    .title{
+    .title {
       margin-top: 0;
     }
     // .title {

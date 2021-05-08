@@ -94,8 +94,9 @@ export default {
     }
     .content {
       .img {
-        width: 100%;
-        height: 748px;
+        width: 640px;
+        height: 400px;
+        margin: auto;
         overflow: hidden;
         background: url(../assets/image/net.gif);
         background-position: center center;

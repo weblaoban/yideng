@@ -3,130 +3,104 @@
     <div class="container">
       <div class="title">
         <!-- <div class="circle"></div> -->
-        <p>我的货运信息</p>
+        <p v-text="$t('lang.list_title')"></p>
         <div class="line"></div>
       </div>
       <div class="query-box clear">
         <input
-          placeholder="输入空运分单号或空运主单号或作业编号进行查询"
+          :placeholder="$t('lang.list_placeholder')"
           class="query-input"
           v-model="listQuery.keywords"
         />
-        <span class="query-button" @click="query">查询</span>
+        <span class="query-button" @click="query" v-text="$t('lang.list_search')"></span>
       </div>
       <table class="table-list">
         <thead class="table-head">
           <tr>
-            <th>运输方式</th>
-            <th>主单号/运单号/收货凭据</th>
-            <th>出发港/地</th>
-            <th>目的港/地</th>
-            <th>航班/航次/车牌/班次信息</th>
-            <th>操作</th>
+            <th v-text="$t('lang.list_head1')"></th>
+            <th v-text="$t('lang.list_head2')">主单号/运单号/收货凭据</th>
+            <th v-text="$t('lang.list_head3')">出发港/地</th>
+            <th v-text="$t('lang.list_head4')">目的港/地</th>
+            <th v-text="$t('lang.list_head5')">航班/航次/车牌/班次信息</th>
+            <th v-text="$t('lang.list_head6')">操作</th>
           </tr>
         </thead>
         <tbody class="table-body">
           <tr v-for="(item, index) in list" :key="index">
-            <td>{{ type[item.transportation] || item.transportation }}</td>
+            <td>{{ locale==='zh-CN'?type[item.transportation] : item.transportation}}</td>
             <td>{{ item.orderNumber }}</td>
             <td>{{ item.departure }}</td>
             <td>{{ item.destinationPort }}</td>
             <td>{{ item.flightInfo }}</td>
-            <td class="td-opration" @click="$router.push(`/detail/${item.id}`)">
-              查看详情
-            </td>
+            <td class="td-opration" @click="$router.push(`/detail/${item.id}`)"  v-text="$t('lang.list_detail')"></td>
           </tr>
         </tbody>
       </table>
       <div class="mobile-list">
         <div v-for="(item, index) in list" :key="index" class="mobile-item">
           <div class="mobile-inner">
-            <div class="item-title">运输方式</div>
-            <div class="item-value">
-              {{ type[item.transportation] || item.transportation }}
-            </div>
+            <div class="item-title" v-text="$t('lang.list_head1')">运输方式</div>
+            <div
+              class="item-value"
+            >{{ locale==='zh-CN'?type[item.transportation] : item.transportation }}</div>
           </div>
           <div class="mobile-inner">
-            <div class="item-title">主单号/运单号/收货凭据</div>
+            <div class="item-title" v-text="$t('lang.list_head2')">主单号/运单号/收货凭据</div>
             <div class="item-value">{{ item.orderNumber }}</div>
           </div>
           <div class="mobile-inner">
-            <div class="item-title">出发港/地</div>
+            <div class="item-title" v-text="$t('lang.list_head3')">出发港/地</div>
             <div class="item-value">{{ item.departure }}</div>
           </div>
           <div class="mobile-inner">
-            <div class="item-title">目的港/地</div>
+            <div class="item-title" v-text="$t('lang.list_head4')">目的港/地</div>
             <div class="item-value">{{ item.destinationPort }}</div>
           </div>
           <div class="mobile-inner">
-            <div class="item-title">航班/航次/车牌/班次信息</div>
+            <div class="item-title" v-text="$t('lang.list_head5')">航班/航次/车牌/班次信息</div>
             <div class="item-value">{{ item.flightInfo }}</div>
           </div>
           <div class="mobile-inner">
-            <div class="item-title">操作</div>
-            <div
-              class="item-value item-option"
-              @click="$router.push(`/detail/${item.id}`)"
-            >
-              查看详情
-            </div>
+            <div class="item-title" v-text="$t('lang.list_head6')"></div>
+            <div class="item-value item-option" @click="$router.push(`/detail/${item.id}`)"  v-text="$t('lang.list_search')">查看详情</div>
           </div>
         </div>
       </div>
       <div class="page-box">
-        <span class="page-button" @click="numClick('pre')">上一页</span>
+        <span class="page-button" @click="numClick('pre')" v-text="$t('lang.list_pre')"></span>
         <span class="page-query">
           <input class="page-input" v-model="listQuery.pageNo" />
           <span class="page-total">/{{ Math.ceil(total / 10) }}</span>
         </span>
-        <span class="page-button" @click="numClick('next')">下一页</span>
+        <span class="page-button" @click="numClick('next')" v-text="$t('lang.list_next')"></span>
       </div>
     </div>
   </div>
 </template>
 
 <script>
+import { mapState } from "vuex";
 export default {
   name: "List",
   data() {
     return {
-      list: [
-        //   {
-        //   transportation: 'Air',
-        //   orderNumber: 122344,
-        //   departure: 233344,
-        //   destinationPort: 'eiuii',
-        //   flightInfo: 'jujjjjjjj',
-        //   id: 1,
-        // }, {
-        //   transportation: 'Air',
-        //   orderNumber: 122344,
-        //   departure: 233344,
-        //   destinationPort: 'eiuii',
-        //   flightInfo: 'jujjjjjjj',
-        //   id: 1,
-        // }, {
-        //   transportation: 'Air',
-        //   orderNumber: 122344,
-        //   departure: 233344,
-        //   destinationPort: 'eiuii',
-        //   flightInfo: 'jujjjjjjj',
-        //   id: 1,
-        // }
-      ],
+      list: [],
       total: 0,
       type: {
         Air: "空运",
         Rail: "铁路运输",
-        Truck: "陆运",
-        Ocean: "海运",
+        Trucking: "陆运",
+        Ocean: "海运"
       },
       listQuery: {
         pageNo: 1,
         pageSize: 10,
-        keywords: undefined,
-      },
+        keywords: undefined
+      }
     };
+  },
+  computed: {
+    ...mapState(["locale"])
   },
   //创建前设置
   beforeCreate() {
@@ -169,8 +143,8 @@ export default {
     query() {
       this.listQuery.pageNo = 1;
       this.getList();
-    },
-  },
+    }
+  }
 };
 </script>
 
@@ -426,7 +400,7 @@ export default {
     .query-box {
       margin-bottom: 160px;
     }
-    .title{
+    .title {
       margin-top: 0;
     }
     // .title {
