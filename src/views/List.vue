@@ -43,27 +43,36 @@
             <div
               class="item-value"
             >{{ locale==='zh-CN'?type[item.transportation] : item.transportation }}</div>
+            <div class="item-option" @click="$router.push(`/detail/${item.id}`)">
+                <img src="../assets/image/mobile/detail.png" alt="查看详情" class="item-option-img"/>
+            </div>
           </div>
           <div class="mobile-inner">
             <div class="item-title" v-text="$t('lang.list_head2')">主单号/运单号/收货凭据</div>
             <div class="item-value">{{ item.orderNumber }}</div>
           </div>
-          <div class="mobile-inner">
-            <div class="item-title" v-text="$t('lang.list_head3')">出发港/地</div>
-            <div class="item-value">{{ item.departure }}</div>
+          <div class="mobile-inner mobile-inner-row">
+              <div class="mobile-inner-card">
+                  <div class="item-title" v-text="$t('lang.list_head3')">出发港/地</div>
+                    <div class="item-value">{{ item.departure }}</div>
+              </div>
+            <div class="mobile-inner-card">
+                <div class="item-title" v-text="$t('lang.list_head4')">目的港/地</div>
+                <div class="item-value">{{ item.destinationPort }}</div>
+            </div>
           </div>
-          <div class="mobile-inner">
+          <!-- <div class="mobile-inner">
             <div class="item-title" v-text="$t('lang.list_head4')">目的港/地</div>
             <div class="item-value">{{ item.destinationPort }}</div>
-          </div>
+          </div> -->
           <div class="mobile-inner">
             <div class="item-title" v-text="$t('lang.list_head5')">航班/航次/车牌/班次信息</div>
             <div class="item-value">{{ item.flightInfo }}</div>
           </div>
-          <div class="mobile-inner">
+          <!-- <div class="mobile-inner">
             <div class="item-title" v-text="$t('lang.list_head6')"></div>
             <div class="item-value item-option" @click="$router.push(`/detail/${item.id}`)"  v-text="$t('lang.list_search')">查看详情</div>
-          </div>
+          </div> -->
         </div>
       </div>
       <div class="page-box">
@@ -336,29 +345,60 @@ export default {
       display: block;
       .mobile-item {
         background: #f8f8f8;
-        padding: 80px 40px;
+        padding: 20px 40px;
         color: #787878;
-        font-size: 40px;
-        line-height: 40px;
+        font-size: 30px;
+        line-height: 30px;
         text-align: left;
-        margin-bottom: 160px;
+        margin-bottom: 80px;
         .mobile-inner {
-          margin-bottom: 80px;
+          padding: 20px 0;
+          position: relative;
+          &.mobile-inner-row{
+              display: flex;
+              .mobile-inner-card{
+                  width: 50%;
+              }
+          }
+          &::after{
+              position: absolute;
+              content: "";
+              height: 2px;
+              background: #787878;
+              width: 200%;
+              transform: scale(0.5);
+              left: -50%;
+              bottom: 0;
+          }
           &:last-child {
             margin-bottom: 0;
+            &::after{
+                display: none;
+            }
           }
         }
         .item-title {
           font-weight: bold;
-          font-size: 40px;
-          margin-bottom: 40px;
+          font-size: 30px;
+          margin-bottom: 20px;
         }
         .item-value {
           font-weight: 300;
-          font-size: 40px;
+          font-size: 30px;
           &.item-option {
             color: #e67016;
           }
+        }
+        .item-option{
+            width: 45px;
+            height: 44px;
+            position: absolute;
+            right: 0;
+            top: 0;
+            img{
+                width: 100%;
+                height: 100%;
+            }
         }
       }
     }
@@ -370,7 +410,7 @@ export default {
       height: 120px;
       display: block;
       margin-right: 0;
-      margin-bottom: 80px;
+      margin-bottom: 40px;
       border: 2px solid #343434;
       font-size: 28px;
       &::-webkit-input-placeholder {
@@ -398,7 +438,7 @@ export default {
       }
     }
     .query-box {
-      margin-bottom: 160px;
+      margin-bottom: 80px;
     }
     .title {
       margin-top: 0;

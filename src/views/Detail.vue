@@ -1,6 +1,10 @@
 <template>
   <div class="detail-box">
     <div class="container">
+        <div class="back" @click="$router.push(`/list`)">
+          <img src="../assets/image/mobile/back.png" alt="返回"/>
+          <span class="back-text">返回</span>
+      </div>
       <div class="title">
         <!-- <div class="circle"></div> -->
         <p v-text="$t('lang.detail_title')">货运详情</p>
@@ -42,7 +46,7 @@
             </tr>
           </tbody>
         </table>
-        <div class="mobile-item">
+        <div class="mobile-item clear">
           <div class="mobile-inner">
             <div class="item-title" v-text="$t('lang.detail_basic1')">运输方式</div>
             <div
@@ -50,39 +54,39 @@
             >{{ locale==='zh-CN'?type[detail.transportation] : detail.transportation }}</div>
           </div>
           <div class="mobile-inner">
-            <div class="item-title" v-text="$t('detail_basic3')">空运主单号</div>
-            <div class="item-value">{{ detail.orderNumber }}</div>
-          </div>
-          <div class="mobile-inner">
-            <div class="item-title" v-text="$t('detail_basic5')">空运分单号</div>
-            <div class="item-value">{{ detail.branchOrderNumber }}</div>
-          </div>
-          <div class="mobile-inner">
-            <div class="item-title" v-text="$t('detail_basic7')">起运港</div>
-            <div class="item-value">{{ detail.departure }}</div>
-          </div>
-          <div class="mobile-inner">
-            <div class="item-title" v-text="$t('detail_basic9')">目的港</div>
-            <div class="item-value">{{ detail.destinationPort }}</div>
-          </div>
-          <div class="mobile-inner">
-            <div class="item-title" v-text="$t('detail_basic2')">航班信息</div>
+            <div class="item-title" v-text="$t('lang.detail_basic2')">航班信息</div>
             <div class="item-value">{{ detail.flightInfo }}</div>
           </div>
           <div class="mobile-inner">
-            <div class="item-title" v-text="$t('detail_basic4')">数量</div>
+            <div class="item-title" v-text="$t('lang.detail_basic3')">空运主单号</div>
+            <div class="item-value">{{ detail.orderNumber }}</div>
+          </div>
+          <div class="mobile-inner">
+            <div class="item-title" v-text="$t('lang.detail_basic5')">空运分单号</div>
+            <div class="item-value">{{ detail.branchOrderNumber }}</div>
+          </div>
+          <div class="mobile-inner">
+            <div class="item-title" v-text="$t('lang.detail_basic7')">起运港</div>
+            <div class="item-value">{{ detail.departure }}</div>
+          </div>
+          <div class="mobile-inner">
+            <div class="item-title" v-text="$t('lang.detail_basic9')">目的港</div>
+            <div class="item-value">{{ detail.destinationPort }}</div>
+          </div>
+          <div class="mobile-inner">
+            <div class="item-title" v-text="$t('lang.detail_basic4')">数量</div>
             <div class="item-value">{{ detail.quantity }}</div>
           </div>
           <div class="mobile-inner">
-            <div class="item-title" v-text="$t('detail_basic6')">毛重(kg)</div>
+            <div class="item-title" v-text="$t('lang.detail_basic6')">毛重(kg)</div>
             <div class="item-value">{{ detail.grossWeight }}</div>
           </div>
           <div class="mobile-inner">
-            <div class="item-title" v-text="$t('detail_basic8')">计费重量(kg)</div>
+            <div class="item-title" v-text="$t('lang.detail_basic8')">计费重量(kg)</div>
             <div class="item-value">{{ detail.chargeableWeight }}</div>
           </div>
           <div class="mobile-inner">
-            <div class="item-title" v-text="$t('detail_basic10')">体积(CBM)</div>
+            <div class="item-title" v-text="$t('lang.detail_basic10')">体积(CBM)</div>
             <div class="item-value">{{ detail.volume }}</div>
           </div>
         </div>
@@ -205,6 +209,10 @@
           </li>
         </ul>
       </div>
+      <div class="back" @click="$router.push(`/list`)">
+          <img src="../assets/image/mobile/back.png" alt="返回"/>
+          <span class="back-text">返回</span>
+      </div>
     </div>
   </div>
 </template>
@@ -314,6 +322,9 @@ export default {
   .mobile-item {
     display: none;
   }
+  .back{
+      display: none;
+  }
   .title {
     // width: 187px;
     // height: 135px;
@@ -422,33 +433,85 @@ export default {
 
 @media screen and (max-width: 750px) {
   .detail-box {
-    padding-top: 290px;
+    padding-top: 170px;
     padding-bottom: 78px;
     .basic-table {
       display: none;
     }
+    .back{
+        display: flex;
+        align-items: center;
+        img{
+            width: 30px;
+            height: 35px;
+        }
+        .back-text{
+            color: #E67016;
+            font-size: 40px;
+            margin-left: 10px;
+        }
+    }
     .mobile-item {
       display: block;
       background: #f8f8f8;
-      padding: 80px 40px;
+      padding: 20px 40px;
       color: #787878;
-      font-size: 40px;
-      line-height: 40px;
+      font-size: 30px;
+      line-height: 30px;
       text-align: left;
-      margin-bottom: 160px;
+      margin-bottom: 80px;
       .mobile-inner {
-        margin-bottom: 80px;
+          float: left;
+          width: 50%;
+        padding: 20px 0;
+        position: relative;
+        &::after{
+              position: absolute;
+              content: "";
+              height: 2px;
+              background: #787878;
+              width: 200%;
+              transform: scale(0.5);
+              left: -50%;
+              bottom: 0;
+          }
+          &::before{
+              position: absolute;
+              content: "";
+              height: 200%;
+              background: #787878;
+              width: 2px;
+              transform: scale(0.5);
+              right: 0;
+              bottom: -50%;
+          }
+          &:nth-child(2n){
+              padding-left: 20px;
+              &::before{
+                  display: none;
+              }
+          }
         &:last-child {
           margin-bottom: 0;
+          &::after{
+              display: none;
+          }
+        }
+        &:nth-last-child(2) {
+          &::after{
+              display: none;
+          }
         }
       }
       .item-title {
-        font-size: 40px;
+        font-size: 30px;
+        line-height: 30px;
         font-weight: bold;
-        margin-bottom: 40px;
+        margin-bottom: 20px;
       }
       .item-value {
-        font-size: 40px;
+        font-size: 30px;
+        line-height: 30px;
         font-weight: 300;
         &.item-option {
           color: #e67016;
@@ -456,7 +519,7 @@ export default {
       }
     }
     .title {
-      margin-top: 0;
+      margin-top: 60px;
     }
     // .title {
     //   height: 195px;
@@ -494,13 +557,14 @@ export default {
     }
     .logistics {
       margin-top: 60px;
+      margin-bottom: 80px;
       .logistics-box {
         background: #f8f8f8;
-        padding: 80px 40px;
+        padding: 40px 40px 40px 90px;
         text-align: left;
       }
       .logistics-item {
-        margin-left: 17px;
+        margin-left: 0;
         padding-bottom: 80px;
         position: relative;
         &::before {
@@ -509,7 +573,7 @@ export default {
           width: 4px;
           background: #e67016;
           height: 100%;
-          left: -25px;
+          left: -37px;
         }
         &:last-child {
           padding-bottom: 0;
@@ -520,23 +584,23 @@ export default {
         &::after {
           content: "";
           position: absolute;
-          width: 40px;
+          width: 30px;
           background: #e67016;
-          height: 40px;
-          left: -45px;
+          height: 30px;
+          left: -50px;
           top: 0;
           border-radius: 50%;
         }
       }
       .logistics-item-title {
-        font-size: 40px;
-        line-height: 40px;
+        font-size: 30px;
+        line-height: 30px;
         font-weight: bold;
         margin-bottom: 20px;
       }
       .logistics-item-text {
-        font-size: 30px;
-        line-height: 60px;
+        font-size: 26px;
+        line-height: 40px;
         margin-bottom: 6px;
       }
     }
