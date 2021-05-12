@@ -1,9 +1,9 @@
 <template>
   <div class="detail-box">
     <div class="container">
-        <div class="back" @click="$router.push(`/list`)">
-          <img src="../assets/image/mobile/back.png" alt="返回"/>
-          <span class="back-text">返回</span>
+      <div class="back" @click="$router.push(`/list`)">
+        <img src="../assets/image/mobile/back.png" alt="返回" />
+        <span class="back-text">返回</span>
       </div>
       <div class="title">
         <!-- <div class="circle"></div> -->
@@ -16,7 +16,7 @@
           <tbody>
             <tr>
               <td v-text="$t('lang.detail_basic1')">运输方式</td>
-              <td>{{ locale==='zh-CN'?type[detail.transportation] : detail.transportation }}</td>
+              <td>{{ locale==='zh-CN'?type[detail.transportation]||detail.transportation : detail.transportation }}</td>
               <td v-text="$t('lang.detail_basic2')">航班信息</td>
               <td>{{ detail.flightInfo }}</td>
             </tr>
@@ -51,7 +51,7 @@
             <div class="item-title" v-text="$t('lang.detail_basic1')">运输方式</div>
             <div
               class="item-value"
-            >{{ locale==='zh-CN'?type[detail.transportation] : detail.transportation }}</div>
+            >{{ locale==='zh-CN'?type[detail.transportation]||detail.transportation : detail.transportation }}</div>
           </div>
           <div class="mobile-inner">
             <div class="item-title" v-text="$t('lang.detail_basic2')">航班信息</div>
@@ -210,8 +210,8 @@
         </ul>
       </div>
       <div class="back" @click="$router.push(`/list`)">
-          <img src="../assets/image/mobile/back.png" alt="返回"/>
-          <span class="back-text">返回</span>
+        <img src="../assets/image/mobile/back.png" alt="返回" />
+        <span class="back-text">返回</span>
       </div>
     </div>
   </div>
@@ -322,8 +322,8 @@ export default {
   .mobile-item {
     display: none;
   }
-  .back{
-      display: none;
+  .back {
+    display: none;
   }
   .title {
     // width: 187px;
@@ -438,18 +438,18 @@ export default {
     .basic-table {
       display: none;
     }
-    .back{
-        display: flex;
-        align-items: center;
-        img{
-            width: 30px;
-            height: 35px;
-        }
-        .back-text{
-            color: #E67016;
-            font-size: 40px;
-            margin-left: 10px;
-        }
+    .back {
+      display: flex;
+      align-items: center;
+      img {
+        width: 30px;
+        height: 35px;
+      }
+      .back-text {
+        color: #e67016;
+        font-size: 40px;
+        margin-left: 10px;
+      }
     }
     .mobile-item {
       display: block;
@@ -461,45 +461,45 @@ export default {
       text-align: left;
       margin-bottom: 80px;
       .mobile-inner {
-          float: left;
-          width: 50%;
+        float: left;
+        width: 50%;
         padding: 20px 0;
         position: relative;
-        &::after{
-              position: absolute;
-              content: "";
-              height: 2px;
-              background: #787878;
-              width: 200%;
-              transform: scale(0.5);
-              left: -50%;
-              bottom: 0;
+        &::after {
+          position: absolute;
+          content: "";
+          height: 2px;
+          background: #787878;
+          width: 200%;
+          transform: scale(0.5);
+          left: -50%;
+          bottom: 0;
+        }
+        &::before {
+          position: absolute;
+          content: "";
+          height: 200%;
+          background: #787878;
+          width: 2px;
+          transform: scale(0.5);
+          right: 0;
+          bottom: -50%;
+        }
+        &:nth-child(2n) {
+          padding-left: 20px;
+          &::before {
+            display: none;
           }
-          &::before{
-              position: absolute;
-              content: "";
-              height: 200%;
-              background: #787878;
-              width: 2px;
-              transform: scale(0.5);
-              right: 0;
-              bottom: -50%;
-          }
-          &:nth-child(2n){
-              padding-left: 20px;
-              &::before{
-                  display: none;
-              }
-          }
+        }
         &:last-child {
           margin-bottom: 0;
-          &::after{
-              display: none;
+          &::after {
+            display: none;
           }
         }
         &:nth-last-child(2) {
-          &::after{
-              display: none;
+          &::after {
+            display: none;
           }
         }
       }

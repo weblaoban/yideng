@@ -27,7 +27,7 @@
         </thead>
         <tbody class="table-body">
           <tr v-for="(item, index) in list" :key="index">
-            <td>{{ locale==='zh-CN'?type[item.transportation] : item.transportation}}</td>
+            <td>{{ locale==='zh-CN'?type[item.transportation]||item.transportation : item.transportation}}</td>
             <td>{{ item.orderNumber }}</td>
             <td>{{ item.departure }}</td>
             <td>{{ item.destinationPort }}</td>
@@ -42,7 +42,7 @@
             <div class="item-title" v-text="$t('lang.list_head1')">运输方式</div>
             <div
               class="item-value"
-            >{{ locale==='zh-CN'?type[item.transportation] : item.transportation }}</div>
+            >{{ locale==='zh-CN'?type[item.transportation]||item.transportation : item.transportation }}</div>
             <div class="item-option" @click="$router.push(`/detail/${item.id}`)">
                 <img src="../assets/image/mobile/detail.png" alt="查看详情" class="item-option-img"/>
             </div>
@@ -98,7 +98,7 @@ export default {
       type: {
         Air: "空运",
         Rail: "铁路运输",
-        Trucking: "陆运",
+        Truck: "陆运",
         Ocean: "海运"
       },
       listQuery: {
