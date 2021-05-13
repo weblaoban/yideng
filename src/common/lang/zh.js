@@ -174,4 +174,5 @@ export const lang = {
   detail_common6: "三程中转站",
   detail_common7: "二程中转站",
   detail_common8: "始发站",
+  detail_back:'返回',
 };

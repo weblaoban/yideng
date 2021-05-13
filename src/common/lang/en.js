@@ -186,4 +186,5 @@ export const lang = {
   detail_common6: "3rd Transfer Station",
   detail_common7: "Transfer Station",
   detail_common8: "Starting Station",
+  detail_back:'Back',
 };

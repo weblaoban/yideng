@@ -110,8 +110,8 @@
           <li class="logistics-item" v-if="detail.destinationPort">
             <p class="logistics-item-title">{{$t('lang.detail_as5')}}</p>
             <p class="logistics-item-text">{{$t('lang.detail_as6')}}{{ detail.destinationPort }}</p>
-            <p class="logistics-item-text">{{$t('lang.detail_as7')}}{{ detail.ETA }}</p>
-            <p class="logistics-item-text">{{$t('lang.detail_as8')}}{{ detail.ATA }}</p>
+            <p class="logistics-item-text">{{$t('lang.detail_as7')}}{{ detail.eta }}</p>
+            <p class="logistics-item-text">{{$t('lang.detail_as8')}}{{ detail.ata }}</p>
           </li>
           <li class="logistics-item" v-if="detail.fourDeparture">
             <p class="logistics-item-title">{{$t('lang.detail_as9')}}</p>
@@ -135,8 +135,8 @@
             <p class="logistics-item-title">{{$t('lang.detail_as14')}}</p>
             <p class="logistics-item-text">{{$t('lang.detail_as6')}}{{ detail.departure }}</p>
             <p class="logistics-item-text">{{$t('lang.detail_as10')}}{{ detail.transitFlightInfo }}</p>
-            <p class="logistics-item-text">{{$t('lang.detail_as15')}}{{ detail.ETD }}</p>
-            <p class="logistics-item-text">{{$t('lang.detail_as16')}}{{ detail.ATD }}</p>
+            <p class="logistics-item-text">{{$t('lang.detail_as15')}}{{ detail.etd }}</p>
+            <p class="logistics-item-text">{{$t('lang.detail_as16')}}{{ detail.atd }}</p>
           </li>
           <li class="logistics-item">
             <p class="logistics-item-title">{{$t('lang.detail_as17')}}</p>
@@ -170,8 +170,8 @@
           <li class="logistics-item" v-if="detail.destinationPort">
             <p class="logistics-item-title">{{$t('lang.detail_common1')}}</p>
             <p class="logistics-item-text">{{$t('lang.detail_common2')}}{{ detail.destinationPort }}</p>
-            <p class="logistics-item-text">{{$t('lang.detail_as7')}}{{ detail.ETA }}</p>
-            <p class="logistics-item-text">{{$t('lang.detail_as8')}}{{ detail.ATA }}</p>
+            <p class="logistics-item-text">{{$t('lang.detail_as7')}}{{ detail.eta }}</p>
+            <p class="logistics-item-text">{{$t('lang.detail_as8')}}{{ detail.ata }}</p>
           </li>
           <li class="logistics-item" v-if="detail.fourDeparture">
             <p class="logistics-item-title">{{$t('lang.detail_common3')}}</p>
@@ -199,8 +199,8 @@
             <p
               class="logistics-item-text"
             >{{$t('lang.detail_common4')}}{{ detail.transitFlightInfo }}</p>
-            <p class="logistics-item-text">{{$t('lang.detail_as15')}}{{ detail.ETD }}</p>
-            <p class="logistics-item-text">{{$t('lang.detail_as16')}}{{ detail.ATD }}</p>
+            <p class="logistics-item-text">{{$t('lang.detail_as15')}}{{ detail.etd }}</p>
+            <p class="logistics-item-text">{{$t('lang.detail_as16')}}{{ detail.atd }}</p>
           </li>
           <li class="logistics-item">
             <p class="logistics-item-title">{{$t('lang.detail_as17')}}</p>
@@ -211,7 +211,7 @@
       </div>
       <div class="back" @click="$router.push(`/list`)">
         <img src="../assets/image/mobile/back.png" alt="返回" />
-        <span class="back-text">返回</span>
+        <span class="back-text" v-text="$t('lang.detail_back')"></span>
       </div>
     </div>
   </div>
@@ -322,9 +322,20 @@ export default {
   .mobile-item {
     display: none;
   }
-  .back {
-    display: none;
-  }
+   .back {
+      display: flex;
+      align-items: center;
+      width: 100px;
+      img {
+        width: 20px;
+        height: 25px;
+      }
+      .back-text {
+        color: #e67016;
+        font-size: 20px;
+        margin-left: 10px;
+      }
+    }
   .title {
     // width: 187px;
     // height: 135px;
