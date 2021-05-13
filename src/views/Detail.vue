@@ -3,7 +3,7 @@
     <div class="container">
       <div class="back" @click="$router.push(`/list`)">
         <img src="../assets/image/mobile/back.png" alt="返回" />
-        <span class="back-text">返回</span>
+        <span class="back-text" v-text="$t('lang.detail_back')"></span>
       </div>
       <div class="title">
         <!-- <div class="circle"></div> -->
