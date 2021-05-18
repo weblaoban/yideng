@@ -301,7 +301,7 @@
           <li class="logistics-item" v-if="detail.departure">
             <p class="logistics-item-title">{{$t('lang.detail_as14')}}</p>
             <p class="logistics-item-text">{{$t('lang.detail_as6')}}{{ detail.departure }}</p>
-            <p class="logistics-item-text">{{$t('lang.detail_as10')}}{{ detail.transitFlightInfo }}</p>
+            <p class="logistics-item-text">{{$t('lang.detail_as10')}}{{ detail.flightInfo }}</p>
             <p class="logistics-item-text">{{$t('lang.detail_as15')}}{{ detail.etd }}</p>
             <p class="logistics-item-text">{{$t('lang.detail_as16')}}{{ detail.atd }}</p>
           </li>
@@ -367,7 +367,7 @@
           <li class="logistics-item" v-if="detail.departure">
             <p class="logistics-item-title">{{$t('lang.detail_oce10')}}</p>
             <p class="logistics-item-text">{{$t('lang.detail_oce2')}}{{ detail.departure }}</p>
-            <p class="logistics-item-text">{{$t('lang.detail_oce6')}}{{ detail.transitFlightInfo }}</p>
+            <p class="logistics-item-text">{{$t('lang.detail_oce6')}}{{ detail.flightInfo }}</p>
             <p class="logistics-item-text">{{$t('lang.detail_oce11')}}{{ detail.etd }}</p>
             <p class="logistics-item-text">{{$t('lang.detail_oce12')}}{{ detail.atd }}</p>
           </li>
@@ -423,7 +423,7 @@
             <p class="logistics-item-text">{{$t('lang.detail_common2')}}{{ detail.departure }}</p>
             <p
               class="logistics-item-text"
-            >{{$t('lang.detail_common6')}}{{ detail.transitFlightInfo }}</p>
+            >{{$t('lang.detail_common6')}}{{ detail.flightInfo }}</p>
             <p class="logistics-item-text">{{$t('lang.detail_common11')}}{{ detail.etd }}</p>
             <p class="logistics-item-text">{{$t('lang.detail_common12')}}{{ detail.atd }}</p>
           </li>
@@ -479,7 +479,7 @@
             <p class="logistics-item-text">{{$t('lang.detail_truck2')}}{{ detail.departure }}</p>
             <p
               class="logistics-item-text"
-            >{{$t('lang.detail_truck6')}}{{ detail.transitFlightInfo }}</p>
+            >{{$t('lang.detail_truck6')}}{{ detail.flightInfo }}</p>
             <p class="logistics-item-text">{{$t('lang.detail_truck11')}}{{ detail.etd }}</p>
             <p class="logistics-item-text">{{$t('lang.detail_truck12')}}{{ detail.atd }}</p>
           </li>
@@ -526,7 +526,7 @@
           <li class="logistics-item" v-if="detail.departure">
             <p class="logistics-item-title">{{$t('lang.detail_as14')}}</p>
             <p class="logistics-item-text">{{$t('lang.detail_as6')}}{{ detail.departure }}</p>
-            <p class="logistics-item-text">{{$t('lang.detail_as10')}}{{ detail.transitFlightInfo }}</p>
+            <p class="logistics-item-text">{{$t('lang.detail_as10')}}{{ detail.flightInfo }}</p>
             <p class="logistics-item-text">{{$t('lang.detail_as15')}}{{ detail.etd }}</p>
             <p class="logistics-item-text">{{$t('lang.detail_as16')}}{{ detail.atd }}</p>
           </li>
