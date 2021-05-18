@@ -260,6 +260,12 @@
           </div>
         </div>
       </div>
+      <div
+        class="backPc"
+        style="margin:0; margin-left: 170px;margin-top: 64px;"
+        @click="$router.push(`/list`)"
+         v-text="$t('lang.detail_back')"
+      >返回</div>
       <div class="basic logistics">
         <p class="basic-title" v-text="$t('lang.detail_wuliu')">物流信息</p>
         <!-- 空运 -->
@@ -421,9 +427,7 @@
           <li class="logistics-item" v-if="detail.departure">
             <p class="logistics-item-title">{{$t('lang.detail_common10')}}</p>
             <p class="logistics-item-text">{{$t('lang.detail_common2')}}{{ detail.departure }}</p>
-            <p
-              class="logistics-item-text"
-            >{{$t('lang.detail_common6')}}{{ detail.flightInfo }}</p>
+            <p class="logistics-item-text">{{$t('lang.detail_common6')}}{{ detail.flightInfo }}</p>
             <p class="logistics-item-text">{{$t('lang.detail_common11')}}{{ detail.etd }}</p>
             <p class="logistics-item-text">{{$t('lang.detail_common12')}}{{ detail.atd }}</p>
           </li>
@@ -477,9 +481,7 @@
           <li class="logistics-item" v-if="detail.departure">
             <p class="logistics-item-title">{{$t('lang.detail_truck10')}}</p>
             <p class="logistics-item-text">{{$t('lang.detail_truck2')}}{{ detail.departure }}</p>
-            <p
-              class="logistics-item-text"
-            >{{$t('lang.detail_truck6')}}{{ detail.flightInfo }}</p>
+            <p class="logistics-item-text">{{$t('lang.detail_truck6')}}{{ detail.flightInfo }}</p>
             <p class="logistics-item-text">{{$t('lang.detail_truck11')}}{{ detail.etd }}</p>
             <p class="logistics-item-text">{{$t('lang.detail_truck12')}}{{ detail.atd }}</p>
           </li>
@@ -555,7 +557,7 @@
         <img src="../assets/image/mobile/back.png" alt="返回" />
         <span class="back-text" v-text="$t('lang.detail_back')"></span>
       </div>
-      <div class="backPc" @click="$router.push(`/list`)">返回</div>
+      <div class="backPc" @click="$router.push(`/list`)"  v-text="$t('lang.detail_back')">返回</div>
     </div>
   </div>
 </template>
@@ -736,7 +738,7 @@ export default {
     font-weight: bold;
   }
   .logistics {
-    margin-top: 164px;
+    margin-top: 100px;
     .logistics-box {
       background: #f8f8f8;
       padding: 80px 40px;
