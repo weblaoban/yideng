@@ -9,7 +9,7 @@
           <li>
             <p class="title" v-text="$t('lang.address1')"></p>
             <p class="desc">
-              {{ $t("lang.address") }}{{ address[0].dictionariesValue }}
+              {{ $t("lang.address") }}{{ locale==='zh-CN' ? address[0].dictionariesValue : address[0].remark }}
             </p>
             <p class="desc">
               {{ $t("lang.phone") }}{{ address[1].dictionariesValue }}
@@ -44,11 +44,12 @@
   </div>
 </template>
 <script>
+import { mapState } from "vuex";
 export default {
   name: "foot",
   data() {
     return {
-      address: [{ dictionariesValue: "" }, { dictionariesValue: "" }],
+      address: [{ dictionariesValue: "", remark: "" }, { dictionariesValue: "" }],
     };
   },
   props: {
@@ -62,6 +63,9 @@ export default {
       const listData = await this.$API.request(this.$API.address, "POST");
       this.address = listData.data;
     },
+  },
+  computed: {
+    ...mapState(["locale"])
   },
 };
 </script>

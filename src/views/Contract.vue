@@ -14,7 +14,7 @@
         <div class="info clear">
           <ul @click="changeCenter('1')">
             <h4 v-text="$t('lang.address1')"></h4>
-            <li>{{ address[0].dictionariesValue }}</li>
+            <li>{{ locale==='zh-CN' ? address[0].dictionariesValue : address[0].remark }}</li>
             <li>{{ address[1].dictionariesValue }}</li>
             <!-- <li>+86-21-53089827</li> -->
             <li>contact@eastern-sha.com</li>
@@ -46,7 +46,7 @@ export default {
       center2: [121.77183, 31.150607],
       center3: [121.773815, 31.17121],
       map: null,
-      address: [{ dictionariesValue: "" }, { dictionariesValue: "" }]
+      address: [{ dictionariesValue: "", remark: "" }, { dictionariesValue: "" }]
     };
   },
   created() {

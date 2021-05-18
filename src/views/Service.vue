@@ -16,15 +16,15 @@
           </div>
           <div class="left">
             <p>{{ $t("lang.servicedes") }}</p>
-            <ul>
+            <!-- <ul>
               <li>
                 <p>{{ $t("lang.servicedes2") }}</p>
               </li>
               <li>
                 <p>{{ $t("lang.servicedes3") }}</p>
               </li>
-            </ul>
-            <br />
+            </ul> -->
+            <!-- <br /> -->
             <div v-html="$t('lang.servicedes4')">
               <p style="margin-bottom: 0px">
                 我们提供
