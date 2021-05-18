@@ -18,17 +18,35 @@
               <td v-text="$t('lang.detail_basic1')">运输方式</td>
               <td>{{ locale==='zh-CN'?type[detail.transportation]||detail.transportation : detail.transportation }}</td>
               <td v-text="$t('lang.detail_basic2')" v-if="detail.transportation === 'Air'">航班信息</td>
-              <td v-text="$t('lang.detail_basic11')" v-else-if="detail.transportation === 'Ocean'">船名航次信息</td>
-              <td v-text="$t('lang.detail_basic15')" v-else-if="detail.transportation === 'Rail'">班次信息</td>
-              <td v-text="$t('lang.detail_basic19')" v-else-if="detail.transportation === 'Truck'">车牌号</td>
+              <td
+                v-text="$t('lang.detail_basic11')"
+                v-else-if="detail.transportation === 'Ocean'"
+              >船名航次信息</td>
+              <td
+                v-text="$t('lang.detail_basic15')"
+                v-else-if="detail.transportation === 'Rail'"
+              >班次信息</td>
+              <td
+                v-text="$t('lang.detail_basic19')"
+                v-else-if="detail.transportation === 'Truck'"
+              >车牌号</td>
               <td v-text="$t('lang.detail_basic2')" v-else></td>
               <td>{{ detail.flightInfo }}</td>
             </tr>
             <tr>
               <td v-text="$t('lang.detail_basic3')" v-if="detail.transportation === 'Air'">空运主单号</td>
-              <td v-text="$t('lang.detail_basic12')" v-else-if="detail.transportation === 'Ocean'">主单号</td>
-              <td v-text="$t('lang.detail_basic16')" v-else-if="detail.transportation === 'Rail'">运单号</td>
-              <td v-text="$t('lang.detail_basic20')" v-else-if="detail.transportation === 'Truck'">收货凭据</td>
+              <td
+                v-text="$t('lang.detail_basic12')"
+                v-else-if="detail.transportation === 'Ocean'"
+              >主单号</td>
+              <td
+                v-text="$t('lang.detail_basic16')"
+                v-else-if="detail.transportation === 'Rail'"
+              >运单号</td>
+              <td
+                v-text="$t('lang.detail_basic20')"
+                v-else-if="detail.transportation === 'Truck'"
+              >收货凭据</td>
               <td v-text="$t('lang.detail_basic3')" v-else>空运主单号</td>
               <td>{{ detail.orderNumber }}</td>
               <td v-text="$t('lang.detail_basic13')" v-if="detail.transportation === 'Ocean'">箱型</td>
@@ -37,11 +55,16 @@
             </tr>
             <tr>
               <td v-text="$t('lang.detail_basic5')" v-if="detail.transportation === 'Air'">空运分单号</td>
-              <td v-text="$t('lang.detail_basic14')" v-else-if="detail.transportation === 'Ocean'">分单号</td>
+              <td
+                v-text="$t('lang.detail_basic14')"
+                v-else-if="detail.transportation === 'Ocean'"
+              >分单号</td>
               <td v-text="''" v-else-if="detail.transportation === 'Rail'">空运分单号</td>
               <td v-text="''" v-else-if="detail.transportation === 'Truck'">空运分单号</td>
               <td v-text="$t('lang.detail_basic5')" v-else>空运分单号</td>
-              <td v-if="detail.transportation === 'Air' || detail.transportation === 'Ocean'">{{ detail.branchOrderNumber }}</td>
+              <td
+                v-if="detail.transportation === 'Air' || detail.transportation === 'Ocean'"
+              >{{ detail.branchOrderNumber }}</td>
               <td v-else-if="detail.transportation === 'Rail' || detail.transportation === 'Truck'"></td>
               <td v-else>{{ detail.branchOrderNumber }}</td>
               <td v-text="$t('lang.detail_basic6')">毛重(kg)</td>
@@ -49,9 +72,18 @@
             </tr>
             <tr>
               <td v-text="$t('lang.detail_basic7')" v-if="detail.transportation === 'Air'">起运港</td>
-              <td v-text="$t('lang.detail_basic7')" v-else-if="detail.transportation === 'Ocean'">起运港</td>
-              <td v-text="$t('lang.detail_basic17')" v-else-if="detail.transportation === 'Rail'">始发站</td>
-              <td v-text="$t('lang.detail_basic21')" v-else-if="detail.transportation === 'Truck'">出发地</td>
+              <td
+                v-text="$t('lang.detail_basic7')"
+                v-else-if="detail.transportation === 'Ocean'"
+              >起运港</td>
+              <td
+                v-text="$t('lang.detail_basic17')"
+                v-else-if="detail.transportation === 'Rail'"
+              >始发站</td>
+              <td
+                v-text="$t('lang.detail_basic21')"
+                v-else-if="detail.transportation === 'Truck'"
+              >出发地</td>
               <td v-text="$t('lang.detail_basic7')" v-else>起运港</td>
               <td>{{ detail.departure }}</td>
               <td v-text="$t('lang.detail_basic8')">计费重量(kg)</td>
@@ -59,9 +91,18 @@
             </tr>
             <tr>
               <td v-text="$t('lang.detail_basic9')" v-if="detail.transportation === 'Air'">目的港</td>
-              <td v-text="$t('lang.detail_basic9')" v-else-if="detail.transportation === 'Ocean'">目的港</td>
-              <td v-text="$t('lang.detail_basic18')" v-else-if="detail.transportation === 'Rail'">到达站</td>
-              <td v-text="$t('lang.detail_basic22')" v-else-if="detail.transportation === 'Truck'">目的地</td>
+              <td
+                v-text="$t('lang.detail_basic9')"
+                v-else-if="detail.transportation === 'Ocean'"
+              >目的港</td>
+              <td
+                v-text="$t('lang.detail_basic18')"
+                v-else-if="detail.transportation === 'Rail'"
+              >到达站</td>
+              <td
+                v-text="$t('lang.detail_basic22')"
+                v-else-if="detail.transportation === 'Truck'"
+              >目的地</td>
               <td v-text="$t('lang.detail_basic9')" v-else>目的港</td>
               <td>{{ detail.destinationPort }}</td>
               <td v-text="$t('lang.detail_basic10')">体积(CBM)</td>
@@ -77,49 +118,131 @@
             >{{ locale==='zh-CN'?type[detail.transportation]||detail.transportation : detail.transportation }}</div>
           </div>
           <div class="mobile-inner">
-            <div class="item-title" v-text="$t('lang.detail_basic2')" v-if="detail.transportation === 'Air'">航班信息</div>
-            <div class="item-title" v-text="$t('lang.detail_basic11')" v-else-if="detail.transportation === 'Ocean'">航班信息</div>
-            <div class="item-title" v-text="$t('lang.detail_basic15')" v-else-if="detail.transportation === 'Rail'">航班信息</div>
-            <div class="item-title" v-text="$t('lang.detail_basic19')" v-else-if="detail.transportation === 'Truck'">航班信息</div>
+            <div
+              class="item-title"
+              v-text="$t('lang.detail_basic2')"
+              v-if="detail.transportation === 'Air'"
+            >航班信息</div>
+            <div
+              class="item-title"
+              v-text="$t('lang.detail_basic11')"
+              v-else-if="detail.transportation === 'Ocean'"
+            >航班信息</div>
+            <div
+              class="item-title"
+              v-text="$t('lang.detail_basic15')"
+              v-else-if="detail.transportation === 'Rail'"
+            >航班信息</div>
+            <div
+              class="item-title"
+              v-text="$t('lang.detail_basic19')"
+              v-else-if="detail.transportation === 'Truck'"
+            >航班信息</div>
             <div class="item-title" v-text="$t('lang.detail_basic2')" v-else>航班信息</div>
             <div class="item-value">{{ detail.flightInfo }}</div>
           </div>
           <div class="mobile-inner">
-            <div class="item-title" v-text="$t('lang.detail_basic3')" v-if="detail.transportation === 'Air'">空运主单号</div>
-            <div class="item-title" v-text="$t('lang.detail_basic12')" v-else-if="detail.transportation === 'Ocean'">空运主单号</div>
-            <div class="item-title" v-text="$t('lang.detail_basic16')" v-else-if="detail.transportation === 'Rail'">空运主单号</div>
-            <div class="item-title" v-text="$t('lang.detail_basic20')" v-else-if="detail.transportation === 'Truck'">空运主单号</div>
+            <div
+              class="item-title"
+              v-text="$t('lang.detail_basic3')"
+              v-if="detail.transportation === 'Air'"
+            >空运主单号</div>
+            <div
+              class="item-title"
+              v-text="$t('lang.detail_basic12')"
+              v-else-if="detail.transportation === 'Ocean'"
+            >空运主单号</div>
+            <div
+              class="item-title"
+              v-text="$t('lang.detail_basic16')"
+              v-else-if="detail.transportation === 'Rail'"
+            >空运主单号</div>
+            <div
+              class="item-title"
+              v-text="$t('lang.detail_basic20')"
+              v-else-if="detail.transportation === 'Truck'"
+            >空运主单号</div>
             <div class="item-title" v-text="$t('lang.detail_basic3')" v-else>空运主单号</div>
             <div class="item-value">{{ detail.orderNumber }}</div>
           </div>
           <div class="mobile-inner">
-            <div class="item-title" v-text="$t('lang.detail_basic5')" v-if="detail.transportation === 'Air'">空运分单号</div>
-            <div class="item-title" v-text="$t('lang.detail_basic14')" v-else-if="detail.transportation === 'Ocean'">空运分单号</div>
+            <div
+              class="item-title"
+              v-text="$t('lang.detail_basic5')"
+              v-if="detail.transportation === 'Air'"
+            >空运分单号</div>
+            <div
+              class="item-title"
+              v-text="$t('lang.detail_basic14')"
+              v-else-if="detail.transportation === 'Ocean'"
+            >空运分单号</div>
             <div class="item-title" v-text="''" v-else-if="detail.transportation === 'Rail'">空运分单号</div>
             <div class="item-title" v-text="''" v-else-if="detail.transportation === 'Truck'">空运分单号</div>
             <div class="item-title" v-text="$t('lang.detail_basic5')" v-else>空运分单号</div>
-            <div class="item-value" v-if="detail.transportation === 'Air' || detail.transportation === 'Ocean'">{{ detail.branchOrderNumber }}</div>
-            <div class="item-value" v-else-if="detail.transportation === 'Rail' || detail.transportation === 'Truck'"></div>
+            <div
+              class="item-value"
+              v-if="detail.transportation === 'Air' || detail.transportation === 'Ocean'"
+            >{{ detail.branchOrderNumber }}</div>
+            <div
+              class="item-value"
+              v-else-if="detail.transportation === 'Rail' || detail.transportation === 'Truck'"
+            ></div>
             <div class="item-value" v-else>{{ detail.branchOrderNumber }}</div>
           </div>
           <div class="mobile-inner">
-            <div class="item-title" v-text="$t('lang.detail_basic7')" v-if="detail.transportation === 'Air'">起运港</div>
-            <div class="item-title" v-text="$t('lang.detail_basic7')" v-else-if="detail.transportation === 'Ocean'">起运港</div>
-            <div class="item-title" v-text="$t('lang.detail_basic17')" v-else-if="detail.transportation === 'Rail'">起运港</div>
-            <div class="item-title" v-text="$t('lang.detail_basic21')" v-else-if="detail.transportation === 'Truck'">起运港</div>
+            <div
+              class="item-title"
+              v-text="$t('lang.detail_basic7')"
+              v-if="detail.transportation === 'Air'"
+            >起运港</div>
+            <div
+              class="item-title"
+              v-text="$t('lang.detail_basic7')"
+              v-else-if="detail.transportation === 'Ocean'"
+            >起运港</div>
+            <div
+              class="item-title"
+              v-text="$t('lang.detail_basic17')"
+              v-else-if="detail.transportation === 'Rail'"
+            >起运港</div>
+            <div
+              class="item-title"
+              v-text="$t('lang.detail_basic21')"
+              v-else-if="detail.transportation === 'Truck'"
+            >起运港</div>
             <div class="item-title" v-text="$t('lang.detail_basic7')" v-else>起运港</div>
             <div class="item-value">{{ detail.departure }}</div>
           </div>
           <div class="mobile-inner">
-            <div class="item-title" v-text="$t('lang.detail_basic9')" v-if="detail.transportation === 'Air'">目的港</div>
-            <div class="item-title" v-text="$t('lang.detail_basic9')" v-else-if="detail.transportation === 'Ocean'">目的港</div>
-            <div class="item-title" v-text="$t('lang.detail_basic18')" v-else-if="detail.transportation === 'Rail'">目的港</div>
-            <div class="item-title" v-text="$t('lang.detail_basic22')" v-else-if="detail.transportation === 'Truck'">目的港</div>
+            <div
+              class="item-title"
+              v-text="$t('lang.detail_basic9')"
+              v-if="detail.transportation === 'Air'"
+            >目的港</div>
+            <div
+              class="item-title"
+              v-text="$t('lang.detail_basic9')"
+              v-else-if="detail.transportation === 'Ocean'"
+            >目的港</div>
+            <div
+              class="item-title"
+              v-text="$t('lang.detail_basic18')"
+              v-else-if="detail.transportation === 'Rail'"
+            >目的港</div>
+            <div
+              class="item-title"
+              v-text="$t('lang.detail_basic22')"
+              v-else-if="detail.transportation === 'Truck'"
+            >目的港</div>
             <div class="item-title" v-text="$t('lang.detail_basic9')" v-else>目的港</div>
             <div class="item-value">{{ detail.destinationPort }}</div>
           </div>
           <div class="mobile-inner">
-            <div class="item-title" v-text="$t('lang.detail_basic13')" v-if="detail.transportation === 'Ocean'">数量</div>
+            <div
+              class="item-title"
+              v-text="$t('lang.detail_basic13')"
+              v-if="detail.transportation === 'Ocean'"
+            >数量</div>
             <div class="item-title" v-text="$t('lang.detail_basic4')" v-else>数量</div>
             <div class="item-value">{{ detail.quantity }}</div>
           </div>
@@ -140,12 +263,9 @@
       <div class="basic logistics">
         <p class="basic-title" v-text="$t('lang.detail_wuliu')">物流信息</p>
         <!-- 空运 -->
-        <ul
-          class="logistics-box"
-          v-if="
+        <ul class="logistics-box" v-if="
             detail.transportation === 'Air'
-          "
-        >
+          ">
           <li class="logistics-item" v-if="detail.signatureDate">
             <p class="logistics-item-title">{{$t('lang.detail_as1')}}</p>
             <p class="logistics-item-text">{{$t('lang.detail_as2')}}{{ detail.signatureDate }}</p>
@@ -293,13 +413,17 @@
           <li class="logistics-item" v-if="detail.transit">
             <p class="logistics-item-title">{{$t('lang.detail_common9')}}</p>
             <p class="logistics-item-text">{{$t('lang.detail_common2')}}{{ detail.transit }}</p>
-            <p class="logistics-item-text">{{$t('lang.detail_common6')}}{{ detail.transitFlightInfo }}</p>
+            <p
+              class="logistics-item-text"
+            >{{$t('lang.detail_common6')}}{{ detail.transitFlightInfo }}</p>
             <p class="logistics-item-text">{{$t('lang.detail_common7')}}{{ detail.transitATD }}</p>
           </li>
           <li class="logistics-item" v-if="detail.departure">
             <p class="logistics-item-title">{{$t('lang.detail_common10')}}</p>
             <p class="logistics-item-text">{{$t('lang.detail_common2')}}{{ detail.departure }}</p>
-            <p class="logistics-item-text">{{$t('lang.detail_common6')}}{{ detail.transitFlightInfo }}</p>
+            <p
+              class="logistics-item-text"
+            >{{$t('lang.detail_common6')}}{{ detail.transitFlightInfo }}</p>
             <p class="logistics-item-text">{{$t('lang.detail_common11')}}{{ detail.etd }}</p>
             <p class="logistics-item-text">{{$t('lang.detail_common12')}}{{ detail.atd }}</p>
           </li>
@@ -345,13 +469,17 @@
           <li class="logistics-item" v-if="detail.transit">
             <p class="logistics-item-title">{{$t('lang.detail_truck9')}}</p>
             <p class="logistics-item-text">{{$t('lang.detail_truck2')}}{{ detail.transit }}</p>
-            <p class="logistics-item-text">{{$t('lang.detail_truck6')}}{{ detail.transitFlightInfo }}</p>
+            <p
+              class="logistics-item-text"
+            >{{$t('lang.detail_truck6')}}{{ detail.transitFlightInfo }}</p>
             <p class="logistics-item-text">{{$t('lang.detail_truck7')}}{{ detail.transitATD }}</p>
           </li>
           <li class="logistics-item" v-if="detail.departure">
             <p class="logistics-item-title">{{$t('lang.detail_truck10')}}</p>
             <p class="logistics-item-text">{{$t('lang.detail_truck2')}}{{ detail.departure }}</p>
-            <p class="logistics-item-text">{{$t('lang.detail_truck6')}}{{ detail.transitFlightInfo }}</p>
+            <p
+              class="logistics-item-text"
+            >{{$t('lang.detail_truck6')}}{{ detail.transitFlightInfo }}</p>
             <p class="logistics-item-text">{{$t('lang.detail_truck11')}}{{ detail.etd }}</p>
             <p class="logistics-item-text">{{$t('lang.detail_truck12')}}{{ detail.atd }}</p>
           </li>
@@ -362,10 +490,7 @@
           </li>
         </ul>
 
-        <ul
-          class="logistics-box"
-          v-else
-        >
+        <ul class="logistics-box" v-else>
           <li class="logistics-item" v-if="detail.signatureDate">
             <p class="logistics-item-title">{{$t('lang.detail_as1')}}</p>
             <p class="logistics-item-text">{{$t('lang.detail_as2')}}{{ detail.signatureDate }}</p>
@@ -430,6 +555,7 @@
         <img src="../assets/image/mobile/back.png" alt="返回" />
         <span class="back-text" v-text="$t('lang.detail_back')"></span>
       </div>
+      <div class="backPc" @click="$router.push(`/list`)">返回</div>
     </div>
   </div>
 </template>
@@ -539,20 +665,22 @@ export default {
   .mobile-item {
     display: none;
   }
-   .back {
-      display: flex;
-      align-items: center;
-      width: 100px;
-      img {
-        width: 20px;
-        height: 25px;
-      }
-      .back-text {
-        color: #e67016;
-        font-size: 20px;
-        margin-left: 10px;
-      }
-    }
+  .back {
+    display: none;
+  }
+  .backPc {
+    width: 150px;
+    height: 60px;
+    background: #e67016;
+    opacity: 1;
+    border-radius: 10px;
+    color: #fff;
+    font-size: 30px;
+    text-align: center;
+    line-height: 60px;
+    margin: 95px auto 0;
+    cursor: pointer;
+  }
   .title {
     // width: 187px;
     // height: 135px;
@@ -679,6 +807,10 @@ export default {
         font-size: 40px;
         margin-left: 10px;
       }
+    }
+
+    .backPc {
+      display: none;
     }
     .mobile-item {
       display: flex;

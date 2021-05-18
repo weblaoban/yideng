@@ -31,7 +31,6 @@ axios.interceptors.request.use(
 axios.interceptors.response.use(
   function(response) {
     // store.dispatch('showLoading', false)
-    console.log(response);
     if (
       response &&
       response.data &&
