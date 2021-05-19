@@ -113,13 +113,12 @@ export default {
         }
         li {
           float: left;
-          width: 245px;
-          margin-right: 200px;
+          width: 360px;
           &:last-child{
             margin-right: 0;
           }
           &:nth-child(1){
-            width: 265px;
+            width: 360px;
           }
           p.title {
             font-size: 20px;

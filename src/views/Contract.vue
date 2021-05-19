@@ -229,17 +229,16 @@ export default {
         &:first-child {
           width: 373px;
           border-right: 1px solid #e67016;
-          padding-right: 107px;
         }
         &:nth-child(2) {
           width: 457px;
           border-right: 1px solid #e67016;
-          padding-left: 93px;
+          padding-left: 45px;
           padding-right: 45px;
         }
         &:nth-child(3) {
           width: 353px;
-          padding-left: 56px;
+          padding-left: 16px;
           padding-right: 11px;
         }
         h4 {
