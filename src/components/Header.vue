@@ -3,6 +3,7 @@
     <div class="container">
       <!-- <div class="logo" /> -->
       <img src="../assets/image/logo.png" class="logo" />
+      <div class="language" v-text="$t('lang.menu')[3].name" @click.stop="changeLanguage({},3)"></div>
       <div class="navigation">
         <div class="burger" @click="showNavigation()">
           <img src="../assets/image/mobile/burger.png" alt />
@@ -114,13 +115,13 @@ export default {
           if (path === "/") {
             this.$router.push(path);
             if (bodyWidth <= 750) {
-              this.$refs.navigationContent.classList.remove('showOpInMobile');
+              this.$refs.navigationContent.classList.remove("showOpInMobile");
             }
           }
           if (!(location.href.indexOf(path) > -1)) {
             this.$router.push(path);
             if (bodyWidth <= 750) {
-              this.$refs.navigationContent.classList.remove('showOpInMobile');
+              this.$refs.navigationContent.classList.remove("showOpInMobile");
             }
           }
         }
@@ -128,7 +129,7 @@ export default {
     },
     showNavigation() {
       const el = document.querySelector(".navigationContent");
-      el.classList.toggle('showOpInMobile')
+      el.classList.toggle("showOpInMobile");
     },
     showOperation() {
       this.$emit("toggleOperation");
@@ -144,7 +145,7 @@ export default {
       const bodyWidth = document.body.clientWidth;
       this.$router.push("/modifyPas");
       if (bodyWidth <= 750) {
-              this.$refs.navigationContent.classList.remove('showOpInMobile');
+        this.$refs.navigationContent.classList.remove("showOpInMobile");
       }
     },
     sectionClick() {
@@ -153,7 +154,7 @@ export default {
       if (this.isLogin) {
         this.$router.push("/list");
         if (bodyWidth <= 750) {
-              this.$refs.navigationContent.classList.remove('showOpInMobile');
+          this.$refs.navigationContent.classList.remove("showOpInMobile");
         }
       } else {
         this.$nextTick(() => {
@@ -354,7 +355,9 @@ export default {
     }
   }
 }
-
+.language {
+  display: none;
+}
 .navigation {
   flex: 1;
   margin-left: 50px;
@@ -440,8 +443,16 @@ export default {
       height: 44px;
     }
   }
-  .navigation {
+  .language {
+    display: block;
     margin-left: 38px;
+    line-height: 100px;
+    font-size: 36px;
+    min-width: 1.2rem;
+    color: #e67016;
+  }
+  .navigation {
+    margin: 0;
     .navigationContent {
       display: none;
       width: 100%;
@@ -467,6 +478,9 @@ export default {
         font-size: 43px;
         line-height: 80px;
         // border-bottom: 1px dashed #666;
+        &:nth-child(4) {
+          display: none;
+        }
       }
     }
   }
